@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/libraries/CustomShapeImageView/CustomShapeImageView.iml" filepath="$PROJECT_DIR$/libraries/CustomShapeImageView/CustomShapeImageView.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeWin.iml" filepath="$PROJECT_DIR$/WeWin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

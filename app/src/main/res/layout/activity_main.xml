@@ -1,16 +1,143 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    android:background="@drawable/bg" >
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="50dp" >
 
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.meg7.widget.CircleImageView
+                android:id="@+id/iv_bottom"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:text="剩者为王"
+                android:textColor="#ffffff"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:drawableLeft="@drawable/main_set"
+            android:gravity="center_vertical"
+            android:text="设置"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+        <!-- android:choiceMode="singleChoice" -->
+
+        <ListView
+            android:id="@+id/left_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_set"
+            android:layout_below="@id/ll1"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee" >
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/white" >
+
+            <com.meg7.widget.CircleImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/main_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@id/iv_icon"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+        </RelativeLayout>
+        <!-- Xml方式添加AdsMogoLayout 请务必添加命名空间 xmlns:adsmogo="http://www.adsmogo.com" -->
+        <!-- adsmogo:appid= (设置 AppID) -->
+        <!-- adsmogo:express_mode= (快速模式开关) 缺省状态为true -->
+
+        <RelativeLayout
+            android:id="@+id/adLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:visibility="gone" >
+
+            <!-- <com.adsmogo.adview.AdsMogoLayout -->
+            <!-- android:id="@+id/adsMogoView" -->
+            <!-- android:layout_width="320dp" -->
+            <!-- android:layout_height="50dp" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- adsmogo:appid="84849cb4db40477eae961541fbde48b4" -->
+            <!-- android:background="@android:color/black" > -->
+            <!-- </com.adsmogo.adview.AdsMogoLayout> -->
+
+            <RelativeLayout
+                android:id="@+id/adViewLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:gravity="center_horizontal" >
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/adClose"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignLeft="@id/adViewLayout"
+                android:layout_centerVertical="true"
+                android:background="@drawable/close_guide" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/adLayout"
+            android:layout_below="@id/rl_title" />
+    </com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout>
+
+</com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout>
