@@ -11,11 +11,11 @@ Android技术交流QQ群
 APK演示
 ===========================
 扫描二维码下载，运行环境4.0+<br>
-![](https://github.com/WuXiaolong/xUse/tree/master/screenshots/qrcode.png)
+![](https://github.com/WuXiaolong/xUse/raw/master/screenshots/qrcode.png)
 
 预览
 ===========================
-![](https://github.com/WuXiaolong/xUse/tree/master/screenshots/screenshots.png)
+![](https://github.com/WuXiaolong/xUse/raw/master/screenshots/screenshots.png)
 
 开发工具
 ===========================
