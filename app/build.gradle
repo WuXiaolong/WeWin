@@ -8,7 +8,7 @@ android {
         applicationId "com.xiaomolongstudio.wewin"
         minSdkVersion 14
         targetSdkVersion 20
-        versionCode 1
+        versionCode 100
         versionName "1.0"
     }
     buildTypes {
@@ -20,8 +20,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':libraries:CustomShapeImageView')
+    compile files('src/main/libs/umeng-analytics-v5.2.4.jar')
+    compile files('src/main/libs/umeng-fb-v4.3.2.jar')
+    compile files('src/main/libs/umeng-update-v2.4.2.jar')
+    compile files('src/main/libs/AdsMOGO_Android_SDK_1.5.0.jar')
+    compile files('src/main/libs/Baidu_MobAds_SDK_Agg_3.44.jar')
+    compile files('src/main/libs/com.umeng.message.lib.jar')
 }

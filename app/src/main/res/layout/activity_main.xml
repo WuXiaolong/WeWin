@@ -72,8 +72,8 @@
 
             <com.meg7.widget.CircleImageView
                 android:id="@+id/iv_icon"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:scaleType="centerCrop"
@@ -81,7 +81,7 @@
 
             <TextView
                 android:id="@+id/main_title"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="10dp"
@@ -90,7 +90,7 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王剩者为王"
+                android:text="剩者为王"
                 android:textColor="@color/blue"
                 android:textSize="20sp" />
         </RelativeLayout>
