@@ -24,10 +24,14 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':libraries:CustomShapeImageView')
+    compile project(':libraries:StaggeredGridView')
     compile files('src/main/libs/umeng-analytics-v5.2.4.jar')
     compile files('src/main/libs/umeng-fb-v4.3.2.jar')
     compile files('src/main/libs/umeng-update-v2.4.2.jar')
     compile files('src/main/libs/AdsMOGO_Android_SDK_1.5.0.jar')
     compile files('src/main/libs/Baidu_MobAds_SDK_Agg_3.44.jar')
     compile files('src/main/libs/com.umeng.message.lib.jar')
+    compile files('src/main/libs/android-async-http-1.4.5.jar')
+    compile files('src/main/libs/jsoup-1.7.2.jar')
+    compile files('src/main/libs/universal-image-loader-1.9.2.jar')
 }

@@ -1,10 +1,10 @@
 package com.xiaomolongstudio.wewin.utils;
 
-import android.app.Fragment;
 import android.os.Environment;
+import android.support.v4.app.Fragment;
 
 import com.xiaomolongstudio.wewin.fragment.CustomShapeImageViewFragment;
-import com.xiaomolongstudio.wewin.fragment.MainFragment;
+import com.xiaomolongstudio.wewin.fragment.Main1Fragment;
 
 public class AppConfig {
     public static int USER_NICKNAME_LAYOUT = 1;
@@ -24,6 +24,6 @@ public class AppConfig {
     public static int REQUEST_CODE_ADD = 14;
 
     public static String KEY_AD_MOGO = "84849cb4db40477eae961541fbde48b4";
-    public static Fragment[] mFragments = {AppUtils.newInstance(new MainFragment()), AppUtils.newInstance(new CustomShapeImageViewFragment())
+    public static Fragment[] mFragments = {AppUtils.newInstance(new Main1Fragment()), AppUtils.newInstance(new CustomShapeImageViewFragment())
     };
 }

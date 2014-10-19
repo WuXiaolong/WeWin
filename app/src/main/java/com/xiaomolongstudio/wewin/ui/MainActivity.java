@@ -1,10 +1,9 @@
 package com.xiaomolongstudio.wewin.ui;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +28,7 @@ import com.umeng.message.PushAgent;
 import com.umeng.message.UmengRegistrar;
 import com.umeng.update.UmengUpdateAgent;
 import com.xiaomolongstudio.wewin.R;
+import com.xiaomolongstudio.wewin.fragment.ImageDetailFragment;
 import com.xiaomolongstudio.wewin.utils.AppConfig;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
@@ -38,7 +38,7 @@ import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
  *
  * @author 小尛龙
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
     private ListView mDrawerList;
 
     private CharSequence mTitle;
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
     private DragLayout dragLayout;
     private TextView main_title, tv_set;
     private ImageView iv_icon;
-
+    private ImageDetailFragment imageDetailFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,10 +56,30 @@ public class MainActivity extends Activity {
         initView();
         initMogo();
         initUmeng();
-
+        imageDetailFragment = (ImageDetailFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.main_image_fragment);
+        getSupportFragmentManager().beginTransaction()
+                .hide(imageDetailFragment).commit();
+    }
+    public static MainActivity instance= null;
+    public static MainActivity instance() {
+        if (instance == null) {
+            instance = new MainActivity();
+        }
+        return instance;
+    }
+    public  void showImageFragment(boolean show, String  title) {
+        // showActionbarWithTabs(!show);
+        if (show) {
+            getSupportFragmentManager().beginTransaction()
+                    .show(imageDetailFragment).commit();
+            imageDetailFragment.setImgData(show,title);
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .hide(imageDetailFragment).commit();
+        }
 
     }
-
     private void initUmeng() {
         // 用户反馈
         FeedbackAgent agent = new FeedbackAgent(this);
@@ -71,7 +91,7 @@ public class MainActivity extends Activity {
         mPushAgent.enable();
 
         String device_token = UmengRegistrar.getRegistrationId(this);
-        Log.d("wxl", "device_token=" + device_token);
+//        Log.d("wxl", "device_token=" + device_token);
 
     }
 
@@ -136,7 +156,7 @@ public class MainActivity extends Activity {
     private Fragment mCurrentFragment = new Fragment();
 
     public void switchFragment(Fragment newFragment, Fragment oldFragment) {
-        FragmentTransaction fragmentTransaction = getFragmentManager()
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                 .beginTransaction();
         if (newFragment.isAdded()) {
             // Log.i("wxl", oldFragment + "isAdded");
@@ -219,13 +239,13 @@ public class MainActivity extends Activity {
 
             @Override
             public void onRequestAd(String arg0) {
-                Log.d("wxl", "onRequestAd");
+//                Log.d("wxl", "onRequestAd");
             }
 
             @Override
             public void onReceiveAd(ViewGroup arg0, String arg1) {
 
-                Log.d("wxl", "onReceiveAd");
+//                Log.d("wxl", "onReceiveAd");
                 new Thread() {
                     public void run() {
                         handler.post(runnableUi);
@@ -235,30 +255,30 @@ public class MainActivity extends Activity {
 
             @Override
             public void onRealClickAd() {
-                Log.d("wxl", "onRealClickAd");
+//                Log.d("wxl", "onRealClickAd");
 
             }
 
             @Override
             public void onInitFinish() {
-                Log.d("wxl", "onInitFinish");
+//                Log.d("wxl", "onInitFinish");
 
             }
 
             @Override
             public void onFailedReceiveAd() {
-                Log.d("wxl", "onFailedReceiveAd");
+//                Log.d("wxl", "onFailedReceiveAd");
                 adLayout.setVisibility(View.GONE);
             }
 
             @Override
             public void onCloseMogoDialog() {
-                Log.d("wxl", "onCloseMogoDialog");
+//                Log.d("wxl", "onCloseMogoDialog");
             }
 
             @Override
             public boolean onCloseAd() {
-                Log.d("wxl", "onCloseAd");
+//                Log.d("wxl", "onCloseAd");
                 return false;
             }
 

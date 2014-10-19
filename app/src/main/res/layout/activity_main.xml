@@ -2,20 +2,20 @@
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg" >
+    android:background="@drawable/bg">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="30dp"
         android:paddingLeft="30dp"
-        android:paddingTop="50dp" >
+        android:paddingTop="50dp">
 
         <LinearLayout
             android:id="@+id/ll1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <com.meg7.widget.CircleImageView
                 android:id="@+id/iv_bottom"
@@ -62,13 +62,13 @@
     <com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#eeeeee" >
+        android:background="#eeeeee">
 
         <RelativeLayout
             android:id="@+id/rl_title"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="@android:color/white" >
+            android:background="@android:color/white">
 
             <com.meg7.widget.CircleImageView
                 android:id="@+id/iv_icon"
@@ -105,7 +105,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <!-- <com.adsmogo.adview.AdsMogoLayout -->
             <!-- android:id="@+id/adsMogoView" -->
@@ -120,8 +120,7 @@
                 android:id="@+id/adViewLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:gravity="center_horizontal" >
-            </RelativeLayout>
+                android:gravity="center_horizontal"></RelativeLayout>
 
             <ImageView
                 android:id="@+id/adClose"
@@ -138,6 +137,12 @@
             android:layout_height="match_parent"
             android:layout_above="@id/adLayout"
             android:layout_below="@id/rl_title" />
+
+        <fragment
+            android:id="@+id/main_image_fragment"
+            class="com.xiaomolongstudio.wewin.fragment.ImageDetailFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
     </com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout>
 
 </com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout>
