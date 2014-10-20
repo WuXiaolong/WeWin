@@ -16,9 +16,9 @@
     <string name="about_us">"		无言独上西楼，月如钩，寂寞敲代码，需求不断，bug不止，改改改，改你妹，劳资要妹纸。来吧！来剩者为王吐槽吧！作为一个程序猿，吐槽必须吐出style！剩者为王致力营造一个互助，无私分享，共同进步的Android开发精英交流群（1群314447894，2群376526418），我们程序猿的圈子，欢迎剩者加入。另有视频区，精彩搞笑视频，一网打尽。"</string>
 
     <string-array name="planets_array">
-        <item>剩友圈</item>
-        <item>CustomShapeImageView</item>
-        <!-- <item>视频区</item> -->
+        <item>美图美句</item>
+        <item>手写美句</item>
+         <item>经典对白</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>

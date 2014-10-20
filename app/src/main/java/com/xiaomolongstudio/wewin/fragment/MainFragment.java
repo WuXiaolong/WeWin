@@ -36,7 +36,6 @@ public class MainFragment extends Fragment {
         introduction.setText(Html.fromHtml(getResources().getString(
                 R.string.introduction)));
     }
-
 //    public static MainFragment mainFragment = null;
 //
 //    public static MainFragment newInstance() {

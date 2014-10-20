@@ -29,13 +29,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 美图美句
+ * @author 小尛龙
+ */
 public class Main1Fragment extends Fragment implements
         AbsListView.OnScrollListener, AbsListView.OnItemClickListener {
     private View mView;
     private List<String> titleData;
     private List<String> hrefData;
     List<Map<String, Object>> mData = new ArrayList<Map<String, Object>>();
-    ;
     List<Map<String, Object>> data;
     Map<String, Object> map;
     private StaggeredGridView mGridView;
@@ -113,7 +116,6 @@ public class Main1Fragment extends Fragment implements
 
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
-                    Log.d("wxl", "e=" + e);
                 }
             }
 
@@ -147,6 +149,6 @@ public class Main1Fragment extends Fragment implements
 
     public void onItemClick(AdapterView<?> adapterView, View view,
                             int position, long id) {
-        MainActivity.instance().showImageFragment(true, mData.get(position).get("title").toString());
+        ((MainActivity)getActivity()).showImageFragment(true, mData.get(position).get("title").toString(),mData.get(position).get("imgUrl").toString());
     }
 }

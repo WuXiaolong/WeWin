@@ -25,6 +25,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':libraries:CustomShapeImageView')
     compile project(':libraries:StaggeredGridView')
+    compile project(':libraries:PhotoView')
     compile files('src/main/libs/umeng-analytics-v5.2.4.jar')
     compile files('src/main/libs/umeng-fb-v4.3.2.jar')
     compile files('src/main/libs/umeng-update-v2.4.2.jar')

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by WuXL on 2014/10/19.
+ * Created by 小尛龙 on 2014/10/19.
  */
 public class MyAdapter extends MyBaseAdapter {
     List<Map<String, Object>> mData;

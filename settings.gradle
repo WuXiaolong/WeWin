@@ -1,3 +1,5 @@
-include ':app'
+include ':app', 'PhotoView', ':PhotoView'
 include ':libraries:CustomShapeImageView'
 include ':libraries:StaggeredGridView'
+include ':libraries:PhotoView'
+project(':PhotoView').projectDir = new File('libraries/PhotoView')

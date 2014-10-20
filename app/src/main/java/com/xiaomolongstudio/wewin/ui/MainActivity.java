@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adsmogo.adapters.AdsMogoCustomEventPlatformEnum;
 import com.adsmogo.adview.AdsMogoLayout;
@@ -48,38 +49,30 @@ public class MainActivity extends BaseActivity {
     private TextView main_title, tv_set;
     private ImageView iv_icon;
     private ImageDetailFragment imageDetailFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initDragLayout();
         initView();
         initMogo();
         initUmeng();
+        initImageDetail();
+
+    }
+
+    /**
+     * 图片详情
+     */
+    private void initImageDetail() {
         imageDetailFragment = (ImageDetailFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.main_image_fragment);
         getSupportFragmentManager().beginTransaction()
                 .hide(imageDetailFragment).commit();
     }
-    public static MainActivity instance= null;
-    public static MainActivity instance() {
-        if (instance == null) {
-            instance = new MainActivity();
-        }
-        return instance;
-    }
-    public  void showImageFragment(boolean show, String  title) {
-        // showActionbarWithTabs(!show);
-        if (show) {
-            getSupportFragmentManager().beginTransaction()
-                    .show(imageDetailFragment).commit();
-            imageDetailFragment.setImgData(show,title);
-        } else {
-            getSupportFragmentManager().beginTransaction()
-                    .hide(imageDetailFragment).commit();
-        }
 
-    }
     private void initUmeng() {
         // 用户反馈
         FeedbackAgent agent = new FeedbackAgent(this);
@@ -146,7 +139,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            selectItem(position);
+            selectItem(0);
         }
     }
 
@@ -168,6 +161,20 @@ public class MainActivity extends BaseActivity {
         }
         mCurrentFragment = newFragment;
     }
+
+    public void showImageFragment(boolean show, String imgTxt, String imgUrl) {
+        // showActionbarWithTabs(!show);
+        if (show) {
+            getSupportFragmentManager().beginTransaction()
+                    .show(imageDetailFragment).commit();
+            imageDetailFragment.setImgData(imgTxt, imgUrl);
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .hide(imageDetailFragment).commit();
+        }
+
+    }
+
 
     /**
      * 跳转页面
@@ -220,6 +227,25 @@ public class MainActivity extends BaseActivity {
         // 此方法请不要轻易调用，如果调用时间不当，会造成无法统计计数
         // adsMogoLayoutCode.clearThread();
         super.onDestroy();
+    }
+
+    long exitTime = 0;
+
+    @Override
+    public void onBackPressed() {
+        if (imageDetailFragment.canBack()) {
+            imageDetailFragment.goBack();
+
+        } else {
+            if (System.currentTimeMillis() - exitTime > 2000) {
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+
+        }
     }
 
     private RelativeLayout adViewLayout, adLayout;

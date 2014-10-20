@@ -10,7 +10,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xiaomolongstudio.wewin.R;
 
 /**
- * Created by WuXL on 2014/10/19.
+ * Created by 小尛龙 on 2014/10/19.
  */
 public class MyBaseAdapter extends BaseAdapter {
     protected ImageLoader imageLoader = ImageLoader.getInstance();

@@ -142,7 +142,8 @@
             android:id="@+id/main_image_fragment"
             class="com.xiaomolongstudio.wewin.fragment.ImageDetailFragment"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            android:layout_height="fill_parent"
+            android:layout_above="@id/adLayout" />
     </com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout>
 
 </com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout>

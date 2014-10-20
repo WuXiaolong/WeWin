@@ -1,13 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xiaomolongstudio.wewin.fragment.ImageDetailFragment">
+    android:clickable="false"
+    android:background="@android:color/black">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/show_image"
+        android:layout_width="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside" />
 
-</FrameLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/show_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:text="imagedetail"
+            android:textColor="@android:color/white" />
+    </ScrollView>
+</RelativeLayout>

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/CustomShapeImageView" />
+            <option value="$PROJECT_DIR$/libraries/PhotoView" />
             <option value="$PROJECT_DIR$/libraries/StaggeredGridView" />
           </set>
         </option>
