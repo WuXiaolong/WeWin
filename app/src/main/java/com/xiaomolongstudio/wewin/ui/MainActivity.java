@@ -34,27 +34,38 @@ import com.xiaomolongstudio.wewin.utils.AppConfig;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * 首页，侧滑菜单
  *
  * @author 小尛龙
  */
 public class MainActivity extends BaseActivity {
-    private ListView mDrawerList;
+
 
     private CharSequence mTitle;
     private String[] mPlanetTitles;
-
-    private DragLayout dragLayout;
-    private TextView main_title, tv_set;
-    private ImageView iv_icon;
     private ImageDetailFragment imageDetailFragment;
+    @InjectView(R.id.left_drawer)
+    ListView mDrawerList;
+    @InjectView(R.id.dl)
+    DragLayout dragLayout;
+    @InjectView(R.id.main_title)
+    TextView main_title;
+    @InjectView(R.id.tv_set)
+    TextView tv_set;
+    @InjectView(R.id.iv_icon)
+    ImageView iv_icon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
         initDragLayout();
         initView();
         initMogo();
@@ -89,7 +100,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initDragLayout() {
-        dragLayout = (DragLayout) findViewById(R.id.dl);
         dragLayout.setDragListener(new DragListener() {
             public void onOpen() {
                 // mDrawerList.smoothScrollToPosition(new Random().nextInt(30));
@@ -111,12 +121,7 @@ public class MainActivity extends BaseActivity {
 
     private void initView() {
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
-
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
-        main_title = (TextView) findViewById(R.id.main_title);
-        tv_set = (TextView) findViewById(R.id.tv_set);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mPlanetTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());

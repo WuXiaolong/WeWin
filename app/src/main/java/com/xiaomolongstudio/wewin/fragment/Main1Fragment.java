@@ -31,6 +31,7 @@ import java.util.Map;
 
 /**
  * 美图美句
+ *
  * @author 小尛龙
  */
 public class Main1Fragment extends Fragment implements
@@ -38,15 +39,15 @@ public class Main1Fragment extends Fragment implements
     private View mView;
     private List<String> titleData;
     private List<String> hrefData;
-    List<Map<String, Object>> mData = new ArrayList<Map<String, Object>>();
-    List<Map<String, Object>> data;
-    Map<String, Object> map;
+    private List<Map<String, Object>> mData = new ArrayList<Map<String, Object>>();
+    private List<Map<String, Object>> data;
+    private Map<String, Object> map;
     private StaggeredGridView mGridView;
-    MyAdapter mAdapter = null;
+    private MyAdapter mAdapter = null;
     private boolean mHasRequestedMore = false;
-    int mPage = 1;
-    String url = "http://www.juzimi.com/meitumeiju?page=";
-    String mUrl;
+    private int mPage = 1;
+    private String url = "http://www.juzimi.com/meitumeiju?page=";
+    private String mUrl;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -149,6 +150,6 @@ public class Main1Fragment extends Fragment implements
 
     public void onItemClick(AdapterView<?> adapterView, View view,
                             int position, long id) {
-        ((MainActivity)getActivity()).showImageFragment(true, mData.get(position).get("title").toString(),mData.get(position).get("imgUrl").toString());
+        ((MainActivity) getActivity()).showImageFragment(true, mData.get(position).get("title").toString(), mData.get(position).get("imgUrl").toString());
     }
 }

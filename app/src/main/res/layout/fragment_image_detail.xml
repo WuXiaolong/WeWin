@@ -1,14 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clickable="false"
-    android:background="@android:color/black">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black"
+    android:clickable="false">
+
 
     <ImageView
         android:id="@+id/show_image"
         android:layout_width="fill_parent"
-        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:scaleType="centerInside" />
 
     <ScrollView
@@ -21,7 +22,7 @@
             android:id="@+id/show_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="5"
+            android:maxLines="3"
             android:text="imagedetail"
             android:textColor="@android:color/white" />
     </ScrollView>

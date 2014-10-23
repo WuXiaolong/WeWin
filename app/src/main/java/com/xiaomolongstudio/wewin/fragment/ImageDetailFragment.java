@@ -29,7 +29,6 @@ public class ImageDetailFragment extends Fragment {
     private PhotoViewAttacher mAttacher;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,11 +62,11 @@ public class ImageDetailFragment extends Fragment {
     }
 
 
-
     public void setImgData(String imgTxt, String imgUrl) {
         Log.v("wxl", "imgTxt=" + imgTxt);
         mView.setVisibility(View.VISIBLE);
         show_text.setText(imgTxt);
+
         imageLoader.displayImage(imgUrl,
                 show_image, options);
         mAttacher = new PhotoViewAttacher(show_image);
@@ -77,7 +76,8 @@ public class ImageDetailFragment extends Fragment {
         return mView.getVisibility() == View.VISIBLE;
     }
 
-    public void goBack() {mView.setVisibility(View.GONE);
+    public void goBack() {
+        mView.setVisibility(View.GONE);
         ((MainActivity) getActivity()).showImageFragment(false, null, null);
     }
 }
