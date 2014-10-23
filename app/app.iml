@@ -94,7 +94,7 @@
     <orderEntry type="library" exported="" name="android-async-http-1.4.5" level="project" />
     <orderEntry type="library" exported="" name="umeng-update-v2.4.2" level="project" />
     <orderEntry type="module" module-name="StaggeredGridView" exported="" />
-    <orderEntry type="module" module-name="libraries-PhotoView" exported="" />
+    <orderEntry type="module" module-name="PhotoView" exported="" />
     <orderEntry type="module" module-name="CustomShapeImageView" exported="" />
   </component>
 </module>
