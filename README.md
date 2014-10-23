@@ -1,12 +1,7 @@
 
 剩者为王
 ===========================
-据说这个APP程序猿爱不释手，集成了github主流的库是如何使用的，源码公开，将持续更新，欢迎Star。
-
-Android技术交流QQ群
-===========================
-①群：314447894<br>
-③群：370527306<br>
+据说这个APP程序猿爱不释手，集成了github主流的库是如何使用的，项目开源，将持续更新，欢迎Star。
 
 APK演示
 ===========================
@@ -24,6 +19,7 @@ Android Studio(0.8.9) + Gradle(1.12)
 用到的开源库
 ===========================
 目前用到的一些开源库，会持续更新。
+* [ButterKnife](https://github.com/JakeWharton/butterknife)，轻量级View注入框架，省去各种findViewById
 * [PhotoView](https://github.com/chrisbanes/PhotoView)，点击放大缩小
 * [Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)，图片缓存机制
 * [AndroidStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid)，瀑布流
@@ -33,6 +29,11 @@ Android Studio(0.8.9) + Gradle(1.12)
 * [友盟](http://www.umeng.com/)，包括友盟的统计、升级、意见反馈、推送
 * 广告，作为一个程序猿，没有一点副业说不过去。
 
-
-
+更多交流
+===========================
+###Android技术交流群
+①群：314447894<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=d53385cf84362cc7f75360c2d847a573b04ac78deeb567d98f32e13dd95190d9"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王①群" title="剩者为王①群"></a><br>
+③群：370527306<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=0a992ba077da4c8325cbfef1c9e81f0443ffb782a0f2135c1a8f7326baac58ac"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王③群" title="剩者为王③群"></a>
+###微博
+[吴小龙同學](http://weibo.com/u/2175011601)
 
