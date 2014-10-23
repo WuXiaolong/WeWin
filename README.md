@@ -19,7 +19,7 @@ Android Studio(0.8.9) + Gradle(1.12)
 用到的开源库
 ===========================
 目前用到的一些开源库，会持续更新。
-* [ButterKnife](https://github.com/chrisbanes/PhotoView)，轻量级View注入框架，省去各种findViewById
+* [ButterKnife](https://github.com/JakeWharton/butterknife)，轻量级View注入框架，省去各种findViewById
 * [PhotoView](https://github.com/chrisbanes/PhotoView)，点击放大缩小
 * [Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)，图片缓存机制
 * [AndroidStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid)，瀑布流
