@@ -5,8 +5,7 @@
 
 APK演示
 ===========================
-扫描二维码下载，运行环境4.0+<br>
-![](https://github.com/WuXiaolong/xUse/raw/master/screenshots/qrcode.png)
+apk文件夹下附带安装包
 
 效果预览
 ===========================
