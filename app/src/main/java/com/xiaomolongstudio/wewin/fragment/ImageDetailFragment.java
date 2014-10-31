@@ -3,12 +3,10 @@ package com.xiaomolongstudio.wewin.fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -16,12 +14,14 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xiaomolongstudio.wewin.R;
 import com.xiaomolongstudio.wewin.ui.MainActivity;
 
+import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
+ * 大图展示
+ *  @author 小尛龙
  */
 public class ImageDetailFragment extends Fragment {
-    private ImageView show_image;
     private TextView show_text;
     private View mView;
     protected ImageLoader imageLoader = ImageLoader.getInstance();
@@ -40,7 +40,7 @@ public class ImageDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_image_detail, container, false);
         mView.setVisibility(View.INVISIBLE);
-        show_image = (ImageView) mView.findViewById(R.id.show_image);
+
         show_text = (TextView) mView.findViewById(R.id.show_text);
         initOptions();
         mView.setOnTouchListener(new View.OnTouchListener() {
@@ -63,13 +63,20 @@ public class ImageDetailFragment extends Fragment {
 
 
     public void setImgData(String imgTxt, String imgUrl) {
-        Log.v("wxl", "imgTxt=" + imgTxt);
+        //Log.v("wxl", "imgTxt=" + imgTxt);
+        PhotoView show_image = (PhotoView) mView.findViewById(R.id.show_image);
         mView.setVisibility(View.VISIBLE);
         show_text.setText(imgTxt);
 
         imageLoader.displayImage(imgUrl,
                 show_image, options);
         mAttacher = new PhotoViewAttacher(show_image);
+        mAttacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+            @Override
+            public void onPhotoTap(View view, float x, float y) {
+                goBack();
+            }
+        });
     }
 
     public boolean canBack() {
@@ -77,6 +84,9 @@ public class ImageDetailFragment extends Fragment {
     }
 
     public void goBack() {
+        if (mAttacher != null) {
+            mAttacher.cleanup();
+        }
         mView.setVisibility(View.GONE);
         ((MainActivity) getActivity()).showImageFragment(false, null, null);
     }

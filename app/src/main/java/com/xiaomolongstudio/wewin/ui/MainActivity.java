@@ -1,5 +1,6 @@
 package com.xiaomolongstudio.wewin.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -30,6 +31,7 @@ import com.umeng.message.UmengRegistrar;
 import com.umeng.update.UmengUpdateAgent;
 import com.xiaomolongstudio.wewin.R;
 import com.xiaomolongstudio.wewin.fragment.ImageDetailFragment;
+import com.xiaomolongstudio.wewin.fragment.MainFragment;
 import com.xiaomolongstudio.wewin.utils.AppConfig;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
@@ -45,7 +47,6 @@ import butterknife.InjectView;
 public class MainActivity extends BaseActivity {
 
 
-    private CharSequence mTitle;
     private String[] mPlanetTitles;
     private ImageDetailFragment imageDetailFragment;
     @InjectView(R.id.left_drawer)
@@ -95,7 +96,7 @@ public class MainActivity extends BaseActivity {
         mPushAgent.enable();
 
         String device_token = UmengRegistrar.getRegistrationId(this);
-//        Log.d("wxl", "device_token=" + device_token);
+       // Log.d("wxl", "device_token=" + device_token);
 
     }
 
@@ -133,6 +134,7 @@ public class MainActivity extends BaseActivity {
         });
         tv_set.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                startActivity(new Intent(MainActivity.this, SetActivity.class));
             }
         });
         selectItem(0);
@@ -144,7 +146,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            selectItem(0);
+            selectItem(position);
         }
     }
 
@@ -153,17 +155,22 @@ public class MainActivity extends BaseActivity {
      */
     private Fragment mCurrentFragment = new Fragment();
 
-    public void switchFragment(Fragment newFragment, Fragment oldFragment) {
+    public void switchFragment(Fragment newFragment, Fragment oldFragment, String url) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                 .beginTransaction();
-        if (newFragment.isAdded()) {
-            // Log.i("wxl", oldFragment + "isAdded");
-            fragmentTransaction.hide(oldFragment).show(newFragment).commit();
-        } else {
-            // Log.i("wxl", newFragment + "not isAdded");
-            fragmentTransaction.hide(oldFragment)
-                    .add(R.id.content_frame, newFragment).commit();
-        }
+        Bundle args = new Bundle();
+        args.putString("url", url);
+        newFragment.setArguments(args);
+        fragmentTransaction
+                .replace(R.id.content_frame, newFragment).commit();
+//        if (newFragment.isAdded()) {
+        // Log.i("wxl", oldFragment + "isAdded");
+//            fragmentTransaction.hide(oldFragment).show(newFragment).commit();
+//        } else {
+        // Log.i("wxl", newFragment + "not isAdded");
+//        fragmentTransaction.hide(oldFragment)
+//                .add(R.id.content_frame, newFragment).commit();
+//        }
         mCurrentFragment = newFragment;
     }
 
@@ -187,7 +194,21 @@ public class MainActivity extends BaseActivity {
      * @param position
      */
     private void selectItem(int position) {
-        switchFragment(AppConfig.mFragments[position], mCurrentFragment);
+        switch (position) {
+            case 0:
+//                switchFragment(AppConfig.mFragments[position], mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
+                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
+                break;
+            case 1:
+                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/shouxiemeiju?page=");
+                break;
+            case 2:
+                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/jingdianduibai?page=");
+                break;
+            default:
+
+        }
+
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
         // setTitle(mPlanetTitles[position]);
