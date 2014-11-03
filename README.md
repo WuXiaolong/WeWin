@@ -5,7 +5,7 @@
 
 APK演示
 ===========================
-项目apk文件夹下附带安装包,或者二维码扫描下载：
+项目apk文件夹下附带安装包，或者扫描以下二维码下载：
 
 ![](https://github.com/WuXiaolong/xUse/raw/master/screenshots/qrcode.png)
 
