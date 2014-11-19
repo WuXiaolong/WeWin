@@ -1,6 +1,5 @@
 package com.xiaomolongstudio.wewin.fragment;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +18,8 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * 大图展示
- *  @author 小尛龙
+ *
+ * @author 小尛龙
  */
 public class ImageDetailFragment extends Fragment {
     private TextView show_text;
@@ -55,9 +55,10 @@ public class ImageDetailFragment extends Fragment {
     private void initOptions() {
         if (options == null) {
             options = new DisplayImageOptions.Builder()
-                    .showImageForEmptyUri(R.drawable.ic_launcher)
-                    .showImageOnFail(R.drawable.ic_launcher).cacheInMemory(true)
-                    .cacheOnDisk(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+                    .showImageForEmptyUri(R.drawable.detail_content_temp_icon)
+                    .showImageOnFail(R.drawable.detail_content_temp_icon).cacheInMemory(true)
+                    .cacheOnDisk(true).considerExifParams(false)
+                    .build();
         }
     }
 

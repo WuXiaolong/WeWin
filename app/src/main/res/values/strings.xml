@@ -16,5 +16,7 @@
         <item>经典对白</item>
     </string-array>
 
+    <string name="title_activity_image_detail">ImageDetailActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

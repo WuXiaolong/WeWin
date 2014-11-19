@@ -8,10 +8,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ShimmerLibrary" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/CustomShapeImageView" />
             <option value="$PROJECT_DIR$/libraries/PhotoView" />
+            <option value="$PROJECT_DIR$/libraries/Shimmer" />
             <option value="$PROJECT_DIR$/libraries/StaggeredGridView" />
           </set>
         </option>

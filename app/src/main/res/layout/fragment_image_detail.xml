@@ -16,7 +16,7 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp">
 
@@ -24,7 +24,6 @@
             android:id="@+id/show_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="3"
             android:textColor="@android:color/white" />
     </ScrollView>
 </RelativeLayout>

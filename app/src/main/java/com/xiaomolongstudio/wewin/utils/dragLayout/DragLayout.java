@@ -7,6 +7,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
@@ -62,10 +63,13 @@ public class DragLayout extends FrameLayout {
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             if (mainLeft + dx < 0) {
+                Log.d("wxl", "00000");
                 return 0;
             } else if (mainLeft + dx > range) {
+                Log.d("wxl", "11111");
                 return range;
             } else {
+                Log.d("wxl", "2222");
                 return left;
             }
         }
@@ -98,7 +102,7 @@ public class DragLayout extends FrameLayout {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top,
-                int dx, int dy) {
+                                          int dx, int dy) {
             if (changedView == vg_main) {
                 mainLeft = left;
             } else {

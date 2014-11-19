@@ -43,6 +43,7 @@ public class SetActivity extends Activity implements OnClickListener {
 
     private void initView() {
         findViewById(R.id.recommend).setOnClickListener(this);
+        findViewById(R.id.good).setOnClickListener(this);
         findViewById(R.id.feedback).setOnClickListener(this);
         findViewById(R.id.sign_out).setOnClickListener(this);
         findViewById(R.id.clear).setOnClickListener(this);
@@ -64,6 +65,11 @@ public class SetActivity extends Activity implements OnClickListener {
             case R.id.feedback:
                 FeedbackAgent agent = new FeedbackAgent(SetActivity.this);
                 agent.startFeedbackActivity();
+
+                break;
+            case R.id.good:
+                AppUtils.marketDownload(SetActivity.this,
+                        "com.xiaomolongstudio.wewin");
 
                 break;
             case R.id.recommend:

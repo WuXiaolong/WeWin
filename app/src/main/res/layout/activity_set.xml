@@ -61,6 +61,37 @@
                 android:background="@drawable/base_horization_line" />
 
             <RelativeLayout
+                android:id="@+id/good"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/shape_widget_bg"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dip"
+                    android:text="好评鼓励"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@drawable/base_horization_line" />
+
+            <RelativeLayout
                 android:id="@+id/recommend"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
@@ -163,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dip"
-                    android:text="精彩推荐"
+                    android:text="作品秀"
                     android:textColor="#000000"
                     android:textSize="@dimen/text_size_medium" />
 
@@ -273,6 +304,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/shape_widget_bg"
                 android:paddingBottom="10dp"
+                android:visibility="gone"
                 android:paddingTop="10dp">
 
                 <TextView

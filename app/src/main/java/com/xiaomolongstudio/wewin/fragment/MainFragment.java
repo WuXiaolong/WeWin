@@ -185,6 +185,5 @@ public class MainFragment extends Fragment implements
         } else {
             ((MainActivity) getActivity()).showImageFragment(true, "", mData.get(position).get("imgUrl").toString());
         }
-
     }
 }

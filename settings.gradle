@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':ShimmerLibrary', ':libraries:Shimmer'
 include ':libraries:CustomShapeImageView'
 include ':libraries:StaggeredGridView'
 include ':libraries:PhotoView'

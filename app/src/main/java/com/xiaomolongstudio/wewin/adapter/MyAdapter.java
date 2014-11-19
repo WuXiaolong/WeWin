@@ -26,7 +26,7 @@ public class MyAdapter extends MyBaseAdapter {
     boolean isFirst;
 
     public MyAdapter(Activity activity, List<Map<String, Object>> mData, boolean isFirst) {
-        super();
+        super(activity);
         this.activity = activity;
         this.mData = mData;
         this.isFirst = isFirst;
@@ -38,9 +38,6 @@ public class MyAdapter extends MyBaseAdapter {
         return mData;
     }
 
-    public void setmData(List<Map<String, Object>> mData) {
-        this.mData = mData;
-    }
 
     @Override
     public int getCount() {

@@ -24,15 +24,17 @@ import com.adsmogo.adview.AdsMogoLayout;
 import com.adsmogo.controller.listener.AdsMogoListener;
 import com.adsmogo.util.AdsMogoSize;
 import com.nineoldandroids.view.ViewHelper;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.message.PushAgent;
-import com.umeng.message.UmengRegistrar;
 import com.umeng.update.UmengUpdateAgent;
 import com.xiaomolongstudio.wewin.R;
 import com.xiaomolongstudio.wewin.fragment.ImageDetailFragment;
 import com.xiaomolongstudio.wewin.fragment.MainFragment;
 import com.xiaomolongstudio.wewin.utils.AppConfig;
+import com.xiaomolongstudio.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
 
@@ -53,8 +55,8 @@ public class MainActivity extends BaseActivity {
     ListView mDrawerList;
     @InjectView(R.id.dl)
     DragLayout dragLayout;
-    @InjectView(R.id.main_title)
-    TextView main_title;
+    //    @InjectView(R.id.main_title)
+    ShimmerTextView main_title;
     @InjectView(R.id.tv_set)
     TextView tv_set;
     @InjectView(R.id.iv_icon)
@@ -95,9 +97,9 @@ public class MainActivity extends BaseActivity {
         PushAgent mPushAgent = PushAgent.getInstance(this);
         mPushAgent.enable();
 
-        String device_token = UmengRegistrar.getRegistrationId(this);
-       // Log.d("wxl", "device_token=" + device_token);
-
+        //String device_token = UmengRegistrar.getRegistrationId(this);
+        // Log.d("wxl", "device_token=" + device_token);
+        AppUtils.getWeekAndDay(this);//邀请评论
     }
 
     private void initDragLayout() {
@@ -121,6 +123,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
+        main_title = (ShimmerTextView) findViewById(R.id.main_title);
+        Shimmer shimmer = new Shimmer();
+        shimmer.start(main_title);
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
@@ -221,7 +226,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
