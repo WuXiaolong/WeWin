@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/libraries/CustomShapeImageView/CustomShapeImageView.iml" filepath="$PROJECT_DIR$/libraries/CustomShapeImageView/CustomShapeImageView.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/PhotoView/PhotoView.iml" filepath="$PROJECT_DIR$/libraries/PhotoView/PhotoView.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/Shimmer/Shimmer.iml" filepath="$PROJECT_DIR$/libraries/Shimmer/Shimmer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ShimmerLibrary/ShimmerLibrary.iml" filepath="$PROJECT_DIR$/ShimmerLibrary/ShimmerLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/StaggeredGridView/StaggeredGridView.iml" filepath="$PROJECT_DIR$/libraries/StaggeredGridView/StaggeredGridView.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeWin.iml" filepath="$PROJECT_DIR$/WeWin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
