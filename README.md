@@ -33,7 +33,7 @@ v1.0(更新于2014-10-17)
 * [android-async-http](https://github.com/loopj/android-async-http)，网络请求框架
 * 整体框架，侧滑菜单，类QQ效果。
 * [CustomShapeImageView](https://github.com/MostafaGazar/CustomShapeImageView)，各种圆角
-* [友盟](http://www.umeng.com/)，包括友盟的统计、升级、意见反馈、推送
+* 友盟，包括友盟的统计、升级、意见反馈、推送
 * 广告，作为一个程序猿，没有一点副业说不过去。
 
 更多交流
