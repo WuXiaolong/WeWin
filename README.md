@@ -23,6 +23,7 @@ Android Studio(0.8.9) + Gradle(1.12)
 
 v1.1(更新于2014-11-19)
 * [Titanic](https://github.com/RomainPiel/Titanic)，TextView一闪一闪动画效果
+* 好评鼓励、推荐好友
 * [ButterKnife](https://github.com/JakeWharton/butterknife)，轻量级View注入框架，省去各种findViewById
 
 v1.0(更新于2014-10-17)
