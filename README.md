@@ -41,6 +41,15 @@ v1.0(更新于2014-10-17)
 ###Android技术交流群
 ①群：314447894<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=d53385cf84362cc7f75360c2d847a573b04ac78deeb567d98f32e13dd95190d9"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王①群" title="剩者为王①群"></a><br>
 ③群：370527306<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=0a992ba077da4c8325cbfef1c9e81f0443ffb782a0f2135c1a8f7326baac58ac"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王③群" title="剩者为王③群"></a>
+###作者博客
+[http://wuxiaolong.me/](http://wuxiaolong.me/)
+###小额赞助
+如果您喜欢此源码，读后受益匪浅，感觉对您的以后薪资涨幅有一定的帮助，那不妨支付宝扫描以下二维码，小额赞助一下作者 #^_^#<br> 
+<img src="http://wuxiaolong.qiniudn.com/taobao.jpg" /> 
+
 ###微博
 [吴小龙同學](http://weibo.com/u/2175011601)
 
+或者微博扫描以下二维码关注作者
+
+<img src="http://wuxiaolong.qiniudn.com/weibo_qrcode.png" /> 
