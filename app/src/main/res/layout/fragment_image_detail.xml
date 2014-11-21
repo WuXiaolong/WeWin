@@ -1,20 +1,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/black"
-    android:clickable="false">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/show_image"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:scaleType="centerInside" />
+        <uk.co.senab.photoview.PhotoView
+            android:id="@+id/show_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp">
 
@@ -22,8 +24,6 @@
             android:id="@+id/show_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="3"
-            android:text="imagedetail"
             android:textColor="@android:color/white" />
     </ScrollView>
 </RelativeLayout>

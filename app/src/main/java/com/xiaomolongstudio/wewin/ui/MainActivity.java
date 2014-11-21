@@ -1,5 +1,6 @@
 package com.xiaomolongstudio.wewin.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -23,14 +24,17 @@ import com.adsmogo.adview.AdsMogoLayout;
 import com.adsmogo.controller.listener.AdsMogoListener;
 import com.adsmogo.util.AdsMogoSize;
 import com.nineoldandroids.view.ViewHelper;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.message.PushAgent;
-import com.umeng.message.UmengRegistrar;
 import com.umeng.update.UmengUpdateAgent;
 import com.xiaomolongstudio.wewin.R;
 import com.xiaomolongstudio.wewin.fragment.ImageDetailFragment;
+import com.xiaomolongstudio.wewin.fragment.MainFragment;
 import com.xiaomolongstudio.wewin.utils.AppConfig;
+import com.xiaomolongstudio.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
 
@@ -45,15 +49,14 @@ import butterknife.InjectView;
 public class MainActivity extends BaseActivity {
 
 
-    private CharSequence mTitle;
     private String[] mPlanetTitles;
     private ImageDetailFragment imageDetailFragment;
     @InjectView(R.id.left_drawer)
     ListView mDrawerList;
     @InjectView(R.id.dl)
     DragLayout dragLayout;
-    @InjectView(R.id.main_title)
-    TextView main_title;
+    //    @InjectView(R.id.main_title)
+    ShimmerTextView main_title;
     @InjectView(R.id.tv_set)
     TextView tv_set;
     @InjectView(R.id.iv_icon)
@@ -94,9 +97,9 @@ public class MainActivity extends BaseActivity {
         PushAgent mPushAgent = PushAgent.getInstance(this);
         mPushAgent.enable();
 
-        String device_token = UmengRegistrar.getRegistrationId(this);
-//        Log.d("wxl", "device_token=" + device_token);
-
+        //String device_token = UmengRegistrar.getRegistrationId(this);
+        // Log.d("wxl", "device_token=" + device_token);
+        AppUtils.getWeekAndDay(this);//邀请评论
     }
 
     private void initDragLayout() {
@@ -120,6 +123,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
+        main_title = (ShimmerTextView) findViewById(R.id.main_title);
+        Shimmer shimmer = new Shimmer();
+        shimmer.start(main_title);
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
@@ -133,6 +139,7 @@ public class MainActivity extends BaseActivity {
         });
         tv_set.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                startActivity(new Intent(MainActivity.this, SetActivity.class));
             }
         });
         selectItem(0);
@@ -144,7 +151,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            selectItem(0);
+            selectItem(position);
         }
     }
 
@@ -153,17 +160,22 @@ public class MainActivity extends BaseActivity {
      */
     private Fragment mCurrentFragment = new Fragment();
 
-    public void switchFragment(Fragment newFragment, Fragment oldFragment) {
+    public void switchFragment(Fragment newFragment, Fragment oldFragment, String url) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                 .beginTransaction();
-        if (newFragment.isAdded()) {
-            // Log.i("wxl", oldFragment + "isAdded");
-            fragmentTransaction.hide(oldFragment).show(newFragment).commit();
-        } else {
-            // Log.i("wxl", newFragment + "not isAdded");
-            fragmentTransaction.hide(oldFragment)
-                    .add(R.id.content_frame, newFragment).commit();
-        }
+        Bundle args = new Bundle();
+        args.putString("url", url);
+        newFragment.setArguments(args);
+        fragmentTransaction
+                .replace(R.id.content_frame, newFragment).commit();
+//        if (newFragment.isAdded()) {
+        // Log.i("wxl", oldFragment + "isAdded");
+//            fragmentTransaction.hide(oldFragment).show(newFragment).commit();
+//        } else {
+        // Log.i("wxl", newFragment + "not isAdded");
+//        fragmentTransaction.hide(oldFragment)
+//                .add(R.id.content_frame, newFragment).commit();
+//        }
         mCurrentFragment = newFragment;
     }
 
@@ -187,7 +199,21 @@ public class MainActivity extends BaseActivity {
      * @param position
      */
     private void selectItem(int position) {
-        switchFragment(AppConfig.mFragments[position], mCurrentFragment);
+        switch (position) {
+            case 0:
+//                switchFragment(AppConfig.mFragments[position], mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
+                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
+                break;
+            case 1:
+                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/shouxiemeiju?page=");
+                break;
+            case 2:
+                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/jingdianduibai?page=");
+                break;
+            default:
+
+        }
+
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
         // setTitle(mPlanetTitles[position]);
@@ -200,7 +226,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

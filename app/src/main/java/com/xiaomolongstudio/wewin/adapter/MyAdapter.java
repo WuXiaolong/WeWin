@@ -13,6 +13,9 @@ import com.xiaomolongstudio.wewin.R;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by 小尛龙 on 2014/10/19.
  */
@@ -20,11 +23,13 @@ public class MyAdapter extends MyBaseAdapter {
     List<Map<String, Object>> mData;
     Activity activity;
     private LayoutInflater mInflater;
+    boolean isFirst;
 
-    public MyAdapter(Activity activity, List<Map<String, Object>> mData) {
-        super();
+    public MyAdapter(Activity activity, List<Map<String, Object>> mData, boolean isFirst) {
+        super(activity);
         this.activity = activity;
         this.mData = mData;
+        this.isFirst = isFirst;
         this.mInflater = (LayoutInflater) activity
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -33,9 +38,6 @@ public class MyAdapter extends MyBaseAdapter {
         return mData;
     }
 
-    public void setmData(List<Map<String, Object>> mData) {
-        this.mData = mData;
-    }
 
     @Override
     public int getCount() {
@@ -57,22 +59,29 @@ public class MyAdapter extends MyBaseAdapter {
 
         ViewHolder holder = null;
         if (view == null) {
-            holder = new ViewHolder();
             view = mInflater.inflate(R.layout.my_adapter_item, null);
-            holder.imgView = (DynamicHeightImageView) view.findViewById(R.id.imgView);
-            holder.title = (TextView) view.findViewById(R.id.title);
+            holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         imageLoader.displayImage(mData.get(position).get("imgUrl").toString(),
                 holder.imgView, options);
-        holder.title.setText(mData.get(position).get("title").toString());
+        if (isFirst) {
+            holder.title.setVisibility(View.VISIBLE);
+            holder.title.setText(mData.get(position).get("title").toString());
+        }
         return view;
     }
 
     public class ViewHolder {
+        @InjectView(R.id.imgView)
         DynamicHeightImageView imgView;
+        @InjectView(R.id.title)
         TextView title;
+
+        public ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+        }
     }
 }

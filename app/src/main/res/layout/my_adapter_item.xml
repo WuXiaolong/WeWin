@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:maxLines="2"
         android:ellipsize="end"
+        android:visibility="gone"
         android:text="剩者为王"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_size_small" />
+        android:textSize="@dimen/text_size_medium" />
 </LinearLayout>

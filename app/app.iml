@@ -83,8 +83,8 @@
     <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="jsoup-1.7.2" level="project" />
     <orderEntry type="library" exported="" name="Baidu_MobAds_SDK_Agg_3.44" level="project" />
+    <orderEntry type="library" exported="" name="universal-image-loader-1.9.3" level="project" />
     <orderEntry type="library" exported="" name="butterknife-5.1.1" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.9.2" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="AdsMOGO_Android_SDK_1.5.0" level="project" />
     <orderEntry type="library" exported="" name="com.umeng.message.lib" level="project" />
@@ -96,6 +96,7 @@
     <orderEntry type="module" module-name="StaggeredGridView" exported="" />
     <orderEntry type="module" module-name="PhotoView" exported="" />
     <orderEntry type="module" module-name="CustomShapeImageView" exported="" />
+    <orderEntry type="module" module-name="Shimmer" exported="" />
   </component>
 </module>
 

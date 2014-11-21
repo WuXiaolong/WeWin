@@ -49,4 +49,9 @@
     <color name="red_press">#50ff0000</color>
     <color name="blue">#008ff1</color>
 
+    <color name="holo_blue_light">#3333b5e5</color>
+    <color name="holo_green_light">#3399cc00</color>
+    <color name="holo_red_light">#33ff4444</color>
+    <color name="holo_orange_light">#33ffbb33</color>
+    <color name="holo_purple_light">#33aa66cc</color>
 </resources>

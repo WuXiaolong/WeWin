@@ -4,10 +4,14 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -23,6 +27,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -268,4 +273,78 @@ public class AppUtils {
         return fragment;
     }
 
+    public static void getWeekAndDay(final Activity activity) {
+        Calendar calendar = Calendar.getInstance();
+        // 获取当前时间为本月的第几周
+        int week = calendar.get(Calendar.WEEK_OF_MONTH);
+        // 获取当前时间为本周的第几天
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        if (day == 1) {
+            day = 7;
+            week = week - 1;
+        } else {
+            day = day - 1;
+        }
+        switch (day) {
+            case 6:
+                initComment(activity);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 邀请评论
+     */
+    static SharedPreferences sharedPreferences;
+
+    public static void initComment(final Activity activity) {
+        sharedPreferences = activity.getSharedPreferences("commentTime",
+                Context.MODE_PRIVATE);
+        // getString()第二个参数为缺省值,如果preference中不存在该key,将返回缺省值
+        long commentTime = sharedPreferences.getLong("commentTime", 1);
+        if (System.currentTimeMillis() - commentTime > 3 * 24 * 60 * 60 * 1000) {
+
+            AlertDialog.Builder builder = new Builder(activity);
+            builder.setTitle("邀请");
+            builder.setMessage("【剩者为王】邀请您来评论\n您的好评将是我们前进的动力。");
+            builder.setPositiveButton("评论",
+                    new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            setComment(activity);
+                            try {
+                                Intent intent = new Intent(
+                                        "android.intent.action.VIEW");
+                                intent.setData(Uri
+                                        .parse("market://details?id=com.xiaomolongstudio.wewin"));
+                                activity.startActivity(intent);
+                            } catch (Exception e) {
+                                Toast.makeText(activity, "未找到安卓市场",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+            builder.setNegativeButton("下次",
+                    new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            setComment(activity);
+                        }
+                    });
+            builder.create().show();
+
+        }
+    }
+
+    public static void setComment(Activity activity) {
+        sharedPreferences = activity.getSharedPreferences("commentTime",
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();// 获取编辑器
+        editor.putLong("commentTime", Calendar.getInstance().getTimeInMillis());
+        editor.commit();// 提交修改
+    }
 }
