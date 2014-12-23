@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.adsmogo.adview.AdsMogoLayout;
 import com.etsy.android.grid.util.DynamicHeightImageView;
 import com.xiaomolongstudio.wewin.R;
 
@@ -24,6 +25,7 @@ public class MyAdapter extends MyBaseAdapter {
     Activity activity;
     private LayoutInflater mInflater;
     boolean isFirst;
+    AdsMogoLayout adsMogoLayoutCode = null;
 
     public MyAdapter(Activity activity, List<Map<String, Object>> mData, boolean isFirst) {
         super(activity);
@@ -56,6 +58,7 @@ public class MyAdapter extends MyBaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
+
 
         ViewHolder holder = null;
         if (view == null) {

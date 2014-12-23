@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled  false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -21,7 +21,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:support-v4:20.0.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':libraries:CustomShapeImageView')
     compile project(':libraries:StaggeredGridView')
@@ -37,4 +36,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:5.1.1'
     compile project(':libraries:Shimmer')
     compile files('src/main/libs/universal-image-loader-1.9.3.jar')
+    compile 'com.android.support:support-v4:21.0.2'
+    compile files('src/main/libs/mobisageSDK.jar')
 }

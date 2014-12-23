@@ -4,20 +4,20 @@ android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
-    defaultConfig {
-        applicationId "com.etsy.android.grid"
-        minSdkVersion 10
-        targetSdkVersion 18
-    }
+//    defaultConfig {
+//        applicationId "com.etsy.android.grid"
+//        minSdkVersion 10
+//        targetSdkVersion 18
+//    }
 
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-    }
+//    buildTypes {
+//        release {
+//            runProguard false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+//        }
+//    }
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:21.0.2'
 }

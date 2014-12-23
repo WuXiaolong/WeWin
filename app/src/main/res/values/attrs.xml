@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="com.baidu.mobads.AdView">
+		<attr name="adSize" format="integer" />
+		<attr name="adId" format="string" />
+	</declare-styleable> 
+</resources>
