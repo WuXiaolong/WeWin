@@ -126,7 +126,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:column_count
         */
-        public static final int StaggeredGridView_column_count = 0;
+        public static int StaggeredGridView_column_count = 0;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#column_count_landscape}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -140,7 +140,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:column_count_landscape
         */
-        public static final int StaggeredGridView_column_count_landscape = 2;
+        public static int StaggeredGridView_column_count_landscape = 2;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#column_count_portrait}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -154,7 +154,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:column_count_portrait
         */
-        public static final int StaggeredGridView_column_count_portrait = 1;
+        public static int StaggeredGridView_column_count_portrait = 1;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#grid_paddingBottom}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -170,7 +170,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:grid_paddingBottom
         */
-        public static final int StaggeredGridView_grid_paddingBottom = 7;
+        public static int StaggeredGridView_grid_paddingBottom = 7;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#grid_paddingLeft}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -186,7 +186,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:grid_paddingLeft
         */
-        public static final int StaggeredGridView_grid_paddingLeft = 4;
+        public static int StaggeredGridView_grid_paddingLeft = 4;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#grid_paddingRight}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -202,7 +202,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:grid_paddingRight
         */
-        public static final int StaggeredGridView_grid_paddingRight = 5;
+        public static int StaggeredGridView_grid_paddingRight = 5;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#grid_paddingTop}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -218,7 +218,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:grid_paddingTop
         */
-        public static final int StaggeredGridView_grid_paddingTop = 6;
+        public static int StaggeredGridView_grid_paddingTop = 6;
         /**
           <p>This symbol is the offset where the {@link com.etsy.android.grid.R.attr#item_margin}
           attribute's value can be found in the {@link #StaggeredGridView} array.
@@ -234,6 +234,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.etsy.android.grid:item_margin
         */
-        public static final int StaggeredGridView_item_margin = 3;
+        public static int StaggeredGridView_item_margin = 3;
     };
 }

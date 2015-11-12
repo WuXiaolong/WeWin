@@ -36,26 +36,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static int circle=0x7f030000;
-        public static int rectangle=0x7f030001;
-        public static int svg=0x7f030002;
+        public static int circle=0x7f050000;
+        public static int rectangle=0x7f050001;
+        public static int svg=0x7f050002;
     }
     public static final class string {
         public static int app_name=0x7f040000;
     }
     public static final class style {
-        /** 
+        /**  API 11 theme customizations can go here. 
+ API 14 theme customizations can go here. 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
- API 11 theme customizations can go here. 
- API 14 theme customizations can go here. 
          */
-        public static int AppBaseTheme=0x7f050000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static int AppTheme=0x7f050001;
+        public static int AppBaseTheme=0x7f030000;
     }
     public static final class styleable {
         /** Attributes that can be used with a CustomShapeImageView.
@@ -96,7 +93,7 @@ containing a value of this type.
 </table>
           @attr name com.meg7.widget:shape
         */
-        public static final int CustomShapeImageView_shape = 0;
+        public static int CustomShapeImageView_shape = 0;
         /**
           <p>This symbol is the offset where the {@link com.meg7.widget.R.attr#svg_raw_resource}
           attribute's value can be found in the {@link #CustomShapeImageView} array.
@@ -106,6 +103,6 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.meg7.widget:svg_raw_resource
         */
-        public static final int CustomShapeImageView_svg_raw_resource = 1;
+        public static int CustomShapeImageView_svg_raw_resource = 1;
     };
 }

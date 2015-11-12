@@ -1,0 +1,11 @@
+int attr shape 0x7f010000
+int attr svg_raw_resource 0x7f010001
+int drawable ic_launcher 0x7f020000
+int id circle 0x7f050000
+int id rectangle 0x7f050001
+int id svg 0x7f050002
+int string app_name 0x7f040000
+int style AppBaseTheme 0x7f030000
+int[] styleable CustomShapeImageView { 0x7f010000, 0x7f010001 }
+int styleable CustomShapeImageView_shape 0
+int styleable CustomShapeImageView_svg_raw_resource 1

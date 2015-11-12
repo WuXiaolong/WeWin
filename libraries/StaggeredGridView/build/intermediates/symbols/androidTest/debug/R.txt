@@ -1,0 +1,17 @@
+int attr column_count 0x7f010000
+int attr column_count_landscape 0x7f010002
+int attr column_count_portrait 0x7f010001
+int attr grid_paddingBottom 0x7f010007
+int attr grid_paddingLeft 0x7f010004
+int attr grid_paddingRight 0x7f010005
+int attr grid_paddingTop 0x7f010006
+int attr item_margin 0x7f010003
+int[] styleable StaggeredGridView { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007 }
+int styleable StaggeredGridView_column_count 0
+int styleable StaggeredGridView_column_count_landscape 2
+int styleable StaggeredGridView_column_count_portrait 1
+int styleable StaggeredGridView_grid_paddingBottom 7
+int styleable StaggeredGridView_grid_paddingLeft 4
+int styleable StaggeredGridView_grid_paddingRight 5
+int styleable StaggeredGridView_grid_paddingTop 6
+int styleable StaggeredGridView_item_margin 3
