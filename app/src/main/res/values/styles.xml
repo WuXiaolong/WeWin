@@ -1,8 +1,18 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- API 14 theme customizations can go here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Material Theme -->
+        <item name="android:textColorPrimary">@color/text_color_primary</item>
+        <item name="android:textColorSecondary">@color/text_second_color_primary</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <!--&lt;!&ndash;比如progressbar颜色&ndash;&gt;-->
+        <item name="colorAccent">@color/accent</item>
+        <!--返回或更多的按钮颜色-->
+        <item name="colorControlNormal">@android:color/white</item>
+        <!--<item name="popupTheme">@style/popupTheme</item>-->
     </style>
+
 
     <style name="MyAppTheme" parent="AppBaseTheme">
 

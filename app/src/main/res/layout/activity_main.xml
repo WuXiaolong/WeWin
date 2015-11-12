@@ -64,34 +64,49 @@
         android:layout_height="match_parent"
         android:background="#eeeeee">
 
-        <RelativeLayout
-            android:id="@+id/rl_title"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@android:color/white">
 
-            <com.meg7.widget.CircleImageView
-                android:id="@+id/iv_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher" />
+        <!--<RelativeLayout-->
 
-            <com.romainpiel.shimmer.ShimmerTextView
-                android:id="@+id/main_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_toRightOf="@id/iv_icon"
-                android:gravity="center"
-                android:text="剩者为王"
-                android:textColor="@color/blue"
-                android:textSize="20sp" />
-        </RelativeLayout>
+            <!--android:id="@+id/rl_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:background="@android:color/white">-->
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.meg7.widget.CircleImageView
+                        android:id="@+id/iv_icon"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_launcher" />
+
+                    <com.romainpiel.shimmer.ShimmerTextView
+                        android:id="@+id/main_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toRightOf="@id/iv_icon"
+                        android:gravity="center"
+                        android:text="剩者为王"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+        <!--</RelativeLayout>-->
+
         <!-- Xml方式添加AdsMogoLayout 请务必添加命名空间 xmlns:adsmogo="http://www.adsmogo.com" -->
         <!-- adsmogo:appid= (设置 AppID) -->
         <!-- adsmogo:express_mode= (快速模式开关) 缺省状态为true -->
@@ -134,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/adLayout"
-            android:layout_below="@id/rl_title" />
+            android:layout_below="@id/toolbar" />
 
         <fragment
             android:id="@+id/main_image_fragment"

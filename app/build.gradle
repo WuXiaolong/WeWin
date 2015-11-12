@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "22.0.1"
-
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.xiaomolongstudio.wewin"
         minSdkVersion 14
@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled  false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -21,21 +21,24 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile project(':libraries:CustomShapeImageView')
     compile project(':libraries:StaggeredGridView')
-    compile project(':libraries:PhotoView')
-    compile files('src/main/libs/umeng-analytics-v5.2.4.jar')
-    compile files('src/main/libs/umeng-fb-v4.3.2.jar')
-    compile files('src/main/libs/umeng-update-v2.4.2.jar')
-    compile files('src/main/libs/AdsMOGO_Android_SDK_1.5.0.jar')
-    compile files('src/main/libs/Baidu_MobAds_SDK_Agg_3.44.jar')
-    compile files('src/main/libs/com.umeng.message.lib.jar')
-    compile files('src/main/libs/android-async-http-1.4.5.jar')
-    compile files('src/main/libs/jsoup-1.7.2.jar')
+    compile 'com.commit451:PhotoView:1.2.4'
+    compile files('libs/umeng-analytics-v5.2.4.jar')
+    compile files('libs/umeng-fb-v4.3.2.jar')
+    compile files('libs/umeng-update-v2.4.2.jar')
+    compile files('libs/AdsMOGO_Android_SDK_1.5.0.jar')
+    compile files('libs/Baidu_MobAds_SDK_Agg_3.44.jar')
+    compile files('libs/com.umeng.message.lib.jar')
+    compile files('libs/android-async-http-1.4.5.jar')
+    compile files('libs/jsoup-1.7.2.jar')
     compile 'com.jakewharton:butterknife:5.1.1'
     compile project(':libraries:Shimmer')
     compile files('src/main/libs/universal-image-loader-1.9.3.jar')
     compile files('src/main/libs/mobisageSDK.jar')
-    compile 'com.android.support:support-v4:22.2.0'
+
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.1'
 }
