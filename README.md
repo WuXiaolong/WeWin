@@ -5,13 +5,16 @@
 
 APK演示
 ===========================
-项目apk文件夹下附带安装包，或者扫描以下二维码下载：
+项目apk文件夹下附带安装包
+![点击下载](https://github.com/WuXiaolong/WeWin/raw/master/apk/app-debug.apk)
+<!--，或者扫描以下二维码下载：
 
-![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/qrcode.png)
+![](https://github.com/WuXiaolong/c/raw/master/screenshots/qrcode.png)
+-->
 
 效果预览
 ===========================
-![](https://github.com/WuXiaolong/xUse/raw/master/screenshots/screenshots.gif)
+![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
 
 开发工具
 ===========================
