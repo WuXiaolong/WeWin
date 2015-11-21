@@ -4,62 +4,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="30dp"
-        android:paddingLeft="30dp"
-        android:paddingTop="50dp">
+    <include layout="@layout/menu_layout" />
 
-        <LinearLayout
-            android:id="@+id/ll1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.meg7.widget.CircleImageView
-                android:id="@+id/iv_bottom"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/ic_launcher" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:text="剩者为王"
-                android:textColor="#ffffff"
-                android:textSize="25sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_set"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:drawableLeft="@drawable/main_set"
-            android:gravity="center_vertical"
-            android:text="设置"
-            android:textColor="#ffffff"
-            android:textSize="15sp" />
-
-        <!-- android:choiceMode="singleChoice" -->
-
-        <ListView
-            android:id="@+id/left_drawer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/tv_set"
-            android:layout_below="@id/ll1"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="20dp"
-            android:cacheColorHint="#00000000"
-            android:divider="@null"
-            android:textColor="#ffffff" />
-    </RelativeLayout>
-
-    <com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout
+    <com.xiaomolongstudio.wewin.utils.dragLayout.MainLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#eeeeee">
@@ -67,44 +14,44 @@
 
         <!--<RelativeLayout-->
 
-            <!--android:id="@+id/rl_title"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="55dp"-->
-            <!--android:background="@android:color/white">-->
+        <!--android:id="@+id/rl_title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="55dp"-->
+        <!--android:background="@android:color/white">-->
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary">
+                android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <com.meg7.widget.CircleImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher" />
 
-                    <com.meg7.widget.CircleImageView
-                        android:id="@+id/iv_icon"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_launcher" />
-
-                    <com.romainpiel.shimmer.ShimmerTextView
-                        android:id="@+id/main_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_toRightOf="@id/iv_icon"
-                        android:gravity="center"
-                        android:text="剩者为王"
-                        android:textColor="@color/blue"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </android.support.v7.widget.Toolbar>
+                <com.romainpiel.shimmer.ShimmerTextView
+                    android:id="@+id/main_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/iv_icon"
+                    android:gravity="center"
+                    android:text="剩者为王"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
         <!--</RelativeLayout>-->
 
         <!-- Xml方式添加AdsMogoLayout 请务必添加命名空间 xmlns:adsmogo="http://www.adsmogo.com" -->
@@ -157,6 +104,6 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_above="@id/adLayout" />
-    </com.xiaomolongstudio.wewin.utils.dragLayout.MyRelativeLayout>
+    </com.xiaomolongstudio.wewin.utils.dragLayout.MainLayout>
 
 </com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout>

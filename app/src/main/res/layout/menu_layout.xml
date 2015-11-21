@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="30dp"
+    android:paddingLeft="30dp"
+    android:paddingTop="50dp">
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.meg7.widget.CircleImageView
+            android:id="@+id/iv_bottom"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="剩者为王"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:drawableLeft="@drawable/main_set"
+        android:gravity="center_vertical"
+        android:text="设置"
+        android:textColor="#ffffff"
+        android:textSize="15sp" />
+
+    <!-- android:choiceMode="singleChoice" -->
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_set"
+        android:layout_below="@id/ll1"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:textColor="#ffffff" />
+</RelativeLayout>

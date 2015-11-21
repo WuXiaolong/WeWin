@@ -23,18 +23,18 @@ public class DragLayout extends FrameLayout {
 
     private boolean isShowShadow = true;
 
-    private GestureDetectorCompat gestureDetector;
-    private ViewDragHelper dragHelper;
-    private DragListener dragListener;
-    private int range;
-    private int width;
-    private int height;
-    private int mainLeft;
+    private GestureDetectorCompat mGestureDetectorCompat;
+    private ViewDragHelper mViewDragHelper;
+    private DragListener mDragListener;
+    private int mDragRange;
+    private int mMenuWidth;
+    private int mMenuHeight;
+    private int mMainLeftRange;
     private Context context;
     private ImageView iv_shadow;
-    private RelativeLayout vg_left;
-    private MyRelativeLayout vg_main;
-    private Status status = Status.Close;
+    private RelativeLayout mMenuLayout;
+    private MainLayout mMainLayout;
+    private Status mStatus = Status.Close;
 
     public DragLayout(Context context) {
         this(context, null);
@@ -47,11 +47,11 @@ public class DragLayout extends FrameLayout {
 
     public DragLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        gestureDetector = new GestureDetectorCompat(context, new YScrollDetector());
-        dragHelper = ViewDragHelper.create(this, dragHelperCallback);
+        mGestureDetectorCompat = new GestureDetectorCompat(context, new MyOnGestureListener());//处理手势识别
+        mViewDragHelper = ViewDragHelper.create(this, dragHelperCallback);
     }
 
-    class YScrollDetector extends SimpleOnGestureListener {
+    class MyOnGestureListener extends SimpleOnGestureListener {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float dx, float dy) {
             return Math.abs(dy) <= Math.abs(dx);
@@ -62,28 +62,30 @@ public class DragLayout extends FrameLayout {
 
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
-            if (mainLeft + dx < 0) {
-                Log.d("wxl", "00000");
+            if (mMainLeftRange + dx < 0) {
+                Log.d("wxl", "当前菜单关闭，还在向左滑动");
                 return 0;
-            } else if (mainLeft + dx > range) {
-                Log.d("wxl", "11111");
-                return range;
+            } else if (mMainLeftRange + dx > mDragRange) {
+                Log.d("wxl", "当前菜单打开，还在向右滑动");
+                return mDragRange;
             } else {
-                Log.d("wxl", "2222");
+                Log.d("wxl", "滑动中");
                 return left;
             }
         }
 
+        //何时开始检测触摸事件
         @Override
         public boolean tryCaptureView(View child, int pointerId) {
-            return true;
+            return mMainLayout == child;//如果当前child是mMainLayout时开始检测
         }
 
         @Override
         public int getViewHorizontalDragRange(View child) {
-            return width;
+            return mMenuWidth;
         }
 
+        //拖动结束后调用
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
@@ -91,40 +93,51 @@ public class DragLayout extends FrameLayout {
                 open();
             } else if (xvel < 0) {
                 close();
-            } else if (releasedChild == vg_main && mainLeft > range * 0.3) {
+            } else if (releasedChild == mMainLayout && mMainLeftRange > mDragRange * 0.3) {
                 open();
-            } else if (releasedChild == vg_left && mainLeft > range * 0.7) {
+            } else if (releasedChild == mMenuLayout && mMainLeftRange > mDragRange * 0.7) {
                 open();
             } else {
                 close();
             }
         }
 
+        //位置改变时回调，常用于滑动是更改scale进行缩放等效果
         @Override
         public void onViewPositionChanged(View changedView, int left, int top,
                                           int dx, int dy) {
-            if (changedView == vg_main) {
-                mainLeft = left;
+            Log.d("wxl", "changedView==" + changedView);
+            Log.d("wxl", "changedView left==" + left);
+            if (changedView == mMainLayout) {
+                mMainLeftRange = left;
             } else {
-                mainLeft = mainLeft + left;
+                mMainLeftRange = mMainLeftRange + left;
             }
-            if (mainLeft < 0) {
-                mainLeft = 0;
-            } else if (mainLeft > range) {
-                mainLeft = range;
+            Log.d("wxl", "changedView mMainLeftRange==" + mMainLeftRange);
+            if (mMainLeftRange < 0) {
+                mMainLeftRange = 0;
+            } else if (mMainLeftRange > mDragRange) {
+                mMainLeftRange = mDragRange;
             }
 
             if (isShowShadow) {
-                iv_shadow.layout(mainLeft, 0, mainLeft + width, height);
+                iv_shadow.layout(mMainLeftRange, 0, mMainLeftRange + mMenuWidth, mMenuHeight);
             }
-            if (changedView == vg_left) {
-                vg_left.layout(0, 0, width, height);
-                vg_main.layout(mainLeft, 0, mainLeft + width, height);
+            if (changedView == mMenuLayout) {
+                mMenuLayout.layout(0, 0, mMenuWidth, mMenuHeight);
+                mMainLayout.layout(mMainLeftRange, 0, mMainLeftRange + mMenuWidth, mMenuHeight);
             }
 
-            dispatchDragEvent(mainLeft);
+            dragEvent(mMainLeftRange);
         }
     };
+
+    @Override
+    public void computeScroll() {
+        if (mViewDragHelper.continueSettling(true)) {
+            ViewCompat.postInvalidateOnAnimation(this);
+        }
+    }
 
     public interface DragListener {
         public void onOpen();
@@ -134,10 +147,13 @@ public class DragLayout extends FrameLayout {
         public void onDrag(float percent);
     }
 
-    public void setDragListener(DragListener dragListener) {
-        this.dragListener = dragListener;
+    public void setmDragListener(DragListener mDragListener) {
+        this.mDragListener = mDragListener;
     }
 
+    /**
+     * 加载完布局文件后调用
+     */
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -147,73 +163,78 @@ public class DragLayout extends FrameLayout {
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             addView(iv_shadow, 1, lp);
         }
-        vg_left = (RelativeLayout) getChildAt(0);
-        vg_main = (MyRelativeLayout) getChildAt(isShowShadow ? 2 : 1);
-        vg_main.setDragLayout(this);
-        vg_left.setClickable(true);
-        vg_main.setClickable(true);
+        mMenuLayout = (RelativeLayout) getChildAt(0);
+        mMainLayout = (MainLayout) getChildAt(isShowShadow ? 2 : 1);
+        mMainLayout.setDragLayout(this);
+        mMenuLayout.setClickable(true);
+        mMainLayout.setClickable(true);
     }
 
-    public ViewGroup getVg_main() {
-        return vg_main;
-    }
-
-    public ViewGroup getVg_left() {
-        return vg_left;
-    }
-
+    /**
+     * 获取View宽度
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        width = vg_left.getMeasuredWidth();
-        height = vg_left.getMeasuredHeight();
-        range = (int) (width * 0.6f);
+        mMenuWidth = mMenuLayout.getMeasuredWidth();
+        mMenuHeight = mMenuLayout.getMeasuredHeight();
+        mDragRange = (int) (mMenuWidth * 0.6f);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        vg_left.layout(0, 0, width, height);
-        vg_main.layout(mainLeft, 0, mainLeft + width, height);
+        mMenuLayout.layout(0, 0, mMenuWidth, mMenuHeight);
+        mMainLayout.layout(mMainLeftRange, 0, mMainLeftRange + mMenuWidth, mMenuHeight);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return dragHelper.shouldInterceptTouchEvent(ev) && gestureDetector.onTouchEvent(ev);
+        return mViewDragHelper.shouldInterceptTouchEvent(ev) && mGestureDetectorCompat.onTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         try {
-            dragHelper.processTouchEvent(e);
+            mViewDragHelper.processTouchEvent(e);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return false;
     }
 
-    private void dispatchDragEvent(int mainLeft) {
-        if (dragListener == null) {
+    private void dragEvent(int mainLeft) {
+        if (mDragListener == null) {
             return;
         }
-        float percent = mainLeft / (float) range;
+        float percent = mainLeft / (float) mDragRange;
         animateView(percent);
-        dragListener.onDrag(percent);
-        Status lastStatus = status;
-        if (lastStatus != getStatus() && status == Status.Close) {
-            dragListener.onClose();
-        } else if (lastStatus != getStatus() && status == Status.Open) {
-            dragListener.onOpen();
+        Status lastStatus = mStatus;
+        if (lastStatus != getmStatus() && mStatus == Status.Close) {
+            mDragListener.onClose();
+        } else if (lastStatus != getmStatus() && mStatus == Status.Open) {
+            mDragListener.onOpen();
+        } else {
+            mDragListener.onDrag(percent);
         }
     }
 
+
     private void animateView(float percent) {
         float f1 = 1 - percent * 0.3f;
-        ViewHelper.setScaleX(vg_main, f1);
-        ViewHelper.setScaleY(vg_main, f1);
-        ViewHelper.setTranslationX(vg_left, -vg_left.getWidth() / 2.3f + vg_left.getWidth() / 2.3f * percent);
-        ViewHelper.setScaleX(vg_left, 0.5f + 0.5f * percent);
-        ViewHelper.setScaleY(vg_left, 0.5f + 0.5f * percent);
-        ViewHelper.setAlpha(vg_left, percent);
+        ViewHelper.setScaleX(mMainLayout, f1);
+        ViewHelper.setScaleY(mMainLayout, f1);
+//        ObjectAnimator ObjectAnimator1 = ObjectAnimator.ofFloat(mMainLayout, "scaleX", f1);
+//        ObjectAnimator ObjectAnimator2 = ObjectAnimator.ofFloat(mMainLayout, "scaleY", f1);
+//        AnimatorSet animationSet = new AnimatorSet();
+//        animationSet.playTogether(ObjectAnimator1,ObjectAnimator2);
+//        animationSet.start();
+
+        ViewHelper.setTranslationX(mMenuLayout, mMenuLayout.getWidth() / 2.3f * percent - mMenuLayout.getWidth() / 2.3f);
+        ViewHelper.setScaleX(mMenuLayout, 0.5f + 0.5f * percent);
+        ViewHelper.setScaleY(mMenuLayout, 0.5f + 0.5f * percent);
+
+        ViewHelper.setAlpha(mMenuLayout, percent);
+
         if (isShowShadow) {
             ViewHelper.setScaleX(iv_shadow, f1 * 1.4f * (1 - percent * 0.12f));
             ViewHelper.setScaleY(iv_shadow, f1 * 1.85f * (1 - percent * 0.12f));
@@ -238,26 +259,20 @@ public class DragLayout extends FrameLayout {
                 | (int) ((startB + (int) (fraction * (endB - startB))));
     }
 
-    @Override
-    public void computeScroll() {
-        if (dragHelper.continueSettling(true)) {
-            ViewCompat.postInvalidateOnAnimation(this);
-        }
-    }
 
     public enum Status {
         Drag, Open, Close
     }
 
-    public Status getStatus() {
-        if (mainLeft == 0) {
-            status = Status.Close;
-        } else if (mainLeft == range) {
-            status = Status.Open;
+    public Status getmStatus() {
+        if (mMainLeftRange == 0) {
+            mStatus = Status.Close;
+        } else if (mMainLeftRange == mDragRange) {
+            mStatus = Status.Open;
         } else {
-            status = Status.Drag;
+            mStatus = Status.Drag;
         }
-        return status;
+        return mStatus;
     }
 
     public void open() {
@@ -266,12 +281,13 @@ public class DragLayout extends FrameLayout {
 
     public void open(boolean animate) {
         if (animate) {
-            if (dragHelper.smoothSlideViewTo(vg_main, range, 0)) {
+            //手指抬起后缓慢移动到指定位置
+            if (mViewDragHelper.smoothSlideViewTo(mMainLayout, mDragRange, 0)) {
                 ViewCompat.postInvalidateOnAnimation(this);
             }
         } else {
-            vg_main.layout(range, 0, range * 2, height);
-            dispatchDragEvent(range);
+            mMainLayout.layout(mDragRange, 0, mDragRange * 2, mMenuHeight);
+            dragEvent(mDragRange);
         }
     }
 
@@ -281,13 +297,20 @@ public class DragLayout extends FrameLayout {
 
     public void close(boolean animate) {
         if (animate) {
-            if (dragHelper.smoothSlideViewTo(vg_main, 0, 0)) {
+            if (mViewDragHelper.smoothSlideViewTo(mMainLayout, 0, 0)) {
                 ViewCompat.postInvalidateOnAnimation(this);
             }
         } else {
-            vg_main.layout(0, 0, width, height);
-            dispatchDragEvent(0);
+            mMainLayout.layout(0, 0, mMenuWidth, mMenuHeight);
+            dragEvent(0);
         }
     }
 
+    public ViewGroup getmMainLayout() {
+        return mMainLayout;
+    }
+
+    public ViewGroup getmMenuLayout() {
+        return mMenuLayout;
+    }
 }

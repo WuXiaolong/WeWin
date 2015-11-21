@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initDragLayout() {
-        dragLayout.setDragListener(new DragListener() {
+        dragLayout.setmDragListener(new DragListener() {
             public void onOpen() {
                 // mDrawerList.smoothScrollToPosition(new Random().nextInt(30));
             }
