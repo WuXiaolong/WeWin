@@ -1,4 +1,4 @@
-package com.xiaomolongstudio.wewin.utils.dragLayout;
+package com.xiaomolongstudio.wewin.view.draglayout;
 
 import android.content.Context;
 import android.graphics.Color;

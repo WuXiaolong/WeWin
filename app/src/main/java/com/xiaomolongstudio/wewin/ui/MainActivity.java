@@ -25,8 +25,8 @@ import com.umeng.update.UmengUpdateAgent;
 import com.xiaomolongstudio.wewin.R;
 import com.xiaomolongstudio.wewin.fragment.MainFragment;
 import com.xiaomolongstudio.wewin.utils.AppUtils;
-import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
-import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
+import com.xiaomolongstudio.wewin.view.draglayout.DragLayout;
+import com.xiaomolongstudio.wewin.view.draglayout.DragLayout.DragListener;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

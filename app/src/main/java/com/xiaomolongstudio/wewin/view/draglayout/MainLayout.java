@@ -1,11 +1,12 @@
-package com.xiaomolongstudio.wewin.utils.dragLayout;
+package com.xiaomolongstudio.wewin.view.draglayout;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
-import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.Status;
+import com.xiaomolongstudio.wewin.view.draglayout.DragLayout;
+import com.xiaomolongstudio.wewin.view.draglayout.DragLayout.Status;
 
 
 public class MainLayout extends RelativeLayout {
