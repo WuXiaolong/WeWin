@@ -52,58 +52,19 @@
                     android:textSize="20sp" />
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
-        <!--</RelativeLayout>-->
-
-        <!-- Xml方式添加AdsMogoLayout 请务必添加命名空间 xmlns:adsmogo="http://www.adsmogo.com" -->
-        <!-- adsmogo:appid= (设置 AppID) -->
-        <!-- adsmogo:express_mode= (快速模式开关) 缺省状态为true -->
-
-        <RelativeLayout
-            android:id="@+id/adLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/transparent"
-            android:visibility="gone">
-
-            <!-- <com.adsmogo.adview.AdsMogoLayout -->
-            <!-- android:id="@+id/adsMogoView" -->
-            <!-- android:layout_width="320dp" -->
-            <!-- android:layout_height="50dp" -->
-            <!-- android:layout_centerInParent="true" -->
-            <!-- adsmogo:appid="84849cb4db40477eae961541fbde48b4" -->
-            <!-- android:background="@android:color/black" > -->
-            <!-- </com.adsmogo.adview.AdsMogoLayout> -->
-
-            <RelativeLayout
-                android:id="@+id/adViewLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:gravity="center_horizontal"></RelativeLayout>
-
-            <ImageView
-                android:id="@+id/adClose"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignLeft="@id/adViewLayout"
-                android:layout_centerVertical="true"
-                android:background="@drawable/close_guide" />
-        </RelativeLayout>
 
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/adLayout"
             android:layout_below="@id/toolbar" />
 
-        <fragment
-            android:id="@+id/main_image_fragment"
-            class="com.xiaomolongstudio.wewin.fragment.ImageDetailFragment"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@id/adLayout" />
+        <!--<fragment-->
+            <!--android:id="@+id/main_image_fragment"-->
+            <!--class="com.xiaomolongstudio.wewin.fragment.ImageDetailFragment"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--/>-->
     </com.xiaomolongstudio.wewin.utils.dragLayout.MainLayout>
 
 </com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout>

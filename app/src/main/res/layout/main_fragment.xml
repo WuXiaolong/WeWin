@@ -1,20 +1,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <com.etsy.android.grid.StaggeredGridView
-        android:id="@+id/grid_view"
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        android:id="@+id/pullLoadMoreRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:column_count="@integer/grid_column_count"
-        android:visibility="gone"
-        app:item_margin="8dp" />
+        android:layout_margin="10dp" />
 
 </FrameLayout>

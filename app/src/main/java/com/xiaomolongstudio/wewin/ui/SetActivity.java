@@ -13,8 +13,6 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.update.UmengUpdateAgent;
@@ -37,8 +35,8 @@ public class SetActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
         initView();
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setTitle("设置");
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setTitle("设置");
     }
 
     private void initView() {
@@ -163,11 +161,6 @@ public class SetActivity extends Activity implements OnClickListener {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-                                        SetActivity.this).build();
-                                ImageLoader.getInstance().init(config);
-                                ImageLoader imageLoader = ImageLoader.getInstance();
-                                imageLoader.clearDiskCache();
                                 Toast.makeText(SetActivity.this, "清除成功",
                                         Toast.LENGTH_LONG).show();
                                 dialog.dismiss();

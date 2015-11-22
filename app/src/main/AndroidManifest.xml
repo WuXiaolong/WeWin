@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xiaomolongstudio.wewin">
+    package="com.xiaomolongstudio.wewin" >
 
     <!-- 友盟 -->
     <!-- 统计 -->
@@ -34,29 +34,18 @@
     <!-- 友盟 -->
 
 
-    <!-- 芒果 -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!-- 芒果 -->
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <!--tools:replace="android:icon, android:theme"-->
+        android:theme="@style/AppTheme" >
+
+        <!-- tools:replace="android:icon, android:theme" -->
         <activity
             android:name=".ui.WelcomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen">
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -113,7 +102,7 @@
         <receiver
             android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
             android:exported="false" />
-        <receiver android:name="com.umeng.message.RegistrationReceiver">
+        <receiver android:name="com.umeng.message.RegistrationReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -123,7 +112,7 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.umeng.message.UmengBroadcastReceiver">
+        <receiver android:name="com.umeng.message.UmengBroadcastReceiver" >
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.RECEIVE" />
             </intent-filter>
@@ -138,7 +127,7 @@
         <service
             android:name="com.umeng.message.UmengService"
             android:exported="true"
-            android:process=":umengService_v1">
+            android:process=":umengService_v1" >
             <intent-filter>
                 <action android:name="com.xiaomolongstudio.wewin.intent.action.START" />
             </intent-filter>
@@ -152,7 +141,7 @@
         <service
             android:name="org.android.agoo.service.ElectionService"
             android:exported="true"
-            android:process=":umengService_v1">
+            android:process=":umengService_v1" >
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.ELECTION_V2" />
             </intent-filter>
@@ -161,32 +150,8 @@
         <!-- V1.3.0添加的service，负责下载通知的资源 -->
         <service android:name="com.umeng.message.UmengDownloadResourceService" />
         <!-- 友盟 -->
-        <!-- Mogo -->
-        <!-- 声明Mogo的Activity -->
-        <activity
-            android:name="com.adsmogo.adview.AdsMogoWebView"
-            android:configChanges="orientation|keyboardHidden|screenSize|keyboard|keyboardHidden"
-            android:label="@string/app_name" />
-        <!-- 注册Service，应用下载所需 -->
-        <service
-            android:name="com.adsmogo.controller.service.UpdateService"
-            android:exported="true"
-            android:process=":remote" />
-        <!-- 注册Service，应用被安装所用 -->
-        <service
-            android:name="com.adsmogo.controller.service.CountService"
-            android:exported="true"
-            android:process=":remote" />
-        <!-- 声明Mogo的Activity end -->
-
-
-        <!-- 添加百度应用详情Activity -->
-        <!-- 注册AppActivity -->
-        <activity
-            android:name="com.baidu.mobads.AppActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation" />
-        <!-- 添加百度应用详情Activity end -->
-        <!-- Mogo -->
+        <activity android:name=".ui.ShowImageActivity" >
+        </activity>
     </application>
 
 </manifest>

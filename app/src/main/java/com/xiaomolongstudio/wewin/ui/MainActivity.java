@@ -2,27 +2,19 @@ package com.xiaomolongstudio.wewin.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adsmogo.adapters.AdsMogoCustomEventPlatformEnum;
-import com.adsmogo.adview.AdsMogoLayout;
-import com.adsmogo.controller.listener.AdsMogoListener;
-import com.adsmogo.util.AdsMogoSize;
 import com.nineoldandroids.view.ViewHelper;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
@@ -31,9 +23,7 @@ import com.umeng.fb.FeedbackAgent;
 import com.umeng.message.PushAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.xiaomolongstudio.wewin.R;
-import com.xiaomolongstudio.wewin.fragment.ImageDetailFragment;
 import com.xiaomolongstudio.wewin.fragment.MainFragment;
-import com.xiaomolongstudio.wewin.utils.AppConfig;
 import com.xiaomolongstudio.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout;
 import com.xiaomolongstudio.wewin.utils.dragLayout.DragLayout.DragListener;
@@ -50,7 +40,6 @@ public class MainActivity extends BaseActivity {
 
 
     private String[] mPlanetTitles;
-    private ImageDetailFragment imageDetailFragment;
     @InjectView(R.id.left_drawer)
     ListView mDrawerList;
     @InjectView(R.id.dl)
@@ -71,21 +60,10 @@ public class MainActivity extends BaseActivity {
         ButterKnife.inject(this);
         initDragLayout();
         initView();
-        initMogo();
         initUmeng();
-        initImageDetail();
 
     }
 
-    /**
-     * 图片详情
-     */
-    private void initImageDetail() {
-        imageDetailFragment = (ImageDetailFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.main_image_fragment);
-        getSupportFragmentManager().beginTransaction()
-                .hide(imageDetailFragment).commit();
-    }
 
     private void initUmeng() {
         // 用户反馈
@@ -161,35 +139,19 @@ public class MainActivity extends BaseActivity {
     private Fragment mCurrentFragment = new Fragment();
 
     public void switchFragment(Fragment newFragment, Fragment oldFragment, String url) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
-                .beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
         args.putString("url", url);
         newFragment.setArguments(args);
-        fragmentTransaction
-                .replace(R.id.content_frame, newFragment).commit();
+        fragmentTransaction.replace(R.id.content_frame, newFragment).commit();
 //        if (newFragment.isAdded()) {
-        // Log.i("wxl", oldFragment + "isAdded");
-//            fragmentTransaction.hide(oldFragment).show(newFragment).commit();
+//            Log.i("wxl", oldFragment + "isAdded");
+//            fragmentTransaction.hide(mCurrentFragment).show(newFragment).commit();
 //        } else {
-        // Log.i("wxl", newFragment + "not isAdded");
-//        fragmentTransaction.hide(oldFragment)
-//                .add(R.id.content_frame, newFragment).commit();
+//            Log.i("wxl", newFragment + "not isAdded");
+//            fragmentTransaction.hide(mCurrentFragment).add(R.id.content_frame, newFragment).commit();
 //        }
         mCurrentFragment = newFragment;
-    }
-
-    public void showImageFragment(boolean show, String imgTxt, String imgUrl) {
-        // showActionbarWithTabs(!show);
-        if (show) {
-            getSupportFragmentManager().beginTransaction()
-                    .show(imageDetailFragment).commit();
-            imageDetailFragment.setImgData(imgTxt, imgUrl);
-        } else {
-            getSupportFragmentManager().beginTransaction()
-                    .hide(imageDetailFragment).commit();
-        }
-
     }
 
 
@@ -252,125 +214,24 @@ public class MainActivity extends BaseActivity {
         MobclickAgent.onPause(this);
     }
 
-    protected void onDestroy() {
-        AdsMogoLayout.clear();
-        // 清除 adsMogoLayout 实例 所产生用于多线程缓冲机制的线程池
-        // 此方法请不要轻易调用，如果调用时间不当，会造成无法统计计数
-        // adsMogoLayoutCode.clearThread();
-        super.onDestroy();
-    }
 
     long exitTime = 0;
 
     @Override
     public void onBackPressed() {
-        if (imageDetailFragment.canBack()) {
-            imageDetailFragment.goBack();
-
+//        if (imageDetailFragment.canBack()) {
+//            imageDetailFragment.goBack();
+//
+//        } else {
+        if (System.currentTimeMillis() - exitTime > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
         } else {
-            if (System.currentTimeMillis() - exitTime > 2000) {
-                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                exitTime = System.currentTimeMillis();
-            } else {
-                finish();
-                System.exit(0);
-            }
-
-        }
-    }
-
-    private RelativeLayout adViewLayout, adLayout;
-    private ImageView adClose;
-    private Handler handler = null;
-
-    private void initMogo() {
-        // 创建属于主线程的handler
-        handler = new Handler();
-        adViewLayout = (RelativeLayout) findViewById(R.id.adViewLayout);
-        adLayout = (RelativeLayout) findViewById(R.id.adLayout);
-        adClose = (ImageView) findViewById(R.id.adClose);
-        // 设置请求广告的尺寸大小
-        AdsMogoLayout adsMogoLayoutCode = new AdsMogoLayout(this,
-                AppConfig.KEY_AD_MOGO, AdsMogoSize.AdsMogoAutomaticScreen);
-        adsMogoLayoutCode.setAdsMogoListener(new AdsMogoListener() {
-
-            @Override
-            public void onRequestAd(String arg0) {
-//                Log.d("wxl", "onRequestAd");
-            }
-
-            @Override
-            public void onReceiveAd(ViewGroup arg0, String arg1) {
-
-//                Log.d("wxl", "onReceiveAd");
-                new Thread() {
-                    public void run() {
-                        handler.post(runnableUi);
-                    }
-                }.start();
-            }
-
-            @Override
-            public void onRealClickAd() {
-//                Log.d("wxl", "onRealClickAd");
-
-            }
-
-            @Override
-            public void onInitFinish() {
-//                Log.d("wxl", "onInitFinish");
-
-            }
-
-            @Override
-            public void onFailedReceiveAd() {
-//                Log.d("wxl", "onFailedReceiveAd");
-                adLayout.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onCloseMogoDialog() {
-//                Log.d("wxl", "onCloseMogoDialog");
-            }
-
-            @Override
-            public boolean onCloseAd() {
-//                Log.d("wxl", "onCloseAd");
-                return false;
-            }
-
-            @Override
-            public void onClickAd(String arg0) {
-                Log.d("wxl", "onClickAd");
-            }
-
-            @Override
-            public Class<?> getCustomEvemtPlatformAdapterClass(
-                    AdsMogoCustomEventPlatformEnum arg0) {
-                return null;
-            }
-        });
-        // 如果该平台无设置的广告尺寸或当前屏幕无法展示该尺寸大小的广告，isOtherSizes为true时
-        // 将请求其他尺寸广告，为false时则认为该广告请求失败
-        adsMogoLayoutCode.isOtherSizes = true;
-        adViewLayout.addView(adsMogoLayoutCode);
-        adClose.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                adLayout.setVisibility(View.GONE);
-
-            }
-
-        });
-    }
-
-    // 构建Runnable对象，在runnable中更新界面
-    Runnable runnableUi = new Runnable() {
-        @Override
-        public void run() {
-            // 更新界面
-            adLayout.setVisibility(View.VISIBLE);
+            finish();
+            System.exit(0);
         }
 
-    };
+    }
+
+
 }
