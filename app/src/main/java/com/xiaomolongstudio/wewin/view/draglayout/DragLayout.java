@@ -235,7 +235,8 @@ public class DragLayout extends FrameLayout {
             ViewHelper.setScaleX(iv_shadow, f1 * 1.4f * (1 - percent * 0.12f));
             ViewHelper.setScaleY(iv_shadow, f1 * 1.85f * (1 - percent * 0.12f));
         }
-        getBackground().setColorFilter(evaluate(percent, Color.BLACK, Color.TRANSPARENT), Mode.SRC_OVER);
+        if (getBackground() != null)
+            getBackground().setColorFilter(evaluate(percent, Color.BLACK, Color.TRANSPARENT), Mode.SRC_OVER);
     }
 
     private Integer evaluate(float fraction, Object startValue, Integer endValue) {

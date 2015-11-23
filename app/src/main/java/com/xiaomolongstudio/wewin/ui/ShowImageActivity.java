@@ -1,5 +1,6 @@
 package com.xiaomolongstudio.wewin.ui;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -26,9 +27,13 @@ public class ShowImageActivity extends AppCompatActivity {
     @InjectView(R.id.viewPager)
     ViewPager mViewPager;
     int position;
-
+    public static final String TRANSIT_PIC = "picture";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//
+//        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+//        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS ); }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_image);
         ButterKnife.inject(this);
@@ -38,6 +43,15 @@ public class ShowImageActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(2);
         mViewPager.setAdapter(new ImageAdapter());
         mViewPager.setCurrentItem(position);
+//        setEnterSharedElementCallback(new SharedElementCallback() {
+//            @Override
+//            public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
+//                MainModel mainModel = mMainList.get(mViewPager.getCurrentItem());
+//                MainFragment fragment = (MainFragment) new ImageAdapter().instantiateItem(mViewPager, mViewPager.getCurrentItem());
+//                sharedElements.clear();
+////                sharedElements.put(mainModel.getIamgeUrl(), fragment.getSharedElement());
+//            }
+//        });
     }
 
     /**
@@ -78,10 +92,10 @@ public class ShowImageActivity extends AppCompatActivity {
             final TextView introduction = (TextView) view.findViewById(R.id.introduction);
             introduction.setText(mMainList.get(position).getTitle());
             final PhotoView imageView = (PhotoView) view.findViewById(R.id.imageView);
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                imageView.setTransitionName("imageshow" + position);
-//                introduction.setTransitionName("title" + position);
-//            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                imageView.setTransitionName(imageUrl);
+//                introduction.setTransitionName(mMainList.get(position).getTitle());
+            }
             Picasso.with(getApplicationContext()).load(imageUrl)
                     .into(imageView, new Callback() {
                         @Override

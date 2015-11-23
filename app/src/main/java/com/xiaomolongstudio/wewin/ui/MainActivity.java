@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,7 +55,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//
+//            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+//            getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+//        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
@@ -104,6 +109,14 @@ public class MainActivity extends BaseActivity {
         main_title = (ShimmerTextView) findViewById(R.id.main_title);
         Shimmer shimmer = new Shimmer();
         shimmer.start(main_title);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(null);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,

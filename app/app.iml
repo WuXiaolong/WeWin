@@ -99,11 +99,8 @@
     <orderEntry type="library" exported="" name="recyclerview-v7-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.1.0" level="project" />
-    <orderEntry type="library" exported="" name="Baidu_MobAds_SDK_Agg_3.44" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.9.3" level="project" />
     <orderEntry type="library" exported="" name="PhotoView-1.2.4" level="project" />
     <orderEntry type="library" exported="" name="butterknife-5.1.1" level="project" />
-    <orderEntry type="library" exported="" name="AdsMOGO_Android_SDK_1.5.0" level="project" />
     <orderEntry type="library" exported="" name="com.umeng.message.lib" level="project" />
     <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />
     <orderEntry type="library" exported="" name="mobisageSDK" level="project" />

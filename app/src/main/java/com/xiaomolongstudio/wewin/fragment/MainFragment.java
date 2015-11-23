@@ -32,7 +32,7 @@ public class MainFragment extends Fragment {
     @InjectView(R.id.pullLoadMoreRecyclerView)
     PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;
     MainPresenter mMainPresenter;
-
+    private Bundle reenterState;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +71,8 @@ public class MainFragment extends Fragment {
 
             @Override
             public void onLoadMore() {
-                mPage = mPage + 1;                mMainPresenter.loadData(getUrl(), hasTitle);
+                mPage = mPage + 1;
+                mMainPresenter.loadData(getUrl(), hasTitle);
 
             }
         });
@@ -103,7 +104,6 @@ public class MainFragment extends Fragment {
         });
         mMainPresenter.loadData(getUrl(), hasTitle);
     }
-
 
     private String getUrl() {
         return url + String.valueOf(mPage);

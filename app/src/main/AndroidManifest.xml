@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xiaomolongstudio.wewin" >
+    package="com.xiaomolongstudio.wewin">
 
     <!-- 友盟 -->
     <!-- 统计 -->
@@ -38,14 +38,14 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <!-- tools:replace="android:icon, android:theme" -->
         <activity
             android:name=".ui.WelcomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" >
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,7 +55,12 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+           />
+        <activity
+            android:name=".ui.ShowImageActivity"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".ui.SetActivity"
             android:label="@string/app_name"
@@ -102,7 +107,7 @@
         <receiver
             android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
             android:exported="false" />
-        <receiver android:name="com.umeng.message.RegistrationReceiver" >
+        <receiver android:name="com.umeng.message.RegistrationReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -112,7 +117,7 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.umeng.message.UmengBroadcastReceiver" >
+        <receiver android:name="com.umeng.message.UmengBroadcastReceiver">
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.RECEIVE" />
             </intent-filter>
@@ -127,7 +132,7 @@
         <service
             android:name="com.umeng.message.UmengService"
             android:exported="true"
-            android:process=":umengService_v1" >
+            android:process=":umengService_v1">
             <intent-filter>
                 <action android:name="com.xiaomolongstudio.wewin.intent.action.START" />
             </intent-filter>
@@ -141,7 +146,7 @@
         <service
             android:name="org.android.agoo.service.ElectionService"
             android:exported="true"
-            android:process=":umengService_v1" >
+            android:process=":umengService_v1">
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.ELECTION_V2" />
             </intent-filter>
@@ -150,8 +155,7 @@
         <!-- V1.3.0添加的service，负责下载通知的资源 -->
         <service android:name="com.umeng.message.UmengDownloadResourceService" />
         <!-- 友盟 -->
-        <activity android:name=".ui.ShowImageActivity" >
-        </activity>
+
     </application>
 
 </manifest>

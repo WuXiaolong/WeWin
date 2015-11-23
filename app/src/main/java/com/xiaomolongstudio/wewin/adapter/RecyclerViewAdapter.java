@@ -2,6 +2,9 @@ package com.xiaomolongstudio.wewin.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,10 +59,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         } else {
             holder.title.setVisibility(View.GONE);
         }
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            holder.imageView.setTransitionName("imageshow" + position);
-//            holder.title.setTransitionName("title" + position);
-//        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            holder.imageView.setTransitionName(mMainList.get(position).getIamgeUrl());
+//            holder.title.setTransitionName(mMainList.get(position).getTitle());
+        }
     }
 
     @Override
@@ -76,26 +79,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(activity, ShowImageActivity.class);
-                    intent.putExtra("mainList", (Serializable) mMainList);
-                    intent.putExtra("position", getLayoutPosition());
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                        Pair<View, String> pair1 = Pair.create((View) imageView, "imageshow" + getLayoutPosition());
-//                        Pair<View, String> pair2 = Pair.create((View) title, "title" + getLayoutPosition());
-//                        ActivityOptionsCompat options = ActivityOptionsCompat
-//                                .makeSceneTransitionAnimation(activity, pair1, pair2);
-//                        activity.startActivity(intent, options.toBundle());
-//                    } else
-//
-//                    {
-                        activity.startActivity(intent);
+            itemView.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(activity, ShowImageActivity.class);
+                            intent.putExtra("mainList", (Serializable) mMainList);
+                            intent.putExtra("position", getLayoutPosition());
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                                Pair<View, String> pair1 = Pair.create((View) imageView, mMainList.get(getLayoutPosition()).getIamgeUrl());
+//                                Pair<View, String> pair2 = Pair.create((View) title, mMainList.get(getLayoutPosition()).getTitle());
+//                                ActivityOptionsCompat options;
+//                                options = ActivityOptionsCompat
+//                                        .makeSceneTransitionAnimation(activity, pair1, pair2);
+                                ActivityOptionsCompat options = ActivityOptionsCompat
+                                        .makeSceneTransitionAnimation(activity, imageView, mMainList.get(getLayoutPosition()).getIamgeUrl());
+                                ActivityCompat.startActivity(activity,intent, options.toBundle());
+                            } else
+                                activity.startActivity(intent);
+                            {
+
+                            }
+
+                        }
                     }
 
-//                }
-            });
+            );
         }
     }
 }
