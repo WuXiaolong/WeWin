@@ -1,7 +1,6 @@
 package com.xiaomolongstudio.wewin.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,23 +15,21 @@ import com.xiaomolongstudio.wewin.mvp.MainView;
 
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 
 /**
  * 美图美句
  *
  * @author 小尛龙
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
     private RecyclerViewAdapter mRecyclerViewAdapter = null;
     private int mPage = 1;
     private String url = "http://www.juzimi.com/meitumeiju?page=";
     private boolean hasTitle = true;
-    @InjectView(R.id.pullLoadMoreRecyclerView)
+    @Bind(R.id.pullLoadMoreRecyclerView)
     PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;
     MainPresenter mMainPresenter;
-    private Bundle reenterState;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +54,8 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this, view);
         mPullLoadMoreRecyclerView.setStaggeredGridLayout(2);//参数为列数
+        mPullLoadMoreRecyclerView.setRefreshing(true);
         mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
@@ -89,11 +86,6 @@ public class MainFragment extends Fragment {
                 }
             }
 
-            @Override
-            public void showProgress() {
-                Log.d("wxl", "showProgress");
-                mPullLoadMoreRecyclerView.setRefreshing(true);
-            }
 
             @Override
             public void hideProgress() {
@@ -110,19 +102,10 @@ public class MainFragment extends Fragment {
     }
 
 
-//    public void onItemClick(AdapterView<?> adapterView, View view,
-//                            int position, long id) {
-//        if (hasTitle) {
-//            ((MainActivity) getActivity()).showImageFragment(true, mData.get(position).get("title").toString(), mData.get(position).get("imgUrl").toString());
-//        } else {
-//            ((MainActivity) getActivity()).showImageFragment(true, "", mData.get(position).get("imgUrl").toString());
-//        }
-//    }
-
-
     @Override
     public void onDestroy() {
         mMainPresenter.detachView();
         super.onDestroy();
     }
+
 }

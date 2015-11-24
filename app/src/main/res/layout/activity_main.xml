@@ -2,7 +2,8 @@
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    android:fitsSystemWindows="true">
 
     <include layout="@layout/menu_layout" />
 

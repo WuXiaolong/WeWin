@@ -17,11 +17,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo.State;
 import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.support.v7.graphics.Palette;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -37,6 +39,31 @@ import java.util.List;
  * @since 2014.5.4.14：01
  */
 public class AppUtils {
+    public static int getPaletteColor(Bitmap bitmap) {
+        int color = -12417291;
+        Palette palette = Palette.from(bitmap).generate();
+        Palette.Swatch vibrant = palette.getVibrantSwatch();
+        Palette.Swatch vibrantdark = palette.getDarkVibrantSwatch();
+        Palette.Swatch vibrantlight = palette.getLightVibrantSwatch();
+        Palette.Swatch Muted = palette.getMutedSwatch();
+        Palette.Swatch Muteddark = palette.getDarkMutedSwatch();
+        Palette.Swatch Mutedlight = palette.getLightMutedSwatch();
+
+        if (vibrant != null) {
+            color = vibrant.getRgb();
+        } else if (vibrantdark != null) {
+            color = vibrantdark.getRgb();
+        } else if (vibrantlight != null) {
+            color = vibrantlight.getRgb();
+        } else if (Muted != null) {
+            color = Muted.getRgb();
+        } else if (Muteddark != null) {
+            color = Muteddark.getRgb();
+        } else if (Mutedlight != null) {
+            color = Mutedlight.getRgb();
+        }
+        return color;
+    }
 
     /**
      * 关闭键盘事件

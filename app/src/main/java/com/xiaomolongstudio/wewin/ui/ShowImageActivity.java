@@ -2,56 +2,65 @@ package com.xiaomolongstudio.wewin.ui;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.xiaomolongstudio.wewin.R;
+import com.xiaomolongstudio.wewin.fragment.ShowImageFragment;
 import com.xiaomolongstudio.wewin.mvp.MainModel;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import uk.co.senab.photoview.PhotoView;
 
-public class ShowImageActivity extends AppCompatActivity {
+public class ShowImageActivity extends BaseActivity {
     private List<MainModel> mMainList;
-    @InjectView(R.id.viewPager)
+    @Bind(R.id.viewPager)
     ViewPager mViewPager;
     int position;
-    public static final String TRANSIT_PIC = "picture";
+    int color;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//
-//        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-//        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS ); }
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_image);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         mMainList = (List<MainModel>) this.getIntent().getSerializableExtra("mainList");
         position = this.getIntent().getIntExtra("position", 0);
+        color = this.getIntent().getIntExtra("color", getResources().getColor(R.color.red));
+        setStatusBarColor(color);
         mViewPager.setPageTransformer(true, new CardTransformer(0.8f));
-        mViewPager.setOffscreenPageLimit(2);
-        mViewPager.setAdapter(new ImageAdapter());
+        mViewPager.setAdapter(new FragmentPagerAdapter());
         mViewPager.setCurrentItem(position);
 //        setEnterSharedElementCallback(new SharedElementCallback() {
 //            @Override
 //            public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
 //                MainModel mainModel = mMainList.get(mViewPager.getCurrentItem());
-//                MainFragment fragment = (MainFragment) new ImageAdapter().instantiateItem(mViewPager, mViewPager.getCurrentItem());
+//                ShowImageFragment fragment = (ShowImageFragment) new FragmentPagerAdapter().instantiateItem(mViewPager, mViewPager.getCurrentItem());
 //                sharedElements.clear();
-////                sharedElements.put(mainModel.getIamgeUrl(), fragment.getSharedElement());
+//                sharedElements.put(mainModel.getIamgeUrl(), fragment.getSharedElement());
 //            }
 //        });
+    }
+
+    public void setStatusBarColor(int statusBarColor) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(statusBarColor);
+        }
     }
 
     /**
@@ -80,22 +89,36 @@ public class ShowImageActivity extends AppCompatActivity {
 
     }
 
-    private class ImageAdapter extends PagerAdapter {
+    private class FragmentPagerAdapter extends FragmentStatePagerAdapter {
+
+        public FragmentPagerAdapter() {
+            super(getSupportFragmentManager());
+        }
+
+        @Override
+        public int getCount() {
+            return mMainList.size();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return ShowImageFragment.newFragment(mMainList.get(position), position);
+        }
+
+    }
+
+    private class ImageAdapter extends android.support.v4.view.PagerAdapter {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             final String imageUrl = mMainList.get(position).getIamgeUrl();
-
             final View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.image_detail_item, container, false);
-
             final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
             final TextView introduction = (TextView) view.findViewById(R.id.introduction);
             introduction.setText(mMainList.get(position).getTitle());
             final PhotoView imageView = (PhotoView) view.findViewById(R.id.imageView);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                imageView.setTransitionName(imageUrl);
-//                introduction.setTransitionName(mMainList.get(position).getTitle());
-            }
+            ViewCompat.setTransitionName(imageView, mMainList.get(position).getTitle());
+//            ViewCompat.setTransitionName(introduction, mMainList.get(position).getTitle());
             Picasso.with(getApplicationContext()).load(imageUrl)
                     .into(imageView, new Callback() {
                         @Override
@@ -130,4 +153,5 @@ public class ShowImageActivity extends AppCompatActivity {
             return view == object;
         }
     }
+
 }

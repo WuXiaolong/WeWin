@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/set"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -122,10 +125,10 @@
                 android:id="@+id/sponsored_author"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
-                android:visibility="gone"
                 android:background="@drawable/shape_widget_bg"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -304,8 +307,8 @@
                 android:layout_height="45dp"
                 android:background="@drawable/shape_widget_bg"
                 android:paddingBottom="10dp"
-                android:visibility="gone"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -365,9 +368,9 @@
                 android:id="@+id/sign_out"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
-                android:visibility="gone"
                 android:layout_margin="10dip"
-                android:background="@drawable/shape_red">
+                android:background="@drawable/shape_red"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/login_txt"
@@ -381,4 +384,4 @@
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

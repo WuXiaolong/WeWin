@@ -24,7 +24,6 @@ public class MainPresenter implements Presenter<MainView> {
 
     public void loadData(String url, final boolean hasTitle) {
         Log.d("wxl", "url=" + url);
-        mMainView.showProgress();
         AsyncHttpUtil.get(url, null, new AsyncHttpResponseHandler() {
 
             @Override

@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.umeng.analytics.MobclickAgent;
 import com.xiaomolongstudio.wewin.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * 帮助说明
@@ -18,14 +18,13 @@ import butterknife.InjectView;
  * 
  */
 public class HelpActivity extends BaseActivity {
-    @InjectView(R.id.introduction)
+    @Bind(R.id.introduction)
     TextView introduction;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.help);
-        ButterKnife.inject(this);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setTitle("剩友圈");
+        ButterKnife.bind(this);
+		initToolbar("剩友圈");
         introduction.setText(Html.fromHtml(getResources().getString(
                 R.string.introduction)));
 

@@ -29,8 +29,8 @@ import com.xiaomolongstudio.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.view.draglayout.DragLayout;
 import com.xiaomolongstudio.wewin.view.draglayout.DragLayout.DragListener;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * 首页，侧滑菜单
@@ -41,32 +41,26 @@ public class MainActivity extends BaseActivity {
 
 
     private String[] mPlanetTitles;
-    @InjectView(R.id.left_drawer)
+    @Bind(R.id.left_drawer)
     ListView mDrawerList;
-    @InjectView(R.id.dl)
-    DragLayout dragLayout;
-    //    @InjectView(R.id.main_title)
+    @Bind(R.id.dl)
+    DragLayout mDragLayout;
+    @Bind(R.id.main_title)
     ShimmerTextView main_title;
-    @InjectView(R.id.tv_set)
+    @Bind(R.id.tv_set)
     TextView tv_set;
-    @InjectView(R.id.iv_icon)
+    @Bind(R.id.iv_icon)
     ImageView iv_icon;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//
-//            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-//            getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
-//        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initDragLayout();
         initView();
         initUmeng();
-
     }
 
 
@@ -86,7 +80,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initDragLayout() {
-        dragLayout.setmDragListener(new DragListener() {
+        mDragLayout.setmDragListener(new DragListener() {
             public void onOpen() {
                 // mDrawerList.smoothScrollToPosition(new Random().nextInt(30));
             }
@@ -106,7 +100,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
-        main_title = (ShimmerTextView) findViewById(R.id.main_title);
         Shimmer shimmer = new Shimmer();
         shimmer.start(main_title);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -125,11 +118,12 @@ public class MainActivity extends BaseActivity {
 
         iv_icon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                dragLayout.open();
+                mDragLayout.open();
             }
         });
         tv_set.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                mDragLayout.close();
                 startActivity(new Intent(MainActivity.this, SetActivity.class));
             }
         });
@@ -194,7 +188,7 @@ public class MainActivity extends BaseActivity {
         // setTitle(mPlanetTitles[position]);
         main_title.setText(mPlanetTitles[position]);
         // mDrawerLayout.closeDrawer(mDrawerList);
-        dragLayout.close();
+        mDragLayout.close();
     }
 
 
@@ -241,7 +235,7 @@ public class MainActivity extends BaseActivity {
             exitTime = System.currentTimeMillis();
         } else {
             finish();
-            System.exit(0);
+//            System.exit(0);
         }
 
     }

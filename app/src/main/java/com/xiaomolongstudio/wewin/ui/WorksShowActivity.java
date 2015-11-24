@@ -20,8 +20,7 @@ public class WorksShowActivity extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.works_show);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setTitle("作品秀");
+		initToolbar("作品秀");
 		findViewById(R.id.weiyan).setOnClickListener(this);
 		findViewById(R.id.jiong).setOnClickListener(this);
 		findViewById(R.id.hua).setOnClickListener(this);

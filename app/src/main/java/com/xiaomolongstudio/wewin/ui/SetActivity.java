@@ -1,7 +1,6 @@
 package com.xiaomolongstudio.wewin.ui;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,16 +26,17 @@ import com.xiaomolongstudio.wewin.utils.AppUtils;
  *
  * @author 小尛龙
  */
-public class SetActivity extends Activity implements OnClickListener {
+public class SetActivity extends BaseActivity implements OnClickListener {
     private TextView version, login_txt;
 
     @SuppressLint("NewApi")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
+        initToolbar("设置");
         initView();
 //        getActionBar().setDisplayHomeAsUpEnabled(true);
-//        getActionBar().setTitle("设置");
+//        getActionBar().setTitle();
     }
 
     private void initView() {

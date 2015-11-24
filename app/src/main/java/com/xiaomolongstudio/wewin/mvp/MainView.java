@@ -8,7 +8,6 @@ import java.util.List;
 public interface MainView {
     void showData(List<MainModel> mainList);
 
-    void showProgress();
 
     void hideProgress();
 }

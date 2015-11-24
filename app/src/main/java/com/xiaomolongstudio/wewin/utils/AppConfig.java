@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import com.xiaomolongstudio.wewin.fragment.MainFragment;
 
 public class AppConfig {
+    public static final String COLOR = "color";
+    public static final String TRANSIT_PIC = "picture";
+    public static final String INDEX = "index";
     public static int USER_NICKNAME_LAYOUT = 1;
     public static int USER_EMAIL_LAYOUT = 2;
     public static int USER_INTRODUCTION_LAYOUT = 3;
