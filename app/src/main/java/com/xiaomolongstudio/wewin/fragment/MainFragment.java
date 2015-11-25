@@ -59,9 +59,6 @@ public class MainFragment extends BaseFragment {
         mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
-                if (mRecyclerViewAdapter != null) {
-                    mRecyclerViewAdapter.getmMainList().clear();
-                }
                 mPage = 1;
                 mMainPresenter.loadData(getUrl(), hasTitle);
             }
@@ -81,6 +78,9 @@ public class MainFragment extends BaseFragment {
                     mRecyclerViewAdapter = new RecyclerViewAdapter(getActivity(), mainList, hasTitle);
                     mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
                 } else {
+                    if (mPage == 1) {
+                        mRecyclerViewAdapter.getmMainList().clear();
+                    }
                     mRecyclerViewAdapter.getmMainList().addAll(mainList);
                     mRecyclerViewAdapter.notifyDataSetChanged();
                 }
