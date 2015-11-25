@@ -8,9 +8,8 @@ Android技术交流QQ群
 -->
 > 此项目当初为了练手Android studio beta版，现在进行重构和优化，采用MPV模式。
 
-## 剩者为王
-
-据说这个APP程序猿爱不释手，集成了github主流的库是如何使用的，项目开源，将持续更新，欢迎Star。
+## 效果预览
+![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
 
 ## APK演示
 
@@ -22,11 +21,6 @@ Android技术交流QQ群
 [魅族应用商店](http://app.meizu.com/apps/public/detail?package_name=com.xiaomolongstudio.wewin)
 
 [小米应用商店](http://app.mi.com/detail/67787)
-
-
-## 效果预览
-![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
-
 
 ## 用到的开源库
 目前用到的一些开源库，感谢作者无私开源和服务。
