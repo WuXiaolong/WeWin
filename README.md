@@ -36,6 +36,7 @@ Android技术交流QQ群
 * [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)，3.0以下兼容动画
 * [AndroidMVPSample](https://github.com/WuXiaolong/AndroidMVPSample)，Android MVP 实例
 * 友盟，包括友盟的统计、升级、意见反馈、推送
+* 数据来源：[http://www.juzimi.com/meitumeiju?page=1](http://www.juzimi.com/meitumeiju?page=1)
 
 
 ## 更多交流
