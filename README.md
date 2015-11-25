@@ -6,7 +6,7 @@
 Android技术交流QQ群
 ③群：370527306
 -->
-> 此项目当初为了练手Android studio beta版，现在进行重构和优化，采用MPV模式。
+> 此项目当初为了练手Android studio beta版，现进行重构和优化，采用MVP模式。
 
 ## 效果预览
 ![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
