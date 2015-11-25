@@ -15,7 +15,7 @@ Android技术交流QQ群
 
 项目apk文件夹下附带安装包
 
-[点击下载](https://github.com/WuXiaolong/WeWin/raw/master/apk/app-debug.apk)
+[点击下载apk](https://github.com/WuXiaolong/WeWin/raw/master/apk/app-debug.apk)
 
 ## 应用市场
 [魅族应用商店](http://app.meizu.com/apps/public/detail?package_name=com.xiaomolongstudio.wewin)
