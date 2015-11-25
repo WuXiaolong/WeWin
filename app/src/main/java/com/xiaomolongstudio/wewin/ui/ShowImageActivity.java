@@ -29,8 +29,8 @@ public class ShowImageActivity extends BaseActivity {
     private List<MainModel> mMainList;
     @Bind(R.id.viewPager)
     ViewPager mViewPager;
-    int position;
-    int color;
+    private int position;
+    private int color;
 
 
     @Override

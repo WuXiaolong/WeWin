@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.nineoldandroids.view.ViewHelper;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
-import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.message.PushAgent;
 import com.umeng.update.UmengUpdateAgent;
@@ -36,6 +35,8 @@ import butterknife.ButterKnife;
  * 首页，侧滑菜单
  *
  * @author 小尛龙
+ *         github:https://github.com/WuXiaolong
+ *         新浪微博：http://weibo.com/u/2175011601
  */
 public class MainActivity extends BaseActivity {
 
@@ -100,6 +101,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
+        main_title.setReflectionColor(R.color.primary);
         Shimmer shimmer = new Shimmer();
         shimmer.start(main_title);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -123,7 +125,6 @@ public class MainActivity extends BaseActivity {
         });
         tv_set.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                mDragLayout.close();
                 startActivity(new Intent(MainActivity.this, SetActivity.class));
             }
         });
@@ -211,16 +212,6 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
-
 
     long exitTime = 0;
 
@@ -231,7 +222,7 @@ public class MainActivity extends BaseActivity {
 //
 //        } else {
         if (System.currentTimeMillis() - exitTime > 2000) {
-            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.exit_text, Toast.LENGTH_SHORT).show();
             exitTime = System.currentTimeMillis();
         } else {
             finish();

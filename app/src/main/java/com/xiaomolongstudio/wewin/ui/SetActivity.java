@@ -12,7 +12,6 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
@@ -27,16 +26,14 @@ import com.xiaomolongstudio.wewin.utils.AppUtils;
  * @author 小尛龙
  */
 public class SetActivity extends BaseActivity implements OnClickListener {
-    private TextView version, login_txt;
+    private TextView version;
 
     @SuppressLint("NewApi")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
-        initToolbar("设置");
+        initToolbar(getString(R.string.set));
         initView();
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
-//        getActionBar().setTitle();
     }
 
     private void initView() {
@@ -52,7 +49,6 @@ public class SetActivity extends BaseActivity implements OnClickListener {
         findViewById(R.id.help).setOnClickListener(this);
         findViewById(R.id.update).setOnClickListener(this);
         version = (TextView) findViewById(R.id.version);
-        login_txt = (TextView) findViewById(R.id.login_txt);
         version.setText("v" + AppUtils.getVersionName(this));
     }
 
@@ -196,17 +192,4 @@ public class SetActivity extends BaseActivity implements OnClickListener {
         }
     }
 
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
 }

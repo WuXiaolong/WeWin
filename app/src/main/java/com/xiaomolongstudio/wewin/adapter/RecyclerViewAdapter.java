@@ -55,8 +55,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Picasso.with(activity)
                 .load(mMainList.get(position).getIamgeUrl())
-                .placeholder(R.drawable.detail_content_temp_icon)
-                .error(R.drawable.detail_content_temp_icon)
+                .placeholder(R.drawable.downloading)
+                .error(R.drawable.downloading)
                 .into(holder.imageView);
         if (hasTitle) {
             holder.title.setVisibility(View.VISIBLE);

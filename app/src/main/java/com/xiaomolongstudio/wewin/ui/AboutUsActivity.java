@@ -1,6 +1,5 @@
 package com.xiaomolongstudio.wewin.ui;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -17,13 +16,12 @@ import com.xiaomolongstudio.wewin.utils.AppUtils;
 public class AboutUsActivity extends BaseActivity {
     private TextView versionName;
 
-    @SuppressLint("NewApi")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aboutus);
-        initToolbar("关于我们");
+        initToolbar(getString(R.string.aboutus));
         versionName = (TextView) findViewById(R.id.versionName);
-        versionName.setText("版本:" + AppUtils.getVersionName(this));
+        versionName.setText(getString(R.string.version) + AppUtils.getVersionName(this));
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -39,13 +37,5 @@ public class AboutUsActivity extends BaseActivity {
         }
     }
 
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
 
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
 }

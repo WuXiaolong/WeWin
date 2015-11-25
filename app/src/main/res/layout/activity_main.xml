@@ -42,7 +42,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:text="剩者为王"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
         </android.support.v7.widget.Toolbar>

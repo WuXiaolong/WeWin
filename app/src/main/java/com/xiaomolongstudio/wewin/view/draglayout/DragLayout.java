@@ -88,13 +88,8 @@ public class DragLayout extends FrameLayout {
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
-            if (xvel > 0) {
-                open();
-            } else if (xvel < 0) {
-                close();
-            } else if (releasedChild == mMainLayout && mMainLeftRange > mDragRange * 0.3) {
-                open();
-            } else if (releasedChild == mMenuLayout && mMainLeftRange > mDragRange * 0.7) {
+//            Log.d("wxl", "onViewReleased=mMainLeftRange=" + mMainLeftRange + ",mDragRange==" + mDragRange * 0.3 + ",xvel=" + xvel + ",yvel=" + yvel);
+            if (releasedChild == mMainLayout && xvel > 0 && mMainLeftRange > mDragRange * 0.3) {
                 open();
             } else {
                 close();

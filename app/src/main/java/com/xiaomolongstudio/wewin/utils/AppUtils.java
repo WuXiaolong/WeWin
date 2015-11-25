@@ -313,7 +313,7 @@ public class AppUtils {
             day = day - 1;
         }
         switch (day) {
-            case 6:
+            case 2:
                 initComment(activity);
                 break;
             default:

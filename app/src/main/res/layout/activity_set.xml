@@ -235,7 +235,8 @@
                 android:layout_height="45dp"
                 android:background="@drawable/shape_widget_bg"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -258,7 +259,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/update"
@@ -299,7 +301,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/update_log"

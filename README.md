@@ -1,44 +1,48 @@
+<!--
+一款小清新应用，包括美图美句、手写美句、经典对白。来吧，让我们尽情感受文艺范。
 
-剩者为王
-===========================
+此项目源码开源，将持续更新，欢迎Star，地址：https://github.com/WuXiaolong/WeWin
+
+Android技术交流QQ群
+③群：370527306
+-->
+> 此项目当初为了练手Android studio beta版，现在进行重构和优化，采用MPV模式。
+
+## 剩者为王
+
 据说这个APP程序猿爱不释手，集成了github主流的库是如何使用的，项目开源，将持续更新，欢迎Star。
 
-APK演示
-===========================
+## APK演示
+
 项目apk文件夹下附带安装包
 
 [点击下载](https://github.com/WuXiaolong/WeWin/raw/master/apk/app-debug.apk)
-<!--，或者扫描以下二维码下载：
 
-![](https://github.com/WuXiaolong/c/raw/master/screenshots/qrcode.png)
--->
+## 应用市场
+[魅族应用商店](http://app.meizu.com/apps/public/detail?package_name=com.xiaomolongstudio.wewin)
+[小米应用商店](http://app.mi.com/detail/67787)
 
-效果预览
-===========================
+
+## 效果预览
 ![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
 
-开发工具
-===========================
-Android Studio(1.0.2) + Gradle(1.12)
 
 用到的开源库
 ===========================
-目前用到的一些开源库，会持续更新。
+目前用到的一些开源库，感谢作者无私开源和服务。
 
-v1.1(更新于2014-11-19)
+* [PullLoadMoreRecyclerView](https://github.com/WuXiaolong/PullLoadMoreRecyclerView)，实现RecyclerView下拉刷新和上拉加载更多以及瀑布流效果
 * [Titanic](https://github.com/RomainPiel/Titanic)，TextView一闪一闪动画效果
-* 好评鼓励、推荐好友
 * [ButterKnife](https://github.com/JakeWharton/butterknife)，轻量级View注入框架，省去各种findViewById
-
-v1.0(更新于2014-10-17)
 * [PhotoView](https://github.com/chrisbanes/PhotoView)，点击放大缩小
-* [Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)，图片缓存机制
-* [AndroidStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid)，瀑布流
+* [picasso](https://github.com/square/picasso)，图片缓存机制
 * [android-async-http](https://github.com/loopj/android-async-http)，网络请求框架
 * 整体框架，侧滑菜单，类QQ效果。
 * [CustomShapeImageView](https://github.com/MostafaGazar/CustomShapeImageView)，各种圆角
+* [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)，3.0以下兼容动画
+* [AndroidMVPSample](https://github.com/WuXiaolong/AndroidMVPSample)，Android MVP 实例
 * 友盟，包括友盟的统计、升级、意见反馈、推送
-* 广告，作为一个程序猿，没有一点副业说不过去。
+
 
 ## 更多交流
 ### Android技术交流群
