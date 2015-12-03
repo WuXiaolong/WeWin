@@ -1,7 +1,6 @@
 package com.xiaomolongstudio.wewin.ui;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -49,19 +48,6 @@ public class WorksShowActivity extends BaseActivity implements OnClickListener {
                 break;
         }
 
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home/up action should open or close the drawer.
-        // ActionBarDrawerToggle will take care of this.
-        // Handle action buttons
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
 

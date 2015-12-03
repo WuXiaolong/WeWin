@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
 import com.xiaomolongstudio.wewin.R;
@@ -28,12 +29,15 @@ public class BaseActivity extends AppCompatActivity {
 
     Toolbar initToolbar(CharSequence title) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(title);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+//        toolbar.setTitle(title);
+        TextView mTitleView = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        mTitleView.setText(title);
+//        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
         }
         return toolbar;
     }
