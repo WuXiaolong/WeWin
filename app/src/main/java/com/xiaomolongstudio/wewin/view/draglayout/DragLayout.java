@@ -123,6 +123,9 @@ public class DragLayout extends FrameLayout {
         }
     };
 
+    /**
+     * 滑动时松手后以一定速率继续自动滑动下去并逐渐停止，类似于扔东西或者松手后自动滑动到指定位置
+     */
     @Override
     public void computeScroll() {
         if (mViewDragHelper.continueSettling(true)) {
