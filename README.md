@@ -26,7 +26,7 @@ Android技术交流QQ群
 目前用到的一些开源库，感谢作者无私开源和服务。
 
 * [PullLoadMoreRecyclerView](https://github.com/WuXiaolong/PullLoadMoreRecyclerView)，实现RecyclerView下拉刷新和上拉加载更多以及瀑布流效果
-* [Titanic](https://github.com/RomainPiel/Titanic)，TextView一闪一闪动画效果
+* [Shimmer-android](https://github.com/RomainPiel/Shimmer-android)，TextView一闪一闪动画效果
 * [ButterKnife](https://github.com/JakeWharton/butterknife)，轻量级View注入框架，省去各种findViewById
 * [PhotoView](https://github.com/chrisbanes/PhotoView)，点击放大缩小
 * [picasso](https://github.com/square/picasso)，图片缓存机制
