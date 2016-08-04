@@ -1,4 +1,4 @@
-<com.xiaomolongstudio.wewin.view.draglayout.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.wuxiaolong.wewin.draglayout.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
 
     <include layout="@layout/menu_layout" />
 
-    <com.xiaomolongstudio.wewin.view.draglayout.MainLayout
+    <com.wuxiaolong.wewin.draglayout.MainLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -55,10 +55,10 @@
 
         <!--<fragment-->
         <!--android:id="@+id/main_image_fragment"-->
-        <!--class="com.xiaomolongstudio.wewin.fragment.ImageDetailFragment"-->
+        <!--class="com.wuxiaolong.wewin.fragment.ImageDetailFragment"-->
         <!--android:layout_width="fill_parent"-->
         <!--android:layout_height="fill_parent"-->
         <!--/>-->
-    </com.xiaomolongstudio.wewin.view.draglayout.MainLayout>
+    </com.wuxiaolong.wewin.draglayout.MainLayout>
 
-</com.xiaomolongstudio.wewin.view.draglayout.DragLayout>
+</com.wuxiaolong.wewin.draglayout.DragLayout>

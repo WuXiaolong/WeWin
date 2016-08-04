@@ -22,5 +22,9 @@
     <string name="circle">剩友圈</string>
     <string name="exit_text">再按一次退出程序</string>
     <string name="set">设置</string>
+    <string name="title_activity_main_new">MainNewActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>
