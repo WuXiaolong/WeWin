@@ -52,6 +52,11 @@ Android技术交流QQ群
 ###微博
 [吴小龙同學](http://weibo.com/u/2175011601)
 
+# 微信公众号
+欢迎微信扫一扫关注：不止于技术分享，每天进步一点点。
+
+![](http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg)
+
 ### 小额赞助
 如果您喜欢此源码，读后受益匪浅，感觉对您的以后薪资涨幅有一定的帮助，那不妨支付宝扫描以下二维码，小额赞助一下作者 #^_^#<br> 
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobao_qrcode.jpg" /> 
