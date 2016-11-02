@@ -22,13 +22,14 @@ import com.romainpiel.shimmer.ShimmerTextView;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.message.PushAgent;
 import com.umeng.update.UmengUpdateAgent;
-import com.xiaomolongstudio.wewin.R;
-import com.wuxiaolong.wewin.fragment.MainFragment;
-import com.wuxiaolong.wewin.utils.AppUtils;
 import com.wuxiaolong.wewin.draglayout.DragLayout;
 import com.wuxiaolong.wewin.draglayout.DragLayout.DragListener;
+import com.wuxiaolong.wewin.fragment.MainFragment;
+import com.wuxiaolong.wewin.utils.AppConstants;
+import com.wuxiaolong.wewin.utils.AppUtils;
+import com.xiaomolongstudio.wewin.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -42,15 +43,15 @@ public class MainActivity extends BaseActivity {
 
 
     private String[] mPlanetTitles;
-    @Bind(R.id.left_drawer)
+    @BindView(R.id.left_drawer)
     ListView mDrawerList;
-    @Bind(R.id.dl)
+    @BindView(R.id.dl)
     DragLayout mDragLayout;
-    @Bind(R.id.main_title)
+    @BindView(R.id.main_title)
     ShimmerTextView main_title;
-    @Bind(R.id.tv_set)
+    @BindView(R.id.tv_set)
     TextView tv_set;
-    @Bind(R.id.iv_icon)
+    @BindView(R.id.iv_icon)
     ImageView iv_icon;
 
 
@@ -146,10 +147,10 @@ public class MainActivity extends BaseActivity {
      */
     private Fragment mCurrentFragment = new Fragment();
 
-    public void switchFragment(Fragment newFragment, Fragment oldFragment, String url) {
+    public void switchFragment(Fragment newFragment, int position) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
-        args.putString("url", url);
+        args.putInt(AppConstants.POSITION, position);
         newFragment.setArguments(args);
         fragmentTransaction.replace(R.id.content_frame, newFragment).commit();
 //        if (newFragment.isAdded()) {
@@ -169,20 +170,24 @@ public class MainActivity extends BaseActivity {
      * @param position
      */
     private void selectItem(int position) {
-        switch (position) {
-            case 0:
-//                switchFragment(AppConfig.mFragments[position], mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
-                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
-                break;
-            case 1:
-                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/shouxiemeiju?page=");
-                break;
-            case 2:
-                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/jingdianduibai?page=");
-                break;
-            default:
-
-        }
+//        switch (position) {
+            switchFragment(new MainFragment(), position);
+//            case 0:
+////                switchFragment(AppConstants.mFragments[position], mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
+////                switchFragment(new MainFragment(),position);
+//                break;
+//            case 1:
+////                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/shouxiemeiju?page=");
+//                break;
+//            case 2:
+////                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/jingdianduibai?page=");
+//                break;
+//            case 3:
+////                startActivity(new Intent(mActivity, MyBlogActivity.class));
+//                break;
+//            default:
+//
+//        }
 
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);

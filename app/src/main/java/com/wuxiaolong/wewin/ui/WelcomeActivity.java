@@ -11,22 +11,18 @@ import android.widget.TextView;
 import com.umeng.analytics.MobclickAgent;
 import com.xiaomolongstudio.wewin.R;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * 欢迎页
  *
  * @author 小尛龙
  */
 public class WelcomeActivity extends Activity {
-    @Bind(R.id.appName)
     TextView appName;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
-        ButterKnife.bind(this);
+        appName= (TextView) findViewById(R.id.appName);
         Animation mAnimation;
         mAnimation = AnimationUtils.loadAnimation(this, R.anim.welcome_alpha);
         appName.setAnimation(mAnimation);

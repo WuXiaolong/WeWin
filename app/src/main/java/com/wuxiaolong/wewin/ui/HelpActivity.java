@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.xiaomolongstudio.wewin.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
  * 
  */
 public class HelpActivity extends BaseActivity {
-    @Bind(R.id.introduction)
+    @BindView(R.id.introduction)
     TextView introduction;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

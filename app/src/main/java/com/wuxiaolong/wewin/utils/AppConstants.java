@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.wuxiaolong.wewin.fragment.MainFragment;
 
-public class AppConfig {
+public class AppConstants {
     public static final String COLOR = "color";
     public static final String TRANSIT_PIC = "picture";
     public static final String INDEX = "index";
@@ -28,4 +28,8 @@ public class AppConfig {
     public static String KEY_AD_MOGO = "84849cb4db40477eae961541fbde48b4";
     public static Fragment[] mFragments = {AppUtils.newInstance(new MainFragment())
     };
+    public static String POSITION = "position";
+    public static String WEBVIEW_TITLE = "webview_title";
+    public static String WEBVIEW_URL = "webview_url";
+    public static String MY_Blog_URL = "http://wuxiaolong.me";
 }

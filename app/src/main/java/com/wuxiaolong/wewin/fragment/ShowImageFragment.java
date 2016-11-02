@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.xiaomolongstudio.wewin.R;
 import com.wuxiaolong.wewin.mvp.MainModel;
 import com.wuxiaolong.wewin.ui.ShowImageActivity;
+import com.xiaomolongstudio.wewin.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import uk.co.senab.photoview.PhotoView;
 
 /**
@@ -29,7 +29,7 @@ public class ShowImageFragment extends BaseFragment {
     private MainModel mMainModel;
     private int position;
     private ShowImageActivity mActivity;
-    @Bind(R.id.imageView)
+    @BindView(R.id.imageView)
     PhotoView mPhotoView;
 
     public static Fragment newFragment(MainModel mainModel, int position) {
@@ -70,7 +70,7 @@ public class ShowImageFragment extends BaseFragment {
         final TextView introduction = (TextView) view.findViewById(R.id.introduction);
         introduction.setText(mMainModel.getTitle());
         ViewCompat.setTransitionName(mPhotoView, imageUrl);
-//        ViewCompat.setTransitionName(mPhotoView, AppConfig.TRANSIT_PIC);
+//        ViewCompat.setTransitionName(mPhotoView, AppConstants.TRANSIT_PIC);
 //        ViewCompat.setTransitionName(introduction, mMainModel.getTitle());
         Picasso.with(getActivity()).load(imageUrl)
                 .into(mPhotoView, new Callback() {

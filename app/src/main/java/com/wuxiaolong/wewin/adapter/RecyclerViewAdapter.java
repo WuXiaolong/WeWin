@@ -15,29 +15,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.xiaomolongstudio.wewin.R;
 import com.wuxiaolong.wewin.mvp.MainModel;
 import com.wuxiaolong.wewin.ui.ShowImageActivity;
-import com.wuxiaolong.wewin.utils.AppConfig;
+import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.AppUtils;
+import com.xiaomolongstudio.wewin.R;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2015/11/22 0022.
+ * Created by Administrator on 2015/11/22.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<MainModel> mMainList;
+    private List<MainModel> mMainList=new ArrayList<>();
     private Activity activity;
     private boolean hasTitle;
 
-    public RecyclerViewAdapter(Activity activity, List<MainModel> mainList, boolean hasTitle) {
+    public RecyclerViewAdapter(Activity activity ,boolean hasTitle) {
         this.activity = activity;
-        this.mMainList = mainList;
         this.hasTitle = hasTitle;
     }
 
@@ -79,9 +79,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.imgView)
+        @BindView(R.id.imgView)
         ImageView imageView;
-        @Bind(R.id.title)
+        @BindView(R.id.title)
         TextView title;
 
         public ViewHolder(final View itemView) {
@@ -99,7 +99,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                             Intent intent = new Intent(activity, ShowImageActivity.class);
                             intent.putExtra("mainList", (Serializable) mMainList);
                             intent.putExtra("position", getLayoutPosition());
-                            intent.putExtra(AppConfig.COLOR, AppUtils.getPaletteColor(bitmap));
+                            intent.putExtra(AppConstants.COLOR, AppUtils.getPaletteColor(bitmap));
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                                Pair<View, String> pair1 = Pair.create((View) imageView, mMainList.get(getLayoutPosition()).getIamgeUrl());
 //                                Pair<View, String> pair2 = Pair.create((View) title, mMainList.get(getLayoutPosition()).getTitle());
@@ -110,7 +110,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 ActivityOptionsCompat options = ActivityOptionsCompat
                                         .makeSceneTransitionAnimation(activity, itemView, mMainList.get(getLayoutPosition()).getIamgeUrl());
 //                                ActivityOptionsCompat options = ActivityOptionsCompat
-//                                        .makeSceneTransitionAnimation(activity, itemView, AppConfig.TRANSIT_PIC);
+//                                        .makeSceneTransitionAnimation(activity, itemView, AppConstants.TRANSIT_PIC);
                                 ActivityCompat.startActivity(activity, intent, options.toBundle());
                             } else {
                                 activity.startActivity(intent);

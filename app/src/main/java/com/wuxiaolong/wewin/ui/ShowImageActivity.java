@@ -15,19 +15,19 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.xiaomolongstudio.wewin.R;
 import com.wuxiaolong.wewin.fragment.ShowImageFragment;
 import com.wuxiaolong.wewin.mvp.MainModel;
+import com.xiaomolongstudio.wewin.R;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoView;
 
 public class ShowImageActivity extends BaseActivity {
     private List<MainModel> mMainList;
-    @Bind(R.id.viewPager)
+    @BindView(R.id.viewPager)
     ViewPager mViewPager;
     private int position;
     private int color;
