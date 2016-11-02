@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.mvp;
+package com.wuxiaolong.wewin.model;
 
 import java.io.Serializable;
 

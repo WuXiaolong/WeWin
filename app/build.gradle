@@ -4,7 +4,6 @@ def supportVersion = "25.0.0"
 android {
     compileSdkVersion 23
     buildToolsVersion '25'
-    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.xiaomolongstudio.wewin"
         minSdkVersion 14
@@ -32,7 +31,6 @@ dependencies {
     compile files('libs/umeng-fb-v4.3.2.jar')
     compile files('libs/umeng-update-v2.4.2.jar')
     compile files('libs/com.umeng.message.lib.jar')
-    compile files('libs/android-async-http-1.4.5.jar')
     compile project(':libraries:Shimmer')
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.commit451:PhotoView:1.2.4'

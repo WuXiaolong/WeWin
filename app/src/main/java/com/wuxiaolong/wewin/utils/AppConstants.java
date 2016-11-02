@@ -3,7 +3,7 @@ package com.wuxiaolong.wewin.utils;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 
-import com.wuxiaolong.wewin.fragment.MainFragment;
+import com.wuxiaolong.wewin.ui.fragment.MainFragment;
 
 public class AppConstants {
     public static final String COLOR = "color";

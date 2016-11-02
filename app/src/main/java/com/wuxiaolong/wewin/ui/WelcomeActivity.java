@@ -51,7 +51,7 @@ public class WelcomeActivity extends Activity {
      * 进入首页
      */
     private void intoMain() {
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, MainNewActivity.class));
         overridePendingTransition(R.anim.in_anim, R.anim.out_anim);
         finish();
     }

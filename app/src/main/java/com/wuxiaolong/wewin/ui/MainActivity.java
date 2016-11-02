@@ -24,7 +24,7 @@ import com.umeng.message.PushAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.wuxiaolong.wewin.draglayout.DragLayout;
 import com.wuxiaolong.wewin.draglayout.DragLayout.DragListener;
-import com.wuxiaolong.wewin.fragment.MainFragment;
+import com.wuxiaolong.wewin.ui.fragment.MainFragment;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.R;

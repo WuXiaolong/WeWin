@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.fragment;
+package com.wuxiaolong.wewin.ui.fragment;
 
 
 import android.content.Intent;

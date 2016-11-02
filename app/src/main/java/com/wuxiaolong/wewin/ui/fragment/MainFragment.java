@@ -1,16 +1,13 @@
-package com.wuxiaolong.wewin.fragment;
+package com.wuxiaolong.wewin.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 import com.wuxiaolong.wewin.adapter.RecyclerViewAdapter;
-import com.wuxiaolong.wewin.mvp.MainModel;
-import com.wuxiaolong.wewin.mvp.MainPresenter;
-import com.wuxiaolong.wewin.mvp.MainView;
+import com.wuxiaolong.wewin.model.MainModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.xiaomolongstudio.wewin.R;
@@ -42,21 +39,17 @@ public class MainFragment extends BaseFragment {
     private boolean hasTitle = true;
     @BindView(pullLoadMoreRecyclerView)
     PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;
-    MainPresenter mMainPresenter;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             position = getArguments().getInt(AppConstants.POSITION);
             url = getArguments().getString("url");
-
             if (position == 0) {
                 hasTitle = true;
             } else {
                 hasTitle = false;
             }
-//            Random random = new Random();
-//            mPage = random.nextInt(29);
         }
     }
 
@@ -77,42 +70,19 @@ public class MainFragment extends BaseFragment {
             @Override
             public void onRefresh() {
                 mPage = 1;
-                mMainPresenter.loadData(getUrl(), hasTitle);
+                loadData();
             }
 
             @Override
             public void onLoadMore() {
                 mPage = mPage + 1;
-                mMainPresenter.loadData(getUrl(), hasTitle);
+                loadData();
 
             }
         });
-        mMainPresenter = new MainPresenter();
-        mMainPresenter.attachView(new MainView() {
-            @Override
-            public void showData(List<MainModel> mainList) {
-                if (mPage == 1) {
-                    mRecyclerViewAdapter.getmMainList().clear();
-                }
-                mRecyclerViewAdapter.getmMainList().addAll(mainList);
-                mRecyclerViewAdapter.notifyDataSetChanged();
-            }
-
-
-            @Override
-            public void hideProgress() {
-                Log.d("wxl", "hideProgress");
-                mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
-
-            }
-        });
-//        mMainPresenter.loadData(getUrl(), hasTitle);
         loadData();
     }
 
-    private String getUrl() {
-        return url + String.valueOf(mPage);
-    }
 
     private void loadData() {
         Call<ResponseBody> call;
@@ -180,10 +150,5 @@ public class MainFragment extends BaseFragment {
         addCalls(call);
     }
 
-    @Override
-    public void onDestroy() {
-        mMainPresenter.detachView();
-        super.onDestroy();
-    }
 
 }

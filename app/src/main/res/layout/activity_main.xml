@@ -55,7 +55,7 @@
 
         <!--<fragment-->
         <!--android:id="@+id/main_image_fragment"-->
-        <!--class="com.wuxiaolong.wewin.fragment.ImageDetailFragment"-->
+        <!--class="com.wuxiaolong.wewin.ui.fragment.ImageDetailFragment"-->
         <!--android:layout_width="fill_parent"-->
         <!--android:layout_height="fill_parent"-->
         <!--/>-->

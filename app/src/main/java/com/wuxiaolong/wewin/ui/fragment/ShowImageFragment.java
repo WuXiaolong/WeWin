@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.fragment;
+package com.wuxiaolong.wewin.ui.fragment;
 
 
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.wuxiaolong.wewin.mvp.MainModel;
+import com.wuxiaolong.wewin.model.MainModel;
 import com.wuxiaolong.wewin.ui.ShowImageActivity;
 import com.xiaomolongstudio.wewin.R;
 

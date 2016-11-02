@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.wuxiaolong.wewin.fragment.ShowImageFragment;
-import com.wuxiaolong.wewin.mvp.MainModel;
+import com.wuxiaolong.wewin.ui.fragment.ShowImageFragment;
+import com.wuxiaolong.wewin.model.MainModel;
 import com.xiaomolongstudio.wewin.R;
 
 import java.util.List;

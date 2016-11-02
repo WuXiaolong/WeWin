@@ -11,7 +11,7 @@
     <include layout="@layout/toolbar"/>
 
     <fragment
-        android:name="com.wuxiaolong.wewin.fragment.MyBlogFragment"
+        android:name="com.wuxiaolong.wewin.ui.fragment.MyBlogFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
