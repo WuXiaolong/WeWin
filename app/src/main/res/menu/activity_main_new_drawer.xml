@@ -3,19 +3,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_tngou_girl"
             android:icon="@drawable/ic_menu_camera"
-            android:title="美图每句" />
+            android:title="天狗美眉" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="手写美句" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="经典对白" />
-        <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_my_blog"
             android:icon="@drawable/ic_menu_manage"
             android:title="我的博客" />
     </group>

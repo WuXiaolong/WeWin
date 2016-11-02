@@ -12,9 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.wuxiaolong.wewin.ui.fragment.MainFragment;
 import com.wuxiaolong.wewin.ui.fragment.MyBlogFragment;
-import com.wuxiaolong.wewin.utils.AppConstants;
+import com.wuxiaolong.wewin.ui.fragment.TngouGirlFragment;
 import com.xiaomolongstudio.wewin.R;
 
 import butterknife.BindView;
@@ -43,8 +42,8 @@ public class MainNewActivity extends BaseActivity
         toggle.syncState();
 
         navView.setNavigationItemSelectedListener(this);
-        setTitle("美图每句");
-        switchFragment(new MainFragment(), 0);
+        setTitle("天狗美眉");
+        switchFragment(new TngouGirlFragment());
     }
 
     @Override
@@ -86,16 +85,10 @@ public class MainNewActivity extends BaseActivity
         int id = item.getItemId();
 
         setTitle(item.getTitle());
-        if (id == R.id.nav_camera) {
-            switchFragment(new MainFragment(), 0);
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            switchFragment(new MainFragment(), 1);
-        } else if (id == R.id.nav_slideshow) {
-            switchFragment(new MainFragment(), 2);
-
-        } else if (id == R.id.nav_manage) {
-            switchFragment(new MyBlogFragment(), 3);
+        if (id == R.id.nav_tngou_girl) {
+            switchFragment(new TngouGirlFragment());
+        } else if (id == R.id.nav_my_blog) {
+            switchFragment(new MyBlogFragment());
 
         } else if (id == R.id.nav_share) {
 
@@ -111,11 +104,8 @@ public class MainNewActivity extends BaseActivity
      * 切换Fragment
      */
 
-    public void switchFragment(Fragment newFragment, int position) {
+    public void switchFragment(Fragment newFragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        Bundle args = new Bundle();
-        args.putInt(AppConstants.POSITION, position);
-        newFragment.setArguments(args);
         fragmentTransaction.replace(R.id.content_frame, newFragment).commit();
     }
 }

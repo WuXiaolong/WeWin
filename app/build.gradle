@@ -43,4 +43,5 @@ dependencies {
     compile 'com.wuxiaolong.androidutils:androidutils:1.0.6'
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
