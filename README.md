@@ -1,6 +1,7 @@
-> Android studio beta版，尝鲜做个这个项目。
+# WeWin
+Android app for Android studio beta
 
-## 效果预览
+## Preview
 ![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
 
 ## APK演示
@@ -14,21 +15,23 @@
 
 [小米应用商店](http://app.mi.com/detail/67787)
 
-## 用到的开源库
-目前用到的一些开源库，感谢作者无私开源和服务。
+## Open source projects
 
-* [PullLoadMoreRecyclerView](https://github.com/WuXiaolong/PullLoadMoreRecyclerView)，实现RecyclerView下拉刷新和上拉加载更多以及瀑布流效果
-* [Shimmer-android](https://github.com/RomainPiel/Shimmer-android)，TextView一闪一闪动画效果
-* [ButterKnife](https://github.com/JakeWharton/butterknife)，轻量级View注入框架，省去各种findViewById
-* [PhotoView](https://github.com/chrisbanes/PhotoView)，点击放大缩小
-* [picasso](https://github.com/square/picasso)，图片缓存机制
-* [android-async-http](https://github.com/loopj/android-async-http)，网络请求框架
-* 整体框架，侧滑菜单，类QQ效果。
-* [CustomShapeImageView](https://github.com/MostafaGazar/CustomShapeImageView)，各种圆角
-* [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)，3.0以下兼容动画
-* [AndroidMVPSample](https://github.com/WuXiaolong/AndroidMVPSample)，Android MVP 实例
+* [PullLoadMoreRecyclerView](https://github.com/WuXiaolong/PullLoadMoreRecyclerView)
+* [Shimmer-android](https://github.com/RomainPiel/Shimmer-android)
+* [ButterKnife](https://github.com/JakeWharton/butterknife)
+* [PhotoView](https://github.com/chrisbanes/PhotoView)
+* [picasso](https://github.com/square/picasso)
+* [retrofit](https://github.com/square/retrofit)
+* [CustomShapeImageView](https://github.com/MostafaGazar/CustomShapeImageView)
+* [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)
+
+
+# Thanks
 * 友盟统计
-* 数据来源：[http://www.juzimi.com/meitumeiju](http://www.juzimi.com/meitumeiju)
+* 数据来源：[天狗网](http://www.tngou.net/)，[吴小龙同學](http://wuxiaolong.me/)，[句子迷](http://www.juzimi.com/meitumeiju)
+
+
 
 
 ## 更多交流
