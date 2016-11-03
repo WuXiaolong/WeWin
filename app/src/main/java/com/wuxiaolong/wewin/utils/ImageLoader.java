@@ -3,7 +3,7 @@ package com.wuxiaolong.wewin.utils;
 import android.app.Activity;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 import com.xiaomolongstudio.wewin.R;
 
 import java.io.File;
@@ -25,14 +25,14 @@ public class ImageLoader {
     }
 
     public static void load(Activity activity, String url, int defaultImage, ImageView imageView) {
-        Glide.with(activity).load(url).placeholder(defaultImage).error(defaultImage).into(imageView);
+        Picasso.with(activity).load(url).placeholder(defaultImage).error(defaultImage).into(imageView);
     }
 
     public static void load(Activity activity, File file, int defaultImage, ImageView imageView) {
-        Glide.with(activity).load(file).placeholder(defaultImage).error(defaultImage).into(imageView);
+        Picasso.with(activity).load(file).placeholder(defaultImage).error(defaultImage).into(imageView);
     }
 
     public static void load(Activity activity, int resourceId, int defaultImage, ImageView imageView) {
-        Glide.with(activity).load(resourceId).placeholder(defaultImage).error(defaultImage).into(imageView);
+        Picasso.with(activity).load(resourceId).placeholder(defaultImage).error(defaultImage).into(imageView);
     }
 }
