@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.wuxiaolong.wewin.ui.fragment.MyBlogFragment;
 import com.wuxiaolong.wewin.ui.fragment.TngouGirlFragment;
@@ -47,12 +48,19 @@ public class MainNewActivity extends BaseActivity
         switchFragment(new TngouNewsFragment());
     }
 
+    private long exitTime = 0;
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (System.currentTimeMillis() - exitTime > 2000) {
+                Toast.makeText(getApplicationContext(), R.string.exit_text, Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -106,4 +114,6 @@ public class MainNewActivity extends BaseActivity
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, newFragment).commit();
     }
+
+
 }

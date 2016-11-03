@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
@@ -14,14 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nineoldandroids.view.ViewHelper;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
-import com.umeng.fb.FeedbackAgent;
-import com.umeng.message.PushAgent;
-import com.umeng.update.UmengUpdateAgent;
 import com.wuxiaolong.wewin.draglayout.DragLayout;
 import com.wuxiaolong.wewin.draglayout.DragLayout.DragListener;
 import com.wuxiaolong.wewin.ui.fragment.MainFragment;
@@ -62,24 +56,9 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         initDragLayout();
         initView();
-        initUmeng();
-    }
-
-
-    private void initUmeng() {
-        // 用户反馈
-        FeedbackAgent agent = new FeedbackAgent(this);
-        agent.sync();
-        // 自动更新
-        UmengUpdateAgent.update(this);
-        // 推送
-        PushAgent mPushAgent = PushAgent.getInstance(this);
-        mPushAgent.enable();
-
-        //String device_token = UmengRegistrar.getRegistrationId(this);
-        // Log.d("wxl", "device_token=" + device_token);
         AppUtils.getWeekAndDay(this);//邀请评论
     }
+
 
     private void initDragLayout() {
         mDragLayout.setmDragListener(new DragListener() {
@@ -170,24 +149,7 @@ public class MainActivity extends BaseActivity {
      * @param position
      */
     private void selectItem(int position) {
-//        switch (position) {
-            switchFragment(new MainFragment(), position);
-//            case 0:
-////                switchFragment(AppConstants.mFragments[position], mCurrentFragment, "http://www.juzimi.com/meitumeiju?page=");
-////                switchFragment(new MainFragment(),position);
-//                break;
-//            case 1:
-////                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/shouxiemeiju?page=");
-//                break;
-//            case 2:
-////                switchFragment(new MainFragment(), mCurrentFragment, "http://www.juzimi.com/meitumeiju/jingdianduibai?page=");
-//                break;
-//            case 3:
-////                startActivity(new Intent(mActivity, MyBlogActivity.class));
-//                break;
-//            default:
-//
-//        }
+        switchFragment(new MainFragment(), position);
 
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
@@ -195,45 +157,6 @@ public class MainActivity extends BaseActivity {
         main_title.setText(mPlanetTitles[position]);
         // mDrawerLayout.closeDrawer(mDrawerList);
         mDragLayout.close();
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    long exitTime = 0;
-
-    @Override
-    public void onBackPressed() {
-//        if (imageDetailFragment.canBack()) {
-//            imageDetailFragment.goBack();
-//
-//        } else {
-        if (System.currentTimeMillis() - exitTime > 2000) {
-            Toast.makeText(getApplicationContext(), R.string.exit_text, Toast.LENGTH_SHORT).show();
-            exitTime = System.currentTimeMillis();
-        } else {
-            finish();
-//            System.exit(0);
-        }
-
     }
 
 

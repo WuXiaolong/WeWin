@@ -1,12 +1,4 @@
-<!--
-一款小清新应用，包括美图美句、手写美句、经典对白。来吧，让我们尽情感受文艺范。
-
-此项目源码开源，将持续更新，欢迎Star，地址：https://github.com/WuXiaolong/WeWin
-
-Android技术交流QQ群
-③群：370527306
--->
-> 此项目当初为了练手Android studio beta版，现进行重构和优化，采用MVP模式。
+> Android studio beta版，尝鲜做个这个项目。
 
 ## 效果预览
 ![](https://github.com/WuXiaolong/WeWin/raw/master/screenshots/screenshots.gif)
@@ -35,7 +27,7 @@ Android技术交流QQ群
 * [CustomShapeImageView](https://github.com/MostafaGazar/CustomShapeImageView)，各种圆角
 * [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)，3.0以下兼容动画
 * [AndroidMVPSample](https://github.com/WuXiaolong/AndroidMVPSample)，Android MVP 实例
-* 友盟，包括友盟的统计、升级、意见反馈、推送
+* 友盟统计
 * 数据来源：[http://www.juzimi.com/meitumeiju](http://www.juzimi.com/meitumeiju)
 
 

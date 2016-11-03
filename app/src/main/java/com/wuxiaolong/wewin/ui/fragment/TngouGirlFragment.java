@@ -78,7 +78,7 @@ public class TngouGirlFragment extends BaseFragment {
     }
 
     private void loadTngouGirl() {
-        Call<TngouGirlModel> call = apiStores.loadTngouGirl(page, rows);
+        Call<TngouGirlModel> call = apiStores.loadTngouGirl(page + 1, rows);
         call.enqueue(new RetrofitCallback<TngouGirlModel>() {
             @Override
             public void onSuccess(TngouGirlModel model) {
