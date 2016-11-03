@@ -14,14 +14,14 @@
     </style>
 
 
-    <style name="MyAppTheme" parent="AppBaseTheme">
+    <!--<style name="MyAppTheme" parent="AppBaseTheme">-->
 
-        <!-- <item name="android:actionBarItemBackground">@drawable/actionbar_menu_selector</item> -->
-        <item name="android:homeAsUpIndicator">@drawable/ic_action_previous_item</item>
-        <!-- 样式属性actionBarStyle定义了ActionBar的基本样式 -->
-        <item name="android:actionBarStyle">@style/MyActionBarStyle</item>
-        <!-- <item name="android:actionBarWidgetTheme">@style/Theme.stylingactionbar.widget</item> -->
-    </style>
+        <!--&lt;!&ndash; <item name="android:actionBarItemBackground">@drawable/actionbar_menu_selector</item> &ndash;&gt;-->
+        <!--<item name="android:homeAsUpIndicator">@drawable/ic_action_previous_item</item>-->
+        <!--&lt;!&ndash; 样式属性actionBarStyle定义了ActionBar的基本样式 &ndash;&gt;-->
+        <!--<item name="android:actionBarStyle">@style/MyActionBarStyle</item>-->
+        <!--&lt;!&ndash; <item name="android:actionBarWidgetTheme">@style/Theme.stylingactionbar.widget</item> &ndash;&gt;-->
+    <!--</style>-->
 
     <style name="MyActionBarStyle" parent="android:Widget.Holo.ActionBar">
         <item name="android:background">@color/my_actionbar_style_theme_color</item>

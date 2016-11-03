@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
 import com.wuxiaolong.wewin.retrofit.ApiStores;
 import com.wuxiaolong.wewin.retrofit.AppClient;
 
@@ -60,5 +61,17 @@ public class BaseFragment extends Fragment {
 
     public void toastShow(String resId) {
         Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        //统计页面，"MainScreen"为页面名称，可自定义
+        MobclickAgent.onPageStart(this.getClass().getSimpleName());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(this.getClass().getSimpleName());
     }
 }
