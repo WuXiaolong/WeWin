@@ -1,12 +1,8 @@
 package com.wuxiaolong.wewin.ui.fragment;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,26 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
-import com.wuxiaolong.wewin.model.TngouGirlModel;
+import com.wuxiaolong.wewin.model.TngouNewsModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
-import com.wuxiaolong.wewin.ui.TngouGirlDetailActivity;
+import com.wuxiaolong.wewin.ui.TngouNewsDetailActivity;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.ImageLoader;
 import com.xiaomolongstudio.wewin.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class TngouGirlFragment extends BaseFragment {
-
+public class TngouNewsFragment extends BaseFragment {
     DataAdapter dataAdapter;
     @BindView(R.id.pullLoadMoreRecyclerView)
     PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
@@ -45,7 +36,7 @@ public class TngouGirlFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tngou_girl, container, false);
+        return inflater.inflate(R.layout.fragment_tngou_news, container, false);
     }
 
     @Override
@@ -53,12 +44,11 @@ public class TngouGirlFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         initView();
-        page = new Random().nextInt(45);
-        loadTngouGirl();
+        loadData();
     }
 
     private void initView() {
-        pullLoadMoreRecyclerView.setStaggeredGridLayout(2);//参数为列数
+        pullLoadMoreRecyclerView.setLinearLayout();
         pullLoadMoreRecyclerView.setRefreshing(true);
         dataAdapter = new DataAdapter();
         pullLoadMoreRecyclerView.setAdapter(dataAdapter);
@@ -66,27 +56,32 @@ public class TngouGirlFragment extends BaseFragment {
             @Override
             public void onRefresh() {
                 page = 1;
-                loadTngouGirl();
+                loadData();
             }
 
             @Override
             public void onLoadMore() {
-                page = new Random().nextInt(45);
-                loadTngouGirl();
+                page++;
+                loadData();
             }
         });
     }
 
-    private void loadTngouGirl() {
-        Call<TngouGirlModel> call = apiStores.loadTngouGirl(page, rows);
-        call.enqueue(new RetrofitCallback<TngouGirlModel>() {
+    private void loadData() {
+        Call<TngouNewsModel> call = apiStores.loadTngouNews(page, rows);
+        call.enqueue(new RetrofitCallback<TngouNewsModel>() {
             @Override
-            public void onSuccess(TngouGirlModel model) {
+            public void onSuccess(TngouNewsModel model) {
                 if (model.isStatus()) {
                     if (page == 1) {
                         dataAdapter.clear();
                     }
                     dataAdapter.addAll(model.getTngou());
+                    if (model.getTngou().size() < rows) {
+                        pullLoadMoreRecyclerView.setHasMore(false);
+                    } else {
+                        pullLoadMoreRecyclerView.setHasMore(true);
+                    }
                 }
 
             }
@@ -111,10 +106,11 @@ public class TngouGirlFragment extends BaseFragment {
 
     public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
-        private List<TngouGirlModel.TngouEntity> dataList = new ArrayList<>();
+
+        private List<TngouNewsModel.TngouBean> dataList = new ArrayList<>();
 
 
-        public void addAll(List<TngouGirlModel.TngouEntity> dataList) {
+        public void addAll(List<TngouNewsModel.TngouBean> dataList) {
             this.dataList.addAll(dataList);
             notifyDataSetChanged();
         }
@@ -125,14 +121,16 @@ public class TngouGirlFragment extends BaseFragment {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tngou_girl_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tngou_new_item, parent, false);
             return new ViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            TngouGirlModel.TngouEntity tngouEntity = dataList.get(position);
+            TngouNewsModel.TngouBean tngouEntity = dataList.get(position);
             holder.title.setText(tngouEntity.getTitle());
+            holder.fromname.setText(tngouEntity.getFromname());
+            holder.description.setText(tngouEntity.getDescription());
             ImageLoader.load(mActivity, AppConstants.API_SERVER_IMAGE_URL + tngouEntity.getImg(), holder.imageView);
         }
 
@@ -142,10 +140,14 @@ public class TngouGirlFragment extends BaseFragment {
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-            @BindView(R.id.imgView)
+            @BindView(R.id.imageView)
             ImageView imageView;
             @BindView(R.id.title)
             TextView title;
+            @BindView(R.id.fromname)
+            TextView fromname;
+            @BindView(R.id.description)
+            TextView description;
 
             public ViewHolder(final View itemView) {
                 super(itemView);
@@ -153,11 +155,10 @@ public class TngouGirlFragment extends BaseFragment {
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        TngouGirlModel.TngouEntity tngouEntity = dataList.get(getLayoutPosition());
-                        Intent intent = new Intent(mActivity, TngouGirlDetailActivity.class);
+                        TngouNewsModel.TngouBean tngouEntity = dataList.get(getLayoutPosition());
+                        Intent intent = new Intent(mActivity, TngouNewsDetailActivity.class);
                         intent.putExtra(AppConstants.ID, tngouEntity.getId());
-                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(mActivity, itemView, tngouEntity.getImg());
-                        ActivityCompat.startActivity(mActivity, intent, options.toBundle());
+                        mActivity.startActivity(intent);
                     }
                 });
             }

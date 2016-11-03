@@ -19,8 +19,6 @@ public class WorksShowActivity extends BaseActivity implements OnClickListener {
         setContentView(R.layout.works_show);
         initToolbar("作品秀");
         findViewById(R.id.weiyan).setOnClickListener(this);
-        findViewById(R.id.hua).setOnClickListener(this);
-        findViewById(R.id.ufosay).setOnClickListener(this);
         findViewById(R.id.danhuaer).setOnClickListener(this);
     }
 
@@ -30,14 +28,6 @@ public class WorksShowActivity extends BaseActivity implements OnClickListener {
             case R.id.weiyan:
                 AppUtils.marketDownload(WorksShowActivity.this,
                         "com.android.xiaomolongstudio.weiyan");
-                break;
-            case R.id.hua:
-                AppUtils.marketDownload(WorksShowActivity.this,
-                        "com.android.xiaomolongstudio.hua");
-                break;
-            case R.id.ufosay:
-                AppUtils.marketDownload(WorksShowActivity.this,
-                        "com.xiaomolong.ufosay");
                 break;
             case R.id.danhuaer:
                 AppUtils.marketDownload(WorksShowActivity.this,

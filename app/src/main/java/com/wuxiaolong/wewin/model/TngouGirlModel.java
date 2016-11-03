@@ -1,5 +1,6 @@
 package com.wuxiaolong.wewin.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * on 2016/11/2.
  */
 
-public class TngouGirlModel {
+public class TngouGirlModel implements Serializable {
 
     /**
      * status : true
@@ -55,7 +56,7 @@ public class TngouGirlModel {
         this.tngou = tngou;
     }
 
-    public static class TngouEntity {
+    public static class TngouEntity implements Serializable{
         private int count;
         private int fcount;
         private int galleryclass;

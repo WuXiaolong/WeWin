@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"/>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -36,7 +36,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:background="@drawable/weiyan_icon" />
+                        android:background="@drawable/weiyan_icon"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
                             android:layout_height="wrap_content"
                             android:text="微言"
                             android:textColor="#000000"
-                            android:textSize="@dimen/text_size_medium" />
+                            android:textSize="@dimen/text_size_medium"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                             android:layout_marginTop="10dip"
                             android:text="每天都有所心得的精微语言应用"
                             android:textColor="@color/color_black"
-                            android:textSize="@dimen/text_size_super_small" />
+                            android:textSize="@dimen/text_size_super_small"/>
                     </LinearLayout>
 
                     <ImageView
@@ -67,7 +67,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/arrow" />
+                        android:background="@drawable/arrow"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -77,140 +77,14 @@
                         android:layout_marginRight="30dp"
                         android:text="下载"
                         android:textColor="@color/color_theme"
-                        android:textSize="@dimen/text_size_small" />
+                        android:textSize="@dimen/text_size_small"/>
                 </RelativeLayout>
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="@drawable/base_horization_line" />
-
-                <RelativeLayout
-                    android:id="@+id/hua"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shape_widget_bg"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/hua_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/hua_icon" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dip"
-                        android:layout_toRightOf="@id/hua_icon"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="花姑娘"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/text_size_large" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dip"
-                            android:text="最官方最专业的妹纸应用"
-                            android:textColor="@color/color_black"
-                            android:textSize="@dimen/text_size_super_small" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/arrow" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="30dp"
-                        android:text="下载"
-                        android:textColor="@color/color_theme"
-                        android:textSize="@dimen/text_size_small" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@drawable/base_horization_line" />
-
-                <RelativeLayout
-                    android:id="@+id/ufosay"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shape_widget_bg"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/ufosay_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/dashishuo" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dip"
-                        android:layout_toRightOf="@id/ufosay_icon"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="大湿说"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/text_size_large" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dip"
-                            android:text="搞笑视频"
-                            android:textColor="@color/color_black"
-                            android:textSize="@dimen/text_size_super_small" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/arrow" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="30dp"
-                        android:text="下载"
-                        android:textColor="@color/color_theme"
-                        android:textSize="@dimen/text_size_small" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@drawable/base_horization_line" />
+                    android:background="@drawable/base_horization_line"/>
 
                 <RelativeLayout
                     android:id="@+id/danhuaer"
@@ -226,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:background="@drawable/todayemotion" />
+                        android:background="@drawable/todayemotion"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -240,7 +114,7 @@
                             android:layout_height="wrap_content"
                             android:text="今日情感"
                             android:textColor="#000000"
-                            android:textSize="@dimen/text_size_large" />
+                            android:textSize="@dimen/text_size_large"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -248,7 +122,7 @@
                             android:layout_marginTop="10dip"
                             android:text="分享情感故事、情感美文、情感语录"
                             android:textColor="@color/color_black"
-                            android:textSize="@dimen/text_size_super_small" />
+                            android:textSize="@dimen/text_size_super_small"/>
                     </LinearLayout>
 
                     <ImageView
@@ -257,7 +131,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/arrow" />
+                        android:background="@drawable/arrow"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -267,13 +141,13 @@
                         android:layout_marginRight="30dp"
                         android:text="下载"
                         android:textColor="@color/color_theme"
-                        android:textSize="@dimen/text_size_small" />
+                        android:textSize="@dimen/text_size_small"/>
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="@drawable/base_horization_line" />
+                    android:background="@drawable/base_horization_line"/>
             </LinearLayout>
         </ScrollView>
 

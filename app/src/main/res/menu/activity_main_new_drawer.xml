@@ -3,25 +3,26 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_tngou_news"
+            android:checked="true"
+            android:icon="@drawable/ic_home_24dp"
+            android:title="@string/tngou_news"/>
+        <item
             android:id="@+id/nav_tngou_girl"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="天狗美眉" />
+            android:icon="@drawable/ic_face_24dp"
+            android:title="@string/tngou_girl"/>
         <item
             android:id="@+id/nav_my_blog"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="我的博客" />
+            android:icon="@drawable/ic_border_color_24dp"
+            android:title="@string/my_blog"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="更多">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_set"
+                android:icon="@drawable/ic_build_24dp"
+                android:title="设置"/>
         </menu>
     </item>
 

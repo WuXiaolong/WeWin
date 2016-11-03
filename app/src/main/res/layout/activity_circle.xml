@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_circle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wuxiaolong.wewin.ui.CircleActivity">
+
+  <include layout="@layout/toolbar"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/qrcode_wuxiaolong"/>
+
+    <LinearLayout
+        android:id="@+id/weixin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            style="@style/CommonText"
+            android:autoLink="all"
+            android:padding="10dp"
+            android:text="@string/weixin"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/blog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/CommonText"
+            android:autoLink="all"
+            android:padding="10dp"
+            android:text="@string/blog"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/github"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/CommonText"
+            android:autoLink="all"
+            android:padding="10dp"
+            android:text="@string/github"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/qq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/CommonText"
+            android:autoLink="all"
+            android:padding="10dp"
+            android:text="@string/qq"/>
+
+    </LinearLayout>
+</LinearLayout>

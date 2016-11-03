@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.wuxiaolong.wewin.ui.fragment.MyBlogFragment;
 import com.wuxiaolong.wewin.ui.fragment.TngouGirlFragment;
+import com.wuxiaolong.wewin.ui.fragment.TngouNewsFragment;
 import com.xiaomolongstudio.wewin.R;
 
 import butterknife.BindView;
@@ -42,8 +43,8 @@ public class MainNewActivity extends BaseActivity
         toggle.syncState();
 
         navView.setNavigationItemSelectedListener(this);
-        setTitle("天狗美眉");
-        switchFragment(new TngouGirlFragment());
+        setTitle(getString(R.string.tngou_news));
+        switchFragment(new TngouNewsFragment());
     }
 
     @Override
@@ -78,24 +79,21 @@ public class MainNewActivity extends BaseActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        setTitle(item.getTitle());
         if (id == R.id.nav_tngou_girl) {
             switchFragment(new TngouGirlFragment());
         } else if (id == R.id.nav_my_blog) {
             switchFragment(new MyBlogFragment());
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_tngou_news) {
+            switchFragment(new TngouNewsFragment());
+        } else if (id == R.id.nav_set) {
+            startActivity(new Intent(mActivity, SetActivity.class));
+            return true;
         }
-
+        setTitle(item.getTitle());
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

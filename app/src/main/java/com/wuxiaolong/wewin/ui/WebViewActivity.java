@@ -33,6 +33,7 @@ public class WebViewActivity extends BaseActivity {
         webviewUrl = this.getIntent().getStringExtra(AppConstants.WEBVIEW_URL);
         initToolbar(webviewTitle);
         webview.loadUrl(webviewUrl);
+        LogUtil.d("webviewUrl=" + webviewUrl);
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webview.setWebViewClient(

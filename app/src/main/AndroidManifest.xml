@@ -70,10 +70,6 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.HelpActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name="com.wuxiaolong.wewin.ui.MainNewActivity"
             android:label="@string/title_activity_main_new"
             android:screenOrientation="portrait"
@@ -166,7 +162,12 @@
         <service android:name="com.umeng.message.UmengDownloadResourceService"/>
         <!-- 友盟 -->
 
-
+        <activity android:name="com.wuxiaolong.wewin.ui.TngouGirlDetailActivity">
+        </activity>
+        <activity android:name="com.wuxiaolong.wewin.ui.TngouNewsDetailActivity">
+        </activity>
+        <activity android:name="com.wuxiaolong.wewin.ui.CircleActivity">
+        </activity>
     </application>
 
 </manifest>

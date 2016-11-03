@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/set"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+              android:id="@+id/set"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"/>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -24,44 +24,14 @@
                 android:layout_marginLeft="10dip"
                 android:layout_marginTop="10dip"
                 android:text="互动"
-                android:textColor="#000000" />
+                android:textColor="#000000"/>
 
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
-                android:background="@drawable/line" />
+                android:background="@drawable/line"/>
 
-            <RelativeLayout
-                android:id="@+id/feedback"
-                android:layout_width="fill_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/shape_widget_bg"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dip"
-                    android:text="意见反馈"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
 
             <RelativeLayout
                 android:id="@+id/good"
@@ -78,7 +48,7 @@
                     android:layout_marginLeft="10dip"
                     android:text="好评鼓励"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -86,13 +56,13 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
+                    android:background="@drawable/arrow"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"/>
 
             <RelativeLayout
                 android:id="@+id/recommend"
@@ -109,7 +79,7 @@
                     android:layout_marginLeft="10dip"
                     android:text="推荐好友"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -117,7 +87,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
+                    android:background="@drawable/arrow"/>
             </RelativeLayout>
 
 
@@ -137,7 +107,7 @@
                     android:layout_marginLeft="10dip"
                     android:text="赞助作者"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -145,16 +115,16 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
+                    android:background="@drawable/arrow"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"/>
 
             <RelativeLayout
-                android:id="@+id/help"
+                android:id="@+id/circle"
                 android:layout_width="fill_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/shape_widget_bg"
@@ -168,7 +138,7 @@
                     android:layout_marginLeft="10dip"
                     android:text="剩友圈"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -176,13 +146,13 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
+                    android:background="@drawable/arrow"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"/>
 
             <RelativeLayout
                 android:id="@+id/works_show"
@@ -199,7 +169,7 @@
                     android:layout_marginLeft="10dip"
                     android:text="作品秀"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -207,134 +177,28 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
+                    android:background="@drawable/arrow"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
                 android:layout_marginTop="20dip"
-                android:text="设置"
-                android:textColor="#000000" />
+                android:text="关于"
+                android:textColor="#000000"/>
 
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
-                android:background="@drawable/line" />
+                android:background="@drawable/line"/>
 
-            <RelativeLayout
-                android:id="@+id/clear"
-                android:layout_width="fill_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/shape_widget_bg"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dip"
-                    android:text="清除缓存"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line"
-                android:visibility="gone" />
-
-            <RelativeLayout
-                android:id="@+id/update"
-                android:layout_width="fill_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/shape_widget_bg"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dip"
-                    android:text="检测新版"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
-
-                <TextView
-                    android:id="@+id/version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="25dp"
-                    android:text="v2.1"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line"
-                android:visibility="gone" />
-
-            <RelativeLayout
-                android:id="@+id/update_log"
-                android:layout_width="fill_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/shape_widget_bg"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dip"
-                    android:text="更新日志"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
 
             <RelativeLayout
                 android:id="@+id/aboutus"
@@ -351,7 +215,7 @@
                     android:layout_marginLeft="10dip"
                     android:text="关于我们"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -359,13 +223,13 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/arrow" />
+                    android:background="@drawable/arrow"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@drawable/base_horization_line"/>
 
             <RelativeLayout
                 android:id="@+id/sign_out"
@@ -382,7 +246,7 @@
                     android:layout_centerInParent="true"
                     android:text="退出"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

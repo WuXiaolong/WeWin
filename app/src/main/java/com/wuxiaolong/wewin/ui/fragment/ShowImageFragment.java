@@ -70,8 +70,6 @@ public class ShowImageFragment extends BaseFragment {
         final TextView introduction = (TextView) view.findViewById(R.id.introduction);
         introduction.setText(mMainModel.getTitle());
         ViewCompat.setTransitionName(mPhotoView, imageUrl);
-//        ViewCompat.setTransitionName(mPhotoView, AppConstants.TRANSIT_PIC);
-//        ViewCompat.setTransitionName(introduction, mMainModel.getTitle());
         Picasso.with(getActivity()).load(imageUrl)
                 .into(mPhotoView, new Callback() {
                     @Override

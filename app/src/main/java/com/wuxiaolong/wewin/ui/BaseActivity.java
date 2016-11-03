@@ -7,9 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
+import com.wuxiaolong.wewin.retrofit.ApiStores;
+import com.wuxiaolong.wewin.retrofit.AppClient;
 import com.xiaomolongstudio.wewin.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
 
 
 /**
@@ -18,6 +26,9 @@ import com.xiaomolongstudio.wewin.R;
  * @author 小尛龙
  */
 public class BaseActivity extends AppCompatActivity {
+
+    private List<Call> calls;
+    public ApiStores apiStores = AppClient.retrofit().create(ApiStores.class);
     public Activity mActivity;
 
     @Override
@@ -68,8 +79,26 @@ public class BaseActivity extends AppCompatActivity {
         return toolbar;
     }
 
+    public void addCalls(Call call) {
+        if (calls == null) {
+            calls = new ArrayList<>();
+        }
+        calls.add(call);
+    }
+
+    private void callCancel() {
+        if (calls != null && calls.size() > 0) {
+            for (Call call : calls) {
+                if (!call.isCanceled())
+                    call.cancel();
+            }
+            calls.clear();
+        }
+    }
+
     @Override
     protected void onDestroy() {
+        callCancel();
         super.onDestroy();
     }
 
@@ -97,5 +126,12 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+    public void toastShow(int resId) {
+        Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
+    }
+
+    public void toastShow(String resId) {
+        Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
     }
 }

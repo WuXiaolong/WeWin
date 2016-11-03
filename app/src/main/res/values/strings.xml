@@ -3,7 +3,7 @@
 
     <string name="app_name">WeWin</string>
     <string name="share_content">一款小清新应用，包括美图美句、手写美句、经典对白。来吧，让我们尽情感受文艺范。安卓手机下载：http://app.mi.com/detail/67787  </string>
-    <string name="about_us">"		一款小清新应用，包括美图美句、手写美句、经典对白。来吧，让我们尽情感受文艺范。"</string>
+    <string name="about_us">"		一款开源应用，包括热点新闻、天狗妹妹、我的博客，源码地址：<u>https://github.com/WuXiaolong/WeWin</u>。"</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="update_log">&lt;b>v1.0&lt;/b>&lt;br>一款小清新应用，包括美图美句、手写美句、经典对白。来吧，让我们尽情感受文艺范。</string>
@@ -29,5 +29,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="tngou_news">热点新闻</string>
+    <string name="tngou_girl">天狗妹妹</string>
+    <string name="my_blog">我的博客</string>
+    <string name="blog">个人博客：<u>http://wuxiaolong.me/</u></string>
+    <string name="weixin">微信公众号：<u>吴小龙同学</u></string>
+    <string name="github">github：<u>https://github.com/WuXiaolong/</u></string>
+    <string name="qq">QQ群\n剩者为王③群 370527306\n剩者为王②群 376526418\n剩者为王①群 314447894\n请勿重复加群</string>
 </resources>

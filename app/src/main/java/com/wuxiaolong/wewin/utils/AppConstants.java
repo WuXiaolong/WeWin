@@ -7,6 +7,10 @@ import com.wuxiaolong.wewin.ui.fragment.MainFragment;
 
 public class AppConstants {
     public static final String COLOR = "color";
+    public static final String ID = "id";
+    public static final String TNGOU_GIRL_LIST = "TngouGirlList";
+    public static String API_SERVER_IMAGE_URL = "http://tnfs.tngou.net/img";
+    public static String IMAGE_URL = "imageUrl";
     public static final String TRANSIT_PIC = "picture";
     public static final String INDEX = "index";
     public static int USER_NICKNAME_LAYOUT = 1;

@@ -1,24 +1,18 @@
 package com.wuxiaolong.wewin.ui;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.umeng.fb.FeedbackAgent;
-import com.umeng.update.UmengUpdateAgent;
-import com.umeng.update.UmengUpdateListener;
-import com.umeng.update.UpdateResponse;
-import com.umeng.update.UpdateStatus;
-import com.xiaomolongstudio.wewin.R;
 import com.wuxiaolong.wewin.utils.AppUtils;
+import com.xiaomolongstudio.wewin.R;
 
 /**
  * 设置
@@ -28,7 +22,6 @@ import com.wuxiaolong.wewin.utils.AppUtils;
 public class SetActivity extends BaseActivity implements OnClickListener {
     private TextView version;
 
-    @SuppressLint("NewApi")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
@@ -39,31 +32,19 @@ public class SetActivity extends BaseActivity implements OnClickListener {
     private void initView() {
         findViewById(R.id.recommend).setOnClickListener(this);
         findViewById(R.id.good).setOnClickListener(this);
-        findViewById(R.id.feedback).setOnClickListener(this);
         findViewById(R.id.sign_out).setOnClickListener(this);
-        findViewById(R.id.clear).setOnClickListener(this);
-        findViewById(R.id.update_log).setOnClickListener(this);
         findViewById(R.id.works_show).setOnClickListener(this);
         findViewById(R.id.sponsored_author).setOnClickListener(this);
         findViewById(R.id.aboutus).setOnClickListener(this);
-        findViewById(R.id.help).setOnClickListener(this);
-        findViewById(R.id.update).setOnClickListener(this);
-        version = (TextView) findViewById(R.id.version);
-        version.setText("v" + AppUtils.getVersionName(this));
+        findViewById(R.id.circle).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Builder builder = new Builder(SetActivity.this);
         switch (v.getId()) {
-            case R.id.feedback:
-                FeedbackAgent agent = new FeedbackAgent(SetActivity.this);
-                agent.startFeedbackActivity();
-
-                break;
             case R.id.good:
-                AppUtils.marketDownload(SetActivity.this,
-                        "com.xiaomolongstudio.wewin");
+                AppUtils.marketDownload(SetActivity.this, "com.xiaomolongstudio.wewin");
 
                 break;
             case R.id.recommend:
@@ -84,9 +65,9 @@ public class SetActivity extends BaseActivity implements OnClickListener {
                 startActivity(new Intent(SetActivity.this, WorksShowActivity.class));
 
                 break;
-            case R.id.help:
+            case R.id.circle:
 
-                startActivity(new Intent(SetActivity.this, HelpActivity.class));
+                startActivity(new Intent(SetActivity.this, CircleActivity.class));
 
                 break;
             case R.id.sponsored_author:
@@ -105,73 +86,6 @@ public class SetActivity extends BaseActivity implements OnClickListener {
                 builder.create().show();
 
                 break;
-            case R.id.update:
-
-                UmengUpdateAgent.setUpdateAutoPopup(false);
-                UmengUpdateAgent.setUpdateListener(new UmengUpdateListener() {
-                    @Override
-                    public void onUpdateReturned(int updateStatus,
-                                                 UpdateResponse updateInfo) {
-                        switch (updateStatus) {
-                            case UpdateStatus.Yes: // has update
-                                UmengUpdateAgent.showUpdateDialog(SetActivity.this,
-                                        updateInfo);
-                                break;
-                            case UpdateStatus.No: // has no update
-                                Toast.makeText(SetActivity.this, "当前已是最新版本",
-                                        Toast.LENGTH_LONG).show();
-                                break;
-                            case UpdateStatus.NoneWifi: // none wifi
-                                Toast.makeText(SetActivity.this,
-                                        "温馨提示，当前无wifi连接， 只在wifi下更新", Toast.LENGTH_LONG)
-                                        .show();
-                                break;
-                            case UpdateStatus.Timeout: // time out
-                                Toast.makeText(SetActivity.this, "网络不给力",
-                                        Toast.LENGTH_LONG).show();
-                                break;
-                        }
-                    }
-                });
-                UmengUpdateAgent.update(this);
-                break;
-            case R.id.update_log:
-
-                builder.setMessage(Html.fromHtml(getString(R.string.update_log)));
-                builder.setTitle("更新日志");
-                builder.setPositiveButton("确认",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                dialog.dismiss();
-                            }
-                        });
-                builder.create().show();
-
-                break;
-            case R.id.clear:
-                builder.setMessage("请定时清除缓存？");
-                builder.setTitle("温馨提示");
-                builder.setPositiveButton("清除",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(SetActivity.this, "清除成功",
-                                        Toast.LENGTH_LONG).show();
-                                dialog.dismiss();
-                            }
-                        });
-                builder.setNegativeButton("取消",
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                builder.create().show();
-                break;
 
             default:
                 break;
@@ -179,17 +93,24 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.set, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home/up action should open or close the drawer.
-        // ActionBarDrawerToggle will take care of this.
-        // Handle action buttons
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_old) {
+            startActivity(new Intent(mActivity, MainActivity.class));
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
 }
