@@ -35,5 +35,6 @@ public class AppConstants {
     public static String POSITION = "position";
     public static String WEBVIEW_TITLE = "webview_title";
     public static String WEBVIEW_URL = "webview_url";
+    public static String WEBVIEW_URL_DATA = "webviewUrlData";
     public static String MY_Blog_URL = "http://wuxiaolong.me";
 }

@@ -2,6 +2,7 @@ package com.wuxiaolong.wewin.ui;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebResourceError;
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
 public class WebViewActivity extends BaseActivity {
     public String webviewTitle;
     public String webviewUrl;
+    public String webviewUrlData;
     @BindView(R.id.webview)
     WebView webview;
 
@@ -31,8 +33,14 @@ public class WebViewActivity extends BaseActivity {
         ButterKnife.bind(this);
         webviewTitle = this.getIntent().getStringExtra(AppConstants.WEBVIEW_TITLE);
         webviewUrl = this.getIntent().getStringExtra(AppConstants.WEBVIEW_URL);
+        webviewUrlData = this.getIntent().getStringExtra(AppConstants.WEBVIEW_URL_DATA);
         initToolbar(webviewTitle);
-        webview.loadUrl(webviewUrl);
+        if (!TextUtils.isEmpty(webviewUrl)) {
+            webview.loadUrl(webviewUrl);
+        }
+        if (!TextUtils.isEmpty(webviewUrlData)) {
+            webview.loadData(webviewUrlData, "text/html; charset=UTF-8", null);
+        }
         LogUtil.d("webviewUrl=" + webviewUrl);
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
