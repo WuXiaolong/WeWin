@@ -1,11 +1,13 @@
 package com.wuxiaolong.wewin.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
-import com.xiaomolongstudio.wewin.R;
 import com.wuxiaolong.wewin.utils.AppUtils;
+import com.xiaomolongstudio.wewin.R;
 
 /**
  * 关于我们
@@ -21,19 +23,15 @@ public class AboutUsActivity extends BaseActivity {
         initToolbar(getString(R.string.aboutus));
         versionName = (TextView) findViewById(R.id.versionName);
         versionName.setText(getString(R.string.version) + AppUtils.getVersionName(this));
-    }
+        findViewById(R.id.aboutusText).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri=Uri.parse("https://github.com/WuXiaolong/WeWin");
+                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home/up action should open or close the drawer.
-        // ActionBarDrawerToggle will take care of this.
-        // Handle action buttons
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+            }
+        });
     }
 
 

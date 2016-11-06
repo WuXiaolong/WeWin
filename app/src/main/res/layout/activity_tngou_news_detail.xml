@@ -5,6 +5,7 @@
     android:id="@+id/activity_tngou_news_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.wuxiaolong.wewin.ui.TngouNewsDetailActivity">
 
@@ -15,13 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -37,11 +38,16 @@
                     android:textColor="?attr/colorPrimary"
                     android:textSize="@dimen/caption"/>
 
+                <WebView
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
                 <TextView
                     android:id="@+id/message"
                     style="@style/CommonText"
                     android:layout_margin="10dp"/>
             </LinearLayout>
-        </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

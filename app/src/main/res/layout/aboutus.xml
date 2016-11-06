@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"/>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -24,7 +25,7 @@
                 android:layout_height="72dp"
                 android:layout_marginLeft="10dip"
                 android:layout_marginTop="10dip"
-                android:background="@drawable/ic_launcher" />
+                android:background="@drawable/ic_launcher"/>
 
             <TextView
                 android:id="@+id/versionName"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/logo"
                 android:layout_marginLeft="15dip"
-                android:textColor="@color/color_black" />
+                android:textColor="@color/color_black"/>
 
             <ScrollView
                 android:layout_width="wrap_content"
@@ -44,12 +45,13 @@
                 android:background="@drawable/shape_white">
 
                 <TextView
+                    android:id="@+id/aboutusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/about_us"
                     android:textColor="@color/color_black"
-                    android:textSize="@dimen/text_size_medium" />
+                    android:textSize="@dimen/text_size_medium"/>
             </ScrollView>
 
             <LinearLayout
@@ -62,7 +64,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="1dip"
                     android:layout_marginBottom="5dip"
-                    android:background="#dddddd" />
+                    android:background="#dddddd"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,7 +73,7 @@
                     android:layout_marginRight="10dip"
                     android:gravity="right"
                     android:text="小尛龙工作室"
-                    android:textColor="@color/color_black" />
+                    android:textColor="@color/color_black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,7 +82,7 @@
                     android:layout_marginRight="10dip"
                     android:gravity="right"
                     android:text="Copyright © 2012-2016 xiaomolong studio."
-                    android:textColor="@color/color_black" />
+                    android:textColor="@color/color_black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,9 +92,12 @@
                     android:layout_marginRight="10dip"
                     android:gravity="right"
                     android:text="All Right Reserved"
-                    android:textColor="@color/color_black" />
+                    android:textColor="@color/color_black"/>
             </LinearLayout>
         </RelativeLayout>
 
     </RelativeLayout>
+
+    <include layout="@layout/toolbar"/>
+
 </LinearLayout>

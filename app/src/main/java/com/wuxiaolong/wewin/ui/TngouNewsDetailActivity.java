@@ -1,11 +1,8 @@
 package com.wuxiaolong.wewin.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.text.Html;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.wuxiaolong.androidutils.library.TimeUtil;
@@ -28,6 +25,8 @@ public class TngouNewsDetailActivity extends BaseActivity {
     TextView message;
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.webview)
+    WebView webview;
     private int id;
     TngouNewsDetailModel tngouNewsDetailModel;
 
@@ -60,7 +59,8 @@ public class TngouNewsDetailActivity extends BaseActivity {
                     initToolbar(model.getTitle());
                     title.setText(model.getTitle());
                     time.setText(TimeUtil.unixTimestamp2BeijingTime(model.getTime(), "yyyy-MM-dd HH:mm:ss"));
-                    message.setText(Html.fromHtml(model.getMessage()));
+//                    message.setText(Html.fromHtml(model.getMessage()));
+                    webview.loadData(model.getMessage(), "text/html; charset=UTF-8", null);
                 }
 
             }
@@ -84,26 +84,4 @@ public class TngouNewsDetailActivity extends BaseActivity {
         addCalls(call);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.tngou_news_detail, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_fromurl) {
-            if (tngouNewsDetailModel != null)
-                startActivity(new Intent(mActivity, WebViewActivity.class)
-                        .putExtra(AppConstants.WEBVIEW_TITLE, tngouNewsDetailModel.getTitle())
-                        .putExtra(AppConstants.WEBVIEW_URL, tngouNewsDetailModel.getFromurl()));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

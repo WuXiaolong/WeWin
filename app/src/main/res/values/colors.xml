@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#03A9F4</color>
-    <color name="primary_dark">#039BE5</color>
-    <color name="accent">#03A9F4</color>
+    <color name="primary">#259b24</color>
+    <color name="primary_dark">#0a7e07</color>
+    <color name="accent">@color/primary</color>
     <color name="text_color_primary">#212121</color>
     <color name="text_second_color_primary">#646464</color>
     <color name="base_actionbar_bg">#f5f5f5</color>
