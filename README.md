@@ -26,6 +26,7 @@ Android studio beta版，尝鲜做个这个项目An Android app for Android stud
 
 # 微信公众号
 我的公众号：吴小龙同学，欢迎微信扫一扫关注。
+
 ![](http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg)
 
 #作者博客
