@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui.fragment;
+package com.wuxiaolong.wewin.ui.juzimi;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
-import com.wuxiaolong.wewin.adapter.RecyclerViewAdapter;
 import com.wuxiaolong.wewin.model.MainModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
+import com.wuxiaolong.wewin.ui.BaseFragment;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.xiaomolongstudio.wewin.R;
 
@@ -28,8 +28,6 @@ import static com.xiaomolongstudio.wewin.R.id.pullLoadMoreRecyclerView;
 
 /**
  * 美图美句
- *
- * @author 小尛龙
  */
 public class MainFragment extends BaseFragment {
     private RecyclerViewAdapter mRecyclerViewAdapter = null;

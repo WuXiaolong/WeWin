@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui.fragment;
+package com.wuxiaolong.wewin.ui.juzimi;
 
 
 import android.content.Context;
@@ -15,19 +15,15 @@ import android.widget.TextView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.wuxiaolong.wewin.model.MainModel;
-import com.wuxiaolong.wewin.ui.ShowImageActivity;
+import com.wuxiaolong.wewin.ui.BaseFragment;
 import com.xiaomolongstudio.wewin.R;
 
 import butterknife.BindView;
 import uk.co.senab.photoview.PhotoView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ShowImageFragment extends BaseFragment {
 
     private MainModel mMainModel;
-    private int position;
     private ShowImageActivity mActivity;
     @BindView(R.id.imageView)
     PhotoView mPhotoView;
@@ -52,7 +48,6 @@ public class ShowImageFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMainModel = (MainModel) this.getArguments().getSerializable("mainList");
-        position = this.getArguments().getInt("position", 0);
     }
 
     @Override

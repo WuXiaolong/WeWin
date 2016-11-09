@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui.fragment;
+package com.wuxiaolong.wewin.ui.tngougirl;
 
 
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wuxiaolong.wewin.ui.BaseFragment;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.ImageLoader;
 import com.xiaomolongstudio.wewin.R;
@@ -17,15 +18,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class TngouGirlDetailFragment extends BaseFragment {
 
 
     @BindView(R.id.photoView)
     PhotoView photoView;
-    String imageUrl;
+    private String imageUrl;
 
 
     public static Fragment newFragment(String imageUrl) {
@@ -55,6 +53,6 @@ public class TngouGirlDetailFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ViewCompat.setTransitionName(photoView, imageUrl);
-        ImageLoader.load(mActivity,  AppConstants.API_SERVER_IMAGE_URL +imageUrl, photoView);
+        ImageLoader.load(mActivity, AppConstants.API_SERVER_IMAGE_URL + imageUrl, photoView);
     }
 }

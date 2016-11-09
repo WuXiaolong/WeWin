@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui;
+package com.wuxiaolong.wewin.ui.set;
 
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -9,18 +9,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.TextView;
 
+import com.wuxiaolong.wewin.ui.BaseActivity;
+import com.wuxiaolong.wewin.ui.MainActivity;
+import com.wuxiaolong.wewin.ui.WorksShowActivity;
 import com.wuxiaolong.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.R;
 
 /**
  * 设置
- *
- * @author 小尛龙
  */
 public class SetActivity extends BaseActivity implements OnClickListener {
-    private TextView version;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

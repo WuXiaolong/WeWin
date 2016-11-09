@@ -42,4 +42,5 @@ dependencies {
     compile 'com.mostafagazar:customshapeimageview:1.0.4'
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'com.umeng.analytics:analytics:latest.integration'
+    compile files('libs/Baidu_MobAds_SDK.jar')
 }

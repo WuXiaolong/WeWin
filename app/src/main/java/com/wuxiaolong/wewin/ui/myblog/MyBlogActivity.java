@@ -1,7 +1,8 @@
-package com.wuxiaolong.wewin.ui;
+package com.wuxiaolong.wewin.ui.myblog;
 
 import android.os.Bundle;
 
+import com.wuxiaolong.wewin.ui.BaseActivity;
 import com.xiaomolongstudio.wewin.R;
 
 public class MyBlogActivity extends BaseActivity {

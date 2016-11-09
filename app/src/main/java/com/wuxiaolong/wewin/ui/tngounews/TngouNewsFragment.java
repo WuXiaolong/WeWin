@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui.fragment;
+package com.wuxiaolong.wewin.ui.tngounews;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 import com.wuxiaolong.wewin.model.TngouNewsModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
-import com.wuxiaolong.wewin.ui.TngouNewsDetailActivity;
+import com.wuxiaolong.wewin.ui.BaseFragment;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.ImageLoader;
 import com.xiaomolongstudio.wewin.R;

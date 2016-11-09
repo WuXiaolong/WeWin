@@ -9,8 +9,6 @@ import com.wuxiaolong.wewin.utils.AppUtils;
 
 /**
  * 作品秀
- *
- * @author 小尛龙
  */
 public class WorksShowActivity extends BaseActivity implements OnClickListener {
 

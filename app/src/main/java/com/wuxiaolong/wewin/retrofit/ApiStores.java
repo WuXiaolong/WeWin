@@ -28,7 +28,7 @@ public interface ApiStores {
     @GET("http://wuxiaolong.me/")
     Call<ResponseBody> loadMyBlog();
 
-    @GET("page/{page}")
+    @GET("http://wuxiaolong.me/page/{page}")
     Call<ResponseBody> loadMyBlog(@Path("page") int page);
 
     @GET("api/top/list")

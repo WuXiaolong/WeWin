@@ -12,16 +12,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.wuxiaolong.wewin.ui.fragment.MyBlogFragment;
-import com.wuxiaolong.wewin.ui.fragment.TngouGirlFragment;
-import com.wuxiaolong.wewin.ui.fragment.TngouNewsFragment;
+import com.wuxiaolong.wewin.ui.myblog.MyBlogFragment;
+import com.wuxiaolong.wewin.ui.set.SetActivity;
+import com.wuxiaolong.wewin.ui.tngougirl.TngouGirlFragment;
+import com.wuxiaolong.wewin.ui.tngounews.TngouNewsFragment;
 import com.xiaomolongstudio.wewin.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainNewActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+/**
+ * 首页，侧滑菜单
+ * 作者：吴小龙同學
+ * github:https://github.com/WuXiaolong
+ * 微信公众号：吴小龙同学
+ */
+public class MainNewActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.nav_view)
     NavigationView navView;
@@ -39,7 +45,7 @@ public class MainNewActivity extends BaseActivity
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.setDrawerListener(toggle);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         navView.setNavigationItemSelectedListener(this);

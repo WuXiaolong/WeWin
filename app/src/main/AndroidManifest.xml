@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.xiaomolongstudio.wewin">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaomolongstudio.wewin">
 
     <!-- 友盟 -->
     <!-- 统计 -->
@@ -9,6 +10,15 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- 友盟 -->
+    <!-- 百度 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!-- 百度 -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -24,6 +34,16 @@
 
         <!-- 友盟 -->
         <!-- tools:replace="android:icon, android:theme" -->
+        <!-- baidu start -->
+        <!-- 注册AppActivity -->
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <!-- 您从百度移动联盟网站获取的APPSID -->
+        <meta-data
+            android:name="BaiduMobAd_APP_ID"
+            android:value="a3990956"/>
+        <!-- baidu end -->
         <activity
             android:name="com.wuxiaolong.wewin.ui.WelcomeActivity"
             android:label="@string/app_name"
@@ -40,10 +60,10 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.ShowImageActivity"
+            android:name="com.wuxiaolong.wewin.ui.juzimi.ShowImageActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.SetActivity"
+            android:name="com.wuxiaolong.wewin.ui.set.SetActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
@@ -51,7 +71,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.AboutUsActivity"
+            android:name="com.wuxiaolong.wewin.ui.set.AboutUsActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
@@ -65,21 +85,21 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.MyBlogActivity"
+            android:name="com.wuxiaolong.wewin.ui.myblog.MyBlogActivity"
             android:screenOrientation="portrait">
         </activity>
 
 
         <activity
-            android:name="com.wuxiaolong.wewin.ui.TngouGirlDetailActivity"
+            android:name="com.wuxiaolong.wewin.ui.tngougirl.TngouGirlDetailActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.TngouNewsDetailActivity"
+            android:name="com.wuxiaolong.wewin.ui.tngounews.TngouNewsDetailActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.wuxiaolong.wewin.ui.CircleActivity"
+            android:name="com.wuxiaolong.wewin.ui.set.CircleActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>

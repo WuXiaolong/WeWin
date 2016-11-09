@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wuxiaolong.wewin.ui.MyBlogActivity">
+    tools:context="com.wuxiaolong.wewin.ui.myblog.MyBlogActivity">
 
     <include layout="@layout/toolbar"/>
 
     <fragment
-        android:name="com.wuxiaolong.wewin.ui.fragment.MyBlogFragment"
+        android:name="com.wuxiaolong.wewin.ui.myblog.MyBlogFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

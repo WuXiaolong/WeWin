@@ -13,8 +13,6 @@ import com.xiaomolongstudio.wewin.R;
 
 /**
  * 欢迎页
- *
- * @author 小尛龙
  */
 public class WelcomeActivity extends Activity {
     TextView appName;
@@ -22,7 +20,7 @@ public class WelcomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
-        appName= (TextView) findViewById(R.id.appName);
+        appName = (TextView) findViewById(R.id.appName);
         Animation mAnimation;
         mAnimation = AnimationUtils.loadAnimation(this, R.anim.welcome_alpha);
         appName.setAnimation(mAnimation);

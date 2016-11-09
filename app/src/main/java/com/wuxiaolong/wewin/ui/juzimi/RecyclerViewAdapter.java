@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.adapter;
+package com.wuxiaolong.wewin.ui.juzimi;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.wuxiaolong.wewin.model.MainModel;
-import com.wuxiaolong.wewin.ui.ShowImageActivity;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.R;
@@ -29,14 +28,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2015/11/22.
+ * Created by 吴小龙同學
+ * on 2015/11/22.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<MainModel> mMainList=new ArrayList<>();
+    private List<MainModel> mMainList = new ArrayList<>();
     private Activity activity;
     private boolean hasTitle;
 
-    public RecyclerViewAdapter(Activity activity ,boolean hasTitle) {
+    public RecyclerViewAdapter(Activity activity, boolean hasTitle) {
         this.activity = activity;
         this.hasTitle = hasTitle;
     }
@@ -66,11 +66,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
         holder.imageView.setTag(mMainList.get(position).getIamgeUrl());
         ViewCompat.setTransitionName(holder.imageView, mMainList.get(position).getIamgeUrl());
-//        ViewCompat.setTransitionName(holder.title, mMainList.get(position).getTitle());
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            holder.imageView.setTransitionName(mMainList.get(position).getIamgeUrl());
-////            holder.title.setTransitionName(mMainList.get(position).getTitle());
-//        }
     }
 
     @Override

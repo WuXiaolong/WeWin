@@ -20,11 +20,6 @@ import java.util.List;
 import retrofit2.Call;
 
 
-/**
- * 基本
- *
- * @author 小尛龙
- */
 public class BaseActivity extends AppCompatActivity {
 
     private List<Call> calls;
@@ -133,6 +128,7 @@ public class BaseActivity extends AppCompatActivity {
 
         return true;
     }
+
     public void toastShow(int resId) {
         Toast.makeText(mActivity, resId, Toast.LENGTH_SHORT).show();
     }

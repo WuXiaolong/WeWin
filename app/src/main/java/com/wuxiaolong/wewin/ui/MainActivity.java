@@ -18,7 +18,8 @@ import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.wuxiaolong.wewin.draglayout.DragLayout;
 import com.wuxiaolong.wewin.draglayout.DragLayout.DragListener;
-import com.wuxiaolong.wewin.ui.fragment.MainFragment;
+import com.wuxiaolong.wewin.ui.juzimi.MainFragment;
+import com.wuxiaolong.wewin.ui.set.SetActivity;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.AppUtils;
 import com.xiaomolongstudio.wewin.R;
@@ -28,10 +29,9 @@ import butterknife.ButterKnife;
 
 /**
  * 首页，侧滑菜单
- *
- * @author 小尛龙
- *         github:https://github.com/WuXiaolong
- *         新浪微博：http://weibo.com/u/2175011601
+ * 作者：吴小龙同學
+ * github:https://github.com/WuXiaolong
+ * 微信公众号：吴小龙同学
  */
 public class MainActivity extends BaseActivity {
 
@@ -124,7 +124,6 @@ public class MainActivity extends BaseActivity {
     /**
      * 切换Fragment
      */
-    private Fragment mCurrentFragment = new Fragment();
 
     public void switchFragment(Fragment newFragment, int position) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -132,14 +131,6 @@ public class MainActivity extends BaseActivity {
         args.putInt(AppConstants.POSITION, position);
         newFragment.setArguments(args);
         fragmentTransaction.replace(R.id.content_frame, newFragment).commit();
-//        if (newFragment.isAdded()) {
-//            Log.i("wxl", oldFragment + "isAdded");
-//            fragmentTransaction.hide(mCurrentFragment).show(newFragment).commit();
-//        } else {
-//            Log.i("wxl", newFragment + "not isAdded");
-//            fragmentTransaction.hide(mCurrentFragment).add(R.id.content_frame, newFragment).commit();
-//        }
-        mCurrentFragment = newFragment;
     }
 
 

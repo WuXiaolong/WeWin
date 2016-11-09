@@ -3,7 +3,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.wuxiaolong.wewin.ui.fragment.TngouGirlDetailFragment">
+             tools:context="com.wuxiaolong.wewin.ui.tngougirl.TngouGirlDetailFragment">
 
     <uk.co.senab.photoview.PhotoView
         android:id="@+id/photoView"

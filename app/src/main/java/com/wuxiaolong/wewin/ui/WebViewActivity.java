@@ -20,9 +20,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WebViewActivity extends BaseActivity {
-    public String webviewTitle;
-    public String webviewUrl;
-    public String webviewUrlData;
+    private String webviewTitle;
+    private String webviewUrl;
+    private String webviewUrlData;
     @BindView(R.id.webview)
     WebView webview;
 

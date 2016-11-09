@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui.fragment;
+package com.wuxiaolong.wewin.ui.tngougirl;
 
 
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 import com.wuxiaolong.wewin.model.TngouGirlModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
-import com.wuxiaolong.wewin.ui.TngouGirlDetailActivity;
+import com.wuxiaolong.wewin.ui.BaseFragment;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.wuxiaolong.wewin.utils.ImageLoader;
 import com.xiaomolongstudio.wewin.R;
@@ -30,16 +29,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class TngouGirlFragment extends BaseFragment {
 
-    DataAdapter dataAdapter;
+    private DataAdapter dataAdapter;
     @BindView(R.id.pullLoadMoreRecyclerView)
     PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
     private int page = 1;
-    int rows = 20;
+    private int rows = 20;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

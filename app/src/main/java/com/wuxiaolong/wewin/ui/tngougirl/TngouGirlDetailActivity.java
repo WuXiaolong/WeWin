@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui;
+package com.wuxiaolong.wewin.ui.tngougirl;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 
 import com.wuxiaolong.wewin.model.TngouGirlDetailModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
-import com.wuxiaolong.wewin.ui.fragment.TngouGirlDetailFragment;
+import com.wuxiaolong.wewin.ui.BaseActivity;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.xiaomolongstudio.wewin.R;
 
@@ -23,7 +23,7 @@ public class TngouGirlDetailActivity extends BaseActivity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;
-    List<TngouGirlDetailModel.ListBean> tngouGirlDetailList;
+    private List<TngouGirlDetailModel.ListBean> tngouGirlDetailList;
     private int id;
 
     @Override

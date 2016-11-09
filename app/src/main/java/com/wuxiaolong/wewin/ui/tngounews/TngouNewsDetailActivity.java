@@ -1,4 +1,4 @@
-package com.wuxiaolong.wewin.ui;
+package com.wuxiaolong.wewin.ui.tngounews;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.wuxiaolong.androidutils.library.TimeUtil;
 import com.wuxiaolong.wewin.model.TngouNewsDetailModel;
 import com.wuxiaolong.wewin.retrofit.RetrofitCallback;
+import com.wuxiaolong.wewin.ui.BaseActivity;
 import com.wuxiaolong.wewin.utils.AppConstants;
 import com.xiaomolongstudio.wewin.R;
 
