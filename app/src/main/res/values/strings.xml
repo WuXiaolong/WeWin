@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">剩者为王</string>
+    <string name="app_name">WeWin</string>
     <string name="share_content">一款开源应用，包括热点新闻、天狗妹妹、我的博客。安卓手机下载：http://app.mi.com/detail/67787 ，源码地址：https://github.com/WuXiaolong/WeWin</string>
     <string name="about_us">"		一款开源应用，包括热点新闻、天狗妹妹、我的博客，源码地址：<u>https://github.com/WuXiaolong/WeWin</u>。"</string>
     <string name="drawer_open">Open navigation drawer</string>
