@@ -24,8 +24,8 @@ Android studio beta版，尝鲜做个这个开源项目An Android app for Androi
 * [友盟统计umeng analytics](http://www.umeng.com/)
 * [天狗网](http://www.tngou.net/)，[吴小龙同學](http://wuxiaolong.me/)，[句子迷](http://www.juzimi.com/meitumeiju)
 
-# 微信公众号
-我的公众号：吴小龙同学，欢迎微信扫一扫关注。
+# 联系作者
+我的微信公众号：吴小龙同学，欢迎关注与我交流~
 
 ![](http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg)
 
