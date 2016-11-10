@@ -1,5 +1,5 @@
 # 剩者为王WeWin
-尝鲜Android studio beta版，做的这个开源项目An Android app for Android studio beta.
+当时尝鲜Android studio beta版，做的这个开源项目An Android app for Android studio beta.
 
 # 效果预览Preview
 ![](http://7q5c2h.com1.z0.glb.clouddn.com/WeWin.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10)
