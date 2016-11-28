@@ -29,7 +29,7 @@ dependencies {
     compile 'com.android.support:design:' + supportVersion
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.commit451:PhotoView:1.2.4'
-    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.1'
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'org.jsoup:jsoup:1.10.1'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
@@ -42,5 +42,7 @@ dependencies {
     compile 'com.mostafagazar:customshapeimageview:1.0.4'
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile files('libs/Baidu_MobAds_SDK.jar')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }

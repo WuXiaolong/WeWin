@@ -9,7 +9,6 @@ import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
@@ -61,7 +60,6 @@ public class ShowImageFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final String imageUrl = mMainModel.getIamgeUrl();
-        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         final TextView introduction = (TextView) view.findViewById(R.id.introduction);
         introduction.setText(mMainModel.getTitle());
         ViewCompat.setTransitionName(mPhotoView, imageUrl);
@@ -69,12 +67,10 @@ public class ShowImageFragment extends BaseFragment {
                 .into(mPhotoView, new Callback() {
                     @Override
                     public void onSuccess() {
-                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onError() {
-                        progressBar.setVisibility(View.GONE);
                     }
                 });
     }

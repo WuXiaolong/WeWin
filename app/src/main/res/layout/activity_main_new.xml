@@ -23,9 +23,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-        <com.wuxiaolong.wewin.view.AdView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
