@@ -25,28 +25,21 @@
 * [友盟统计umeng analytics](http://www.umeng.com/)
 * [天狗网](http://www.tngou.net/)，[吴小龙同學](http://wuxiaolong.me/)，[句子迷](http://www.juzimi.com/meitumeiju)
 
-# 联系作者
-我的微信公众号：吴小龙同学，欢迎关注交流~
+# 作者博客
+[http://wuxiaolong.me/](http://wuxiaolong.me/)
+
+# 微博
+[吴小龙同學](http://weibo.com/u/2175011601)
+
+# 联系我
+我的微信公众号：吴小龙同学，欢迎关注交流。
 
 ![](http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg)
 
-#作者博客
-[http://wuxiaolong.me/](http://wuxiaolong.me/)
+# 更多交流
+Android技术交流群
 
-#微博
-[吴小龙同學](http://weibo.com/u/2175011601)
-
-# QQ群
-③群：370527306<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=0a992ba077da4c8325cbfef1c9e81f0443ffb782a0f2135c1a8f7326baac58ac"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王③群" title="剩者为王③群"></a><br><br>
-
-
-②群：376526418<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=5017aa79b1bc2726134ce1d6bc3060306022d1a2155f303709b02824d47a8e59"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王②群" title="剩者为王②群"></a><br><br>
-
-
-
-①群：314447894<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=bd187a3923f98f29b372e76024aee12e3f5fc680d4fe06d89e012269aa910da6"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王①群" title="剩者为王①群"></a><br><br>
-
-**请勿重复加群**
+④群 331553260<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=49d34fe949967c15001e702030f3f69e523c624771a8059319ab1e247cc4f723"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
 
 # License
 
