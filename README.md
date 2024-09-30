@@ -21,12 +21,8 @@
 * [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)
 
 
-# 感谢Thanks
-* [友盟统计umeng analytics](http://www.umeng.com/)
-* [天狗网](http://www.tngou.net/)，[吴小龙同學](http://wuxiaolong.me/)，[句子迷](http://www.juzimi.com/meitumeiju)
-
 # 作者博客
-[http://wuxiaolong.me/](http://wuxiaolong.me/)
+[https://wuxiaolong.github.io/](https://wuxiaolong.github.io/)
 
 # 微博
 [吴小龙同學](http://weibo.com/u/2175011601)
